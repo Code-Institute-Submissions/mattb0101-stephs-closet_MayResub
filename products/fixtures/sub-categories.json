@@ -1,0 +1,416 @@
+[
+ {
+   "pk": 1,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 1,
+      "subcat_name": "apparel_set",
+      "subcat_friendlyname": "Apparel Set"
+   }
+},
+ {
+   "pk": 2,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 1,
+      "subcat_name": "bottomwear",
+      "subcat_friendlyname": "Bottomwear"
+   }
+},
+ {
+   "pk": 3,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 1,
+      "subcat_name": "dress",
+      "subcat_friendlyname": "Dress"
+   }
+},
+ {
+   "pk": 4,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 1,
+      "subcat_name": "innerwear",
+      "subcat_friendlyname": "Innerwear"
+   }
+},
+ {
+   "pk": 5,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 1,
+      "subcat_name": "lounge_and_nightwear",
+      "subcat_friendlyname": "Loungewear and Nightwear"
+   }
+},
+ {
+   "pk": 6,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 1,
+      "subcat_name": "saree",
+      "subcat_friendlyname": "Saree"
+   }
+},
+ {
+   "pk": 7,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 1,
+      "subcat_name": "socks",
+      "subcat_friendlyname": "Socks"
+   }
+},
+ {
+   "pk": 8,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 1,
+      "subcat_name": "topwear",
+      "subcat_friendlyname": "Topwear"
+   }
+},
+ {
+   "pk": 9,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "accessories",
+      "subcat_friendlyname": "Accessories"
+   }
+},
+ {
+   "pk": 10,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "bags",
+      "subcat_friendlyname": "Bags"
+   }
+},
+ {
+   "pk": 11,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "belts",
+      "subcat_friendlyname": "Belts"
+   }
+},
+ {
+   "pk": 12,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "cufflinks",
+      "subcat_friendlyname": "Cufflinks"
+   }
+},
+ {
+   "pk": 13,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "eyewear",
+      "subcat_friendlyname": "Eyewear"
+   }
+},
+ {
+   "pk": 14,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "gloves",
+      "subcat_friendlyname": "Gloves"
+   }
+},
+ {
+   "pk": 15,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "headwear",
+      "subcat_friendlyname": "Headwear"
+   }
+},
+ {
+   "pk": 16,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "jewellery",
+      "subcat_friendlyname": "Jewellery"
+   }
+},
+ {
+   "pk": 17,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "mufflers",
+      "subcat_friendlyname": "Mufflers"
+   }
+},
+ {
+   "pk": 18,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "perfumes",
+      "subcat_friendlyname": "Perfumes"
+   }
+},
+ {
+   "pk": 19,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "scarves",
+      "subcat_friendlyname": "Scarves"
+   }
+},
+ {
+   "pk": 20,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "shoe_accessories",
+      "subcat_friendlyname": "Shoe Accessories"
+   }
+},
+ {
+   "pk": 21,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "socks",
+      "subcat_friendlyname": "Socks"
+   }
+},
+ {
+   "pk": 22,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "sports_accessories",
+      "subcat_friendlyname": "Sports Accessories"
+   }
+},
+ {
+   "pk": 23,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "stoles",
+      "subcat_friendlyname": "Stoles"
+   }
+},
+ {
+   "pk": 24,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "ties",
+      "subcat_friendlyname": "Ties"
+   }
+},
+ {
+   "pk": 25,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "umbrellas",
+      "subcat_friendlyname": "Umbrellas"
+   }
+},
+ {
+   "pk": 26,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "wallets",
+      "subcat_friendlyname": "Wallets"
+   }
+},
+ {
+   "pk": 27,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "watches",
+      "subcat_friendlyname": "Watches"
+   }
+},
+ {
+   "pk": 28,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 2,
+      "subcat_name": "water_bottle",
+      "subcat_friendlyname": "Water Bottle"
+   }
+},
+ {
+   "pk": 29,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 3,
+      "subcat_name": "flip_flops",
+      "subcat_friendlyname": "Flip Flops"
+   }
+},
+ {
+   "pk": 30,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 3,
+      "subcat_name": "sandal",
+      "subcat_friendlyname": "Sandal"
+   }
+},
+ {
+   "pk": 31,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 3,
+      "subcat_name": "shoes",
+      "subcat_friendlyname": "Shoes"
+   }
+},
+ {
+   "pk": 32,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "bath_and_body",
+      "subcat_friendlyname": "Bath and Body"
+   }
+},
+ {
+   "pk": 33,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "beauty_accessories",
+      "subcat_friendlyname": "Beauty Accessories"
+   }
+},
+ {
+   "pk": 34,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "eyes",
+      "subcat_friendlyname": "Eyes"
+   }
+},
+ {
+   "pk": 35,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "fragrance",
+      "subcat_friendlyname": "Fragrance"
+   }
+},
+ {
+   "pk": 36,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "hair",
+      "subcat_friendlyname": "Hair"
+   }
+},
+ {
+   "pk": 37,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "lips",
+      "subcat_friendlyname": "Lips"
+   }
+},
+ {
+   "pk": 38,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "makeup",
+      "subcat_friendlyname": "Makeup"
+   }
+},
+ {
+   "pk": 39,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "nails",
+      "subcat_friendlyname": "Nails"
+   }
+},
+ {
+   "pk": 40,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "skin",
+      "subcat_friendlyname": "Skin"
+   }
+},
+ {
+   "pk": 41,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 4,
+      "subcat_name": "skin_care",
+      "subcat_friendlyname": "Skin Care"
+   }
+},
+ {
+   "pk": 42,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 5,
+      "subcat_name": "free_gifts",
+      "subcat_friendlyname": "Free Gifts"
+   }
+},
+ {
+   "pk": 43,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 5,
+      "subcat_name": "vouchers",
+      "subcat_friendlyname": "Vouchers"
+   }
+},
+ {
+   "pk": 44,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 6,
+      "subcat_name": "sports_equipment",
+      "subcat_friendlyname": "Sports Equipment"
+   }
+},
+ {
+   "pk": 45,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 6,
+      "subcat_name": "wristbands",
+      "subcat_friendlyname": "Wristbands"
+   }
+},
+ {
+   "pk": 46,
+   "model": "products.sub_category",
+   "fields": {
+      "category_id": 7,
+      "subcat_name": "home_furnishing",
+      "subcat_friendlyname": "Home Furnishing"
+   }
+}
+]

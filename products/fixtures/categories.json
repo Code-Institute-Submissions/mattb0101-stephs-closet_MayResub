@@ -1,0 +1,58 @@
+[
+ {
+   "pk": 1,
+   "model": "products.category",
+   "fields": {
+      "cat_name": "apparel",
+      "cat_friendlyname": "Apparel"
+   }
+},
+ {
+   "pk": 2,
+   "model": "products.category",
+   "fields": {
+      "cat_name": "accessories",
+      "cat_friendlyname": "Accessories"
+   }
+},
+ {
+   "pk": 3,
+   "model": "products.category",
+   "fields": {
+      "cat_name": "footwear",
+      "cat_friendlyname": "Footwear"
+   }
+},
+ {
+   "pk": 4,
+   "model": "products.category",
+   "fields": {
+      "cat_name": "personal_care",
+      "cat_friendlyname": "Personal Care"
+   }
+},
+ {
+   "pk": 5,
+   "model": "products.category",
+   "fields": {
+      "cat_name": "free_items",
+      "cat_friendlyname": "Free Items"
+   }
+},
+ {
+   "pk": 6,
+   "model": "products.category",
+   "fields": {
+      "cat_name": "sporting_goods",
+      "cat_friendlyname": "Sporting Goods"
+   }
+},
+ {
+   "pk": 7,
+   "model": "products.category",
+   "fields": {
+      "cat_name": "home",
+      "cat_friendlyname": "Home"
+   }
+}
+]
