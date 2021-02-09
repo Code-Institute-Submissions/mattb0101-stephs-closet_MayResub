@@ -3,5 +3,9 @@ html {
 }
 
 body {
-    background-color: red;
+    font-family: "Josefin Slab", Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Hind Siliguri", Arial, sans-serif;
 }
