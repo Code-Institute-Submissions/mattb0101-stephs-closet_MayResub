@@ -33,17 +33,30 @@
     {% block extrajs %}
     {% endblock %}
 
-    <title>Steph's Closet</title>
+    <title>Stéph's Closet</title>
 </head>
 
 <body>
 
-    <header class="container-fluid fixed top"></header>
+    <header class="container-fluid fixed top">
+        <div class="row">
+            <div class="col text-center">
+                <a href="{% url 'home' %}" class="nav-link">
+                    <h1 class="display-1">Stéph's Closet</h1>
+                </a>
+            </div>
+            <div class="col">Search</div>
+            <div class="col">Links</div>
+        </div>
+    </header>
 
     {% if messages %}
         <div class="messages-container"></div>
     {% endif %}
-    
+
+    {% block page_header %}
+    {% endblock %}
+
     {% block content %}
     {% endblock %}
 
