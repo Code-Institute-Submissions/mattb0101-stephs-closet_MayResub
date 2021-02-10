@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: "Josefin Slab", Arial, sans-serif;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 128px);
     background: url('/media/homepage_stephs_filler.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
@@ -12,10 +12,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Hind Siliguri", Arial, sans-serif;
-}
-
-#main-nav {
-    height: 100px;
 }
 
 .home-logo h1 {
@@ -27,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
     color: pink;
 }
 
-.overlay {
+.overlay, .products-overlay {
     background-color: rgba(0,0,0,0.5);
     height: 100%;
     width: 100%;
@@ -35,5 +31,9 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     position: fixed;
     z-index: -1;
+}
+
+.products-overlay {
+    background-color: rgba(255,255, 255, 0.7);
 }
 

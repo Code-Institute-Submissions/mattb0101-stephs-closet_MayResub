@@ -10,11 +10,36 @@
 {% endblock %}
 
 {% block content %}
-     <div class="container">
-        <div class="row">
+<div class="products-overlay"></div>
+     <div class="container-fluid">
+        <div class="row text-dark text-center">
             <div class="col">
-                {{ products }}
+                <h2>Products</h2>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Products</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% for product in products %}
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div> 
     </div>
 {% endblock %}
