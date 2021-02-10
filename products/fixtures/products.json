@@ -1,7 +1,7 @@
 [
  {
    "pk": 1,
-   "model": "proucts.product",
+   "model": "products.product",
    "fields": {
       "sku": 1163,
       "gender": "Men",
@@ -12,7 +12,7 @@
       "season": "Summer",
       "year": 2011,
       "usage": "Sports",
-      "product_name": "Nike Sahara Team India Fanwear Round Neck Jersey",
+      "name": "Nike Sahara Team India Fanwear Round Neck Jersey",
       "price": 86.69,
       "image": "1163.jpg"
    }

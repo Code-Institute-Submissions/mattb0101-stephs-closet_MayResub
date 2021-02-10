@@ -14,14 +14,14 @@ class Category(models.Model):
 
 class Sub_Category(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    sub_name = models.CharField(max_length=254)
-    sub_friendlyname = models.CharField(max_length=254, null=True, blank=True)
+    subcat_name = models.CharField(max_length=254)
+    subcat_friendlyname = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
-        return self.sub_name
+        return self.subcat_name
 
     def get_friendly_name(self):
-        return self.sub_friendlyname
+        return self.subcat_friendlyname
 
 
 class Product(models.Model):
@@ -31,6 +31,10 @@ class Product(models.Model):
     gender = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     article_type = models.CharField(max_length=254, null=True, blank=True)
+    colour = models.CharField(max_length=254, null=True, blank=True)
+    season = models.CharField(max_length=254, null=True, blank=True)
+    year = models.CharField(max_length=254, null=True, blank=True)
+    usage = models.CharField(max_length=254, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
