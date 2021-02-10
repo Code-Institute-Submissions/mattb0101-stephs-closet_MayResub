@@ -2,6 +2,10 @@ from django.db import models
 
 
 class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     cat_name = models.CharField(max_length=254)
     cat_friendlyname = models.CharField(max_length=254, null=True, blank=True)
 
@@ -13,6 +17,10 @@ class Category(models.Model):
 
 
 class Sub_Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Sub Categories'
+
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     subcat_name = models.CharField(max_length=254)
     subcat_friendlyname = models.CharField(max_length=254, null=True, blank=True)
