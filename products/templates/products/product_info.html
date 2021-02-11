@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="products-overlay"></div>
+     <div class="container-fluid">
+        <div class="row my-2">
+            <div class="col">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 offset-md-2 offset-lg-3">
+                <div class="image-container">
+                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
+            </div>
+            <div class="col">
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

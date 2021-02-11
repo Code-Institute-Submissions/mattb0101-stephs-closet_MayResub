@@ -14,13 +14,25 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Hind Siliguri", Arial, sans-serif;
 }
 
-.home-logo h1 {
-    font-size: 6rem;
+.home-logo {
+    position: relative;
 }
 
-.home-logo-overlay h1 {
-    z-index: 999;
-    color: pink;
+.home-logo>div {
+    position: absolute;
+}
+
+.home-logo:first-child h1 {
+    font-size: 12rem;
+    font-weight: 900;
+    font-family: Staatliches, Arial, sans-serif;
+}
+
+.home-logo:last-child h3 {
+    font-size: 5rem;
+    color: #ee0ec9;
+    font-family: Sacramento, Arial, sans-serif;
+    letter-spacing: 0.7rem;
 }
 
 .overlay, .products-overlay {

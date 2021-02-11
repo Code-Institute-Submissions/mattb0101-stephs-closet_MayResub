@@ -12,9 +12,9 @@
 {% block content %}
 <div class="products-overlay"></div>
      <div class="container-fluid">
-        <div class="row text-dark text-center">
+        <div class="row text-dark text-center my-2">
             <div class="col">
-                <h2>Products</h2>
+                <h1>Products</h1>
             </div>
         </div>
         <div class="row">
@@ -27,19 +27,26 @@
                 </nav>
             </div>
         </div>
-        <div class="row">
-            {% for product in products %}
-                <div class="col col-sm-6 col-md-4 col-lg-3">
-                    <div class="card text-dark" style="width: 18rem;">
-                        <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="container col-10 offset-1">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col col-sm-6 col-md-4 col-lg-3">
+                        <div class="card text-dark h-100" style="width: 18rem;">
+                            <a href="{% url 'product_info' product.id %}">
+                                <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                            </div>
+                            <div class="card-footer border-0">
+                                <p>£{{ product.price }}</p>
+                                <p>{{ product.article_type }}</p>
+                            </div>
+                            <a href="#" class="btn btn-primary align-self-end">Go somewhere</a>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div> 
+                {% endfor %}
+            </div> 
+        </div>
     </div>
 {% endblock %}
