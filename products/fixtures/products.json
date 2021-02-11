@@ -3,18 +3,36 @@
    "pk": 1,
    "model": "products.product",
    "fields": {
-      "sku": 1163,
-      "gender": "Men",
+      "sku": 1525,
+      "gender": "Unisex",
       "category": 1,
-      "subcat": 8,
-      "article_type": "Tshirts",
-      "colour": "Blue",
-      "season": "Summer",
-      "year": 2011,
+      "subcat": 2,
+      "article_type": "Backpacks",
+      "colour": "Navy Blue",
+      "season": "Fall",
+      "year": 2010,
+      "usage": "Casual",
+      "name": "Puma Deck Navy Blue Backpack",
+      "price": 77.99,
+      "image": "1525.jpg"
+   }
+},
+ {
+   "pk": 2,
+   "model": "products.product",
+   "fields": {
+      "sku": 1526,
+      "gender": "Unisex",
+      "category": 1,
+      "subcat": 2,
+      "article_type": "Backpacks",
+      "colour": "Black",
+      "season": "Fall",
+      "year": 2010,
       "usage": "Sports",
-      "name": "Nike Sahara Team India Fanwear Round Neck Jersey",
-      "price": 86.69,
-      "image": "1163.jpg"
+      "name": "Puma Big Cat Backpack Black",
+      "price": 42.49,
+      "image": "1526.jpg"
    }
 }
 ]
