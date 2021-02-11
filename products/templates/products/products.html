@@ -28,9 +28,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                {% for product in products %}
-                    <div class="card" style="width: 18rem;">
+            {% for product in products %}
+                <div class="col col-sm-6 col-md-4 col-lg-3">
+                    <div class="card text-dark" style="width: 18rem;">
                         <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ product.name }}</h5>
@@ -38,8 +38,8 @@
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div> 
     </div>
 {% endblock %}

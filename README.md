@@ -6,7 +6,7 @@ What apps do I need to make?!
  - Home (this holds the index - does it want to store things that will be available on all apps - navbars etc)
  - Register/Logon (Think this is handled by allauth!)
  - Products
- - Shopping Bag/Cart
+ - Shopping Cart
  - Checkout
  - User Profile
  - Store Owner Trends / Sale monitoring
