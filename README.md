@@ -85,8 +85,8 @@ In addition, if it is not obvious, you should also describe how to run your code
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 
 ### Media
-- The photos used in this site were obtained from ...
+- Main background image got from [pixabay](https://pixabay.com/photos/closet-clothing-walk-in-3615613/)
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I received inspiration for this from my girlfriend Steph who is a keen and avid shopper, so she had good ideas for what shoppers would want to see. 

@@ -43,11 +43,11 @@
 
 <body>
 
-    <header class="container-fluid sticky-top bg-dark bg-gradient">
-        <div id="main-nav" class="row  text-white">
-            <div class="col d-none d-lg-flex m-auto">
-                <a href="{% url 'home' %}" class="nav-link w-100">
-                    <h1>Stéph's Closet</h1>
+    <header class="container-fluid sticky-top bg-light bg-gradient">
+        <div id="main-nav" class="row d-none d-lg-flex">
+            <div class="col mt-2">
+                <a href="{% url 'home' %}" class="nav-link text-main w-100">
+                    <h1 class="header-logo">Stéph's Closet</h1>
                 </a>
             </div>
             <div class="col m-auto">
@@ -63,44 +63,66 @@
             <div class="col m-auto text-center">
                 <ul class="list-inline list-unstyled my-0">
                     <li class="list-inline-item mx-3">
-                        <a href="#">
+                        <a href="#" class="text-main">
                             <i class="fas fa-user fa-2x"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mx-3">
-                        <a href="{% url 'view_cart' %}">
+                        <a href="{% url 'view_cart' %}" class="text-main">
                             <i class="fas fa-shopping-cart fa-2x"></i>
                         </a>
                     </li>
-                    <li class="list-inline-item mx-3">
-                        <a href="#">
+                    <li class="list-inline-item mx-3 dropdown">
+                        <a class="text-main" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-sign-in-alt fa-2x"></i>
                         </a>
+                        <ul class="dropdown-menu" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+                            {% else %}
+                                <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
+                                <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
+                            {% endif %}
+                        </ul>   
                     </li>
                 </ul>
             </div>
         </div>
         <div class="row">
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
                 <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler text-main" type="button" data-bs-toggle="collapse" aria-controls="items-navbar" data-bs-target="#items-navbar"
+                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse" id="items-navbar">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="{% url 'products' %}">All Products</a>
+                                <a class="nav-link text-main" aria-current="page" href="{% url 'products' %}">All Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link text-main" href="#">Shoes</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                <a class="nav-link dropdown-toggle text-main" href="#" id="accessories-drop" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    Dropdown
+                                    Accessories
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul class="dropdown-menu" aria-labelledby="accessories-drop">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-main" href="#" id="personal-drop" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Personal Care
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="personal-drop">
                                     <li><a class="dropdown-item" href="#">Action</a></li>
                                     <li><a class="dropdown-item" href="#">Another action</a></li>
                                     <li>
