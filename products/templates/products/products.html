@@ -11,48 +11,61 @@
 
 {% block content %}
 <div class="products-overlay"></div>
-     <div class="container-fluid">
-        <div class="row text-dark text-center my-2">
-            <div class="col">
-                <h1>Products</h1>
-            </div>
+<div class="container-fluid">
+    <div class="row text-dark text-center my-2">
+        <div class="col">
+            <h1>Products</h1>
         </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Products</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="container col-10 offset-1">
         <div class="row">
-            <div class="col">
-                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Products</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <div class="container col-10 offset-1">
-            <div class="row">
-                {% for product in products %}
-                    <div class="col col-sm-6 col-md-4 col-lg-3 my-2">
-                        <div class="card text-dark h-100">
-                            {% if product.image %}
+            {% for product in products %}
+                <div class="col col-sm-6 col-md-4 col-lg-3 my-2">
+                    <div class="card text-dark h-100">
+                        {% if product.image %}
                             <a href="{% url 'product_info' product.id %}">
                                 <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
                             </a>
-                            {% else %}
+                        {% else %}
                             <a href="{% url 'product_info' product.id %}">
                                 <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ product.name }}">
                             </a>
-                            {% endif %}
-                            <div class="card-body">
-                                <p class="card-title"><strong>{{ product.name }}</strong></p>
-                            </div>
-                            <div class="card-footer border-0">
-                                <p>£{{ product.price }}</p>
-                                <p>{{ product.article_type }}</p>
-                            </div>
-                            <a href="#" class="btn btn-primary align-self-end">Go somewhere</a>
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-title"><strong>{{ product.name }}</strong></p>
                         </div>
+                        <div class="card-footer border-0">
+                            <p>£{{ product.price }}</p>
+                            <p>{{ product.article_type }}</p>
+                        </div>
+                        <a href="#" class="btn btn-primary align-self-end">Go somewhere</a>
                     </div>
-                {% endfor %}
-            </div> 
-        </div>
+                </div>
+            {% endfor %}
+        </div> 
     </div>
+</div>
+<div class="btn-rtn w-100 d-flex justify-content-center">
+    <a class="btn btt-link d-flex h-100 rounded-pill">
+        <p><i class="fas fa-long-arrow-alt-up mx-2 my-auto"></i>Back to top</p>
+    </a>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    <script type="text/javascript">
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0)
+        })
+    </script>
 {% endblock %}

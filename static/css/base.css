@@ -9,14 +9,19 @@ html {
 
 body {
     font-family: "Josefin Slab", Arial, sans-serif;
-    height: calc(100vh - 128px);
+    height: calc(100vh - 158px);
     background: url('/media/homepage_stephs.jpg') no-repeat center center fixed;
     background-size: cover;
     color: var(--main);
+    font-size: 1.1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Hind Siliguri", Arial, sans-serif;
+}
+
+#main-nav {
+    max-height: 100px;
 }
 
 .header-logo {
@@ -37,13 +42,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .home-logo:first-child h1 {
-    font-size: 12rem;
+    font-size: 25vmin;
     font-weight: 900;
     font-family: Staatliches, Arial, sans-serif;
 }
 
 .home-logo:last-child h3 {
-    font-size: 5rem;
+    font-size: 12vmin;
     color: var(--pink);
     font-family: Sacramento, Arial, sans-serif;
     letter-spacing: 0.7rem;
@@ -63,7 +68,19 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(255,255, 255, 0.7);
 }
 
-/* When mobile size */
+.btn-rtn{
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+}
+
+.btt-link {
+    background-color: var(--pink);
+    color: var(--main);
+}
+
+/* When mobile size
 @media (max-width: 991px) {
     .home-logo:first-child h1 {
         font-size: 5rem;
@@ -72,4 +89,4 @@ h1, h2, h3, h4, h5, h6 {
     .home-logo:last-child h3 {
         font-size: 3rem;
     }
-}
+} */

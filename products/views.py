@@ -3,7 +3,9 @@ from .models import Product
 
 
 def all_products(request):
-    """ A master page for all products, will have sorting and searching for products """
+    """ A master page for all products,
+    will have sorting and searching for products.
+    """
 
     products = Product.objects.all()
 
