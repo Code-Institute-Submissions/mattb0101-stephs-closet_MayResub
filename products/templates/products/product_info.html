@@ -42,6 +42,9 @@
                     <p class="fs-3 fw-bold">{{ product.name }}</p>
                     <p class="lead fs-2">£{{ product.price }}</p>
                     <p>{{ product.article_type }}</p>
+                    {% if product.category %}
+                        <p><a href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
+                    {% endif %}
                 </div>
             </div>
         </div>

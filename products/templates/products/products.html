@@ -47,6 +47,9 @@
                         <div class="card-footer border-0">
                             <p>£{{ product.price }}</p>
                             <p>{{ product.article_type }}</p>
+                            {% if product.category %}
+                                <p><a href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
+                            {% endif %}
                         </div>
                         <a href="#" class="btn btn-primary align-self-end">Go somewhere</a>
                     </div>
