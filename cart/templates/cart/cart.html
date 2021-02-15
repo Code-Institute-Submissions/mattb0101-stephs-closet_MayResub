@@ -11,10 +11,19 @@
 
 {% block content %}
 <div class="products-overlay"></div>
-     <div class="container-fluid">
+     <div class="container">
         <div class="row text-dark text-center">
             <div class="col">
                 <h2>Shopping Cart</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if cart_items %}
+                    <div class="table-responsive"></div>
+                {% else %}
+                    <p class="text-dark">Nothing in your cart</p>
+                {% endif %}
             </div>
         </div>
     </div>
