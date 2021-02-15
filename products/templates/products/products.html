@@ -18,13 +18,22 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-6">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Products</li>
                 </ol>
             </nav>
+        </div>
+        <div class="col-6 ">
+            <select class="form-select w-50 mx-auto" aria-label="Default select example">
+                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort By...</option>
+                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>By Price (low to high)</option>
+                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>By Price (high to low)</option>
+                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>By Name (A-Z</option>
+                <option value="name_asc" {% if current_sorting == 'name_desc' %}selected{% endif %}>By Name (Z-A)</option>
+            </select>
         </div>
     </div>
     <div class="container col-10 offset-1">
