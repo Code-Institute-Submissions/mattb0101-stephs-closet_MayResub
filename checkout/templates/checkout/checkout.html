@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="products-overlay"></div>
+     <div class="container">
+        <div class="row text-dark text-center">
+            <div class="col">
+                <h2>Checkout</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6  text-dark">
+                <p>Please fill out the form to complete your order</p>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-info-form">
+                    {% csrf_token %}
+                    {{ order_form | crispy }}
+                    <div>
+                        <a href="{% url 'view_cart' %}" class="btn">
+                            <i class="fas fa-backward"></i>
+                            <span>Adjust Bag</span>
+                        </a>
+                        <button id="pay-button" class="btn">
+                            <span>Complete Order</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
