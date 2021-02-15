@@ -21,7 +21,52 @@
             <div class="col">
                 {% if cart_items %}
                     <div class="table-responsive">
-                        {{ cart_items }}
+                        <table class="table text-dark">
+                            <thead>
+                                <th scope="col">Product Info</th>
+                                <th scope="col"></th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Subtotal</th>
+                            </thead>
+                            {% for item in cart_items %}
+                                <tr>
+                                    <td class="w-25">
+                                        <img class="img-fluid" src="{{ item.product.image.url }}" alt="">
+                                    </td>
+                                    <td>
+                                        <p>{{ item.product.name }}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{ item.product.price }}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{ item.quantity }}</p>
+                                    </td>
+                                    <td>
+                                        <p>({ item.product.price }}</p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                                <tr>
+                                    <td colspan="5" class="text-right">
+                                        <p>Total: £{{ total|floatformat:2 }}</p>
+                                        <p>Delivery: £{{ delivery|floatformat:2 }}</p>
+                                        <p>Grand Total: £{{ grand_total|floatformat:2 }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-right">
+                                        <a href="{% url 'products' %}" class="btn">
+                                            <i class="fas fa-backward"></i>
+                                            <span>Keep Shopping</span>
+                                        </a>
+                                        <a href="" class="btn">
+                                            <span>Secure Checkout</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                        </table>
                     </div>
                 {% else %}
                     <p class="text-dark">Nothing in your cart</p>
