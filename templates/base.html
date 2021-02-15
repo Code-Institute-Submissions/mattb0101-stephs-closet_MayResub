@@ -70,6 +70,12 @@
                     <li class="list-inline-item mx-3">
                         <a href="{% url 'view_cart' %}" class="text-main">
                             <i class="fas fa-shopping-cart fa-2x"></i>
+                            <p>{% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    £0.00
+                                {% endif %}
+                            </p>
                         </a>
                     </li>
                     <li class="list-inline-item mx-3 dropdown">
