@@ -48,3 +48,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# Product Size Test
+class Size(models.Model):
+    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE)
+    size = models.CharField(max_length=10, null=True, blank=True)
+
+    def __str__(self):
+        return self.size

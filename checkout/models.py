@@ -34,7 +34,7 @@ class Order(models.Model):
         """
         Update grand total when a new line is added
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_subtotal'))['lineitem_subtotal__sum']
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_subtotal'))['lineitem_subtotal__sum'] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE/100
         else:
@@ -71,7 +71,7 @@ class OrderLineItem(models.Model):
         Override original save method to set
         line item total and update grand total
         """
-        self.lineitem_total = self.product.price * self.quantity
+        self.lineitem_subtotal = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
