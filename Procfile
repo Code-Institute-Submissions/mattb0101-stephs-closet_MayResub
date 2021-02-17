@@ -1,1 +1,1 @@
-web: gunicorn stephs-closet.wsgi:application
+web: gunicorn stephs_closet.wsgi:application
