@@ -1,0 +1,1 @@
+web: gunicorn stephs-closet.wsgi:application

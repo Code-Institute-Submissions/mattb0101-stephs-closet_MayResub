@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Size
+from .models import Product, Category, Sub_Category
 
 
 def all_products(request):
@@ -13,10 +13,12 @@ def all_products(request):
     products = Product.objects.all()
     search = None
     categories = None
+    sub_categories = None
     sort = None
     direction = None
 
     if request.GET:
+        print(request.GET)
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
@@ -25,6 +27,8 @@ def all_products(request):
                 products = products.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey == 'category__cat_name'
+            if sortkey == 'sub_category':
+                sortkey == 'sub_category__subcat_name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -35,6 +39,13 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__cat_name__in=categories)
             categories = Category.objects.filter(cat_name__in=categories)
+
+        if 'sub_category' in request.GET:
+            sub_categories = request.GET['sub_category'].split(',')
+            products = products.filter(
+                subcat__subcat_name__in=sub_categories)
+            sub_categories = Sub_Category.objects.filter(
+                subcat_name__in=sub_categories)
 
         if 'search' in request.GET:
             search = request.GET['search']
@@ -51,6 +62,7 @@ def all_products(request):
         'products': products,
         'search_term': search,
         'current_categories': categories,
+        'current_sub_categories': sub_categories,
         'current_sorting': current_sorting,
     }
 
