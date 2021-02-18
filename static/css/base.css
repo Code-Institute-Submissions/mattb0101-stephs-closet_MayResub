@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .home-logo:first-child h1 {
-    font-size: 25vmin;
+    font-size: 23vmin;
     font-weight: 900;
     font-family: Staatliches, Arial, sans-serif;
 }
@@ -105,3 +105,10 @@ footer {
         font-size: 3rem;
     }
 } */
+
+/* header container to push down main body on desktop and up */
+@media (min-width: 992px) {
+    .header-container {
+        padding-top: 158px;
+    }
+}
