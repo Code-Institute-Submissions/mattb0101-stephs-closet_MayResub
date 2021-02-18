@@ -23,7 +23,7 @@
         <p class="mb-0">Account</p>
     </a>
     <ul class="dropdown-menu" aria-labelledby="account-options">
-        <li class="dropdown-item"><a href="{% url 'profile' %}">My Profile</a></li>
+        <li class="dropdown-item"><a href="#">My Profile</a></li>
         <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
     </ul>
 </li>
@@ -42,20 +42,17 @@
 </li>
 
 
-<li class="list-inline-item dropdown">
-    <a class="text-main d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        {% if request.user.is_authenticated %}
-            <a href="% url 'account_logout' %}">
-                <i class="fas fa-sign-out-alt"></i>
-                <p class="mb-0">Logout</p>
-            </a>
-        {% else %}
-            <a href="{% url 'account_login' %}">
-                <i class="fas fa-sign-in-alt"></i>
-                <p class="mb-0">Login</p>
-            </a>
-        {% endif %}
-    </a>
+<li class="list-inline-item ">
+    {% if request.user.is_authenticated %}
+        <a href="% url 'account_logout' %}" class="text-main text-center text-decoration-none d-block d-lg-none">
+            <i class="fas fa-sign-out-alt"></i>
+            <p class="mb-0">Logout</p>
+        </a>
+    {% else %}
+        <a href="{% url 'account_login' %}">
+            <i class="fas fa-sign-in-alt"></i>
+            <p class="mb-0">Login</p>
+        </a>
+    {% endif %}
 </li>
     

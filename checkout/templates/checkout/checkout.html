@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block page_header %}
-    <div class="container">
+    <div class="header-container">
         <div class="row">
             <div class="col"></div>
         </div>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6  text-dark">
+            <div class="col col-md-6  text-dark">
                 <p>Please fill out the form to complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-info-form">
                     {% csrf_token %}

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="products-overlay"></div>
+<div class="container-fluid">
+    <div class="row text-dark text-center my-2">
+        <div class="col">
+            <h1>Products</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb ms-4">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Products</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-12 col-md-6">
+            <select id="sort-by-box" class="form-select w-50 float-end me-5 " aria-label="Default select example">
+                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort By...</option>
+                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>By Price (low to high)</option>
+                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>By Price (high to low)</option>
+                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>By Name (A-Z)</option>
+                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>By Name (Z-A)</option>
+            </select>
+        </div>
+    </div>
+    <div class="container col-10 offset-1">
+        <div class="row">
+            {% for product in page_obj %}
+                <div class="col-12 col-md-4 col-lg-3 my-2">
+                    <div class="card text-dark h-100">
+                        {% if product.image %}
+                            <a href="{% url 'product_info' product.id %}">
+                                <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'product_info' product.id %}">
+                                <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ product.name }}">
+                            </a>
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-title"><strong>{{ product.name }}</strong></p>
+                            <p class="mb-0">£{{ product.price }}</p>
+                            <p class="mb-0">{{ product.article_type }}</p>
+                            {% if product.category %}
+                                <p class="mb-0"><a href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="btn-rtn w-100 d-flex justify-content-end">
+    <a class="btn btt-link d-flex h-100 rounded-pill">
+        <p><i class="fas fa-long-arrow-alt-up mx-2 my-auto"></i>Back to top</p>
+    </a>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0)
+        })
+    </script>
+    
+    <script type="text/javascript">
+        $('#sort-by-box').change(function() {
+            var select = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectVal = select.val();
+            if(selectVal != "reset"){
+                var sort = selectVal.split("_")[0];
+                var direction = selectVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
+{% endblock %}
