@@ -1,9 +1,9 @@
 <li class="list-inline-item"> 
-    <a href="#" class="nav-link d-block d-lg-none text-main" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="#" class="nav-link d-block d-lg-none text-main text-center" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-search"></i>
-        <p>Search</p>
+        <p class="mb-0">Search</p>
     </a>
-    <div class="dropdown-menu" aria-labelledby="mobile-search">
+    <div class="dropdown-menu w-100 rounded-0 border-0 my-0 px-2" aria-labelledby="mobile-search">
         <form method="GET" action="{% url 'products' %}">
             <div class="input-group">
                 <input type="text" class="form-control" name="search" placeholder="Search Stéph's Closet"
@@ -18,17 +18,21 @@
 
 
 <li class="list-inline-item">
-    <a href="#" class="text-main text-decoration-none d-block d-lg-none">
+    <a href="#" class="text-main text-center text-decoration-none d-block d-lg-none" id="account-options" data-bs-toggle="dropdown" aria-haspopup="true">
         <i class="fas fa-user"></i>
-        <p>Account</p>
+        <p class="mb-0">Account</p>
     </a>
+    <ul class="dropdown-menu" aria-labelledby="account-options">
+        <li class="dropdown-item"><a href="{% url 'profile' %}">My Profile</a></li>
+        <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
+    </ul>
 </li>
 
 
 <li class="list-inline-item">
-    <a href="{% url 'view_cart' %}" class="text-main text-decoration-none d-block d-lg-none">
+    <a href="{% url 'view_cart' %}" class="text-main text-center text-decoration-none d-block d-lg-none">
         <i class="fas fa-shopping-cart"></i>
-        <p>{% if grand_total %}
+        <p class="mb-0">{% if grand_total %}
             £{{ grand_total|floatformat:2 }}
             {% else %}
             £0.00
@@ -41,15 +45,17 @@
 <li class="list-inline-item dropdown">
     <a class="text-main d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
-        <i class="fas fa-sign-in-alt"></i>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="user-options">
         {% if request.user.is_authenticated %}
-        <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+            <a href="% url 'account_logout' %}">
+                <i class="fas fa-sign-out-alt"></i>
+                <p class="mb-0">Logout</p>
+            </a>
         {% else %}
-        <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
-        <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
+            <a href="{% url 'account_login' %}">
+                <i class="fas fa-sign-in-alt"></i>
+                <p class="mb-0">Login</p>
+            </a>
         {% endif %}
-    </ul>
+    </a>
 </li>
     

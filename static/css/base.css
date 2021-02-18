@@ -95,16 +95,12 @@ footer {
     font-size: 2rem;
 }
 
-/* When mobile size
+/* When mobile size */
 @media (max-width: 991px) {
-    .home-logo:first-child h1 {
-        font-size: 5rem;
+    .header-container {
+        padding-top: 84px;
     }
-
-    .home-logo:last-child h3 {
-        font-size: 3rem;
-    }
-} */
+}
 
 /* header container to push down main body on desktop and up */
 @media (min-width: 992px) {
