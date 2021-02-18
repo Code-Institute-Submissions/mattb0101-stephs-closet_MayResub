@@ -54,6 +54,11 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.7rem;
 }
 
+.mobile-home {
+    font-family: Sacramento, Arial, sans-serif;
+    font-size: 2rem;
+}
+
 .overlay, .products-overlay {
     background-color: rgba(0,0,0,0.5);
     height: 100%;
@@ -78,6 +83,16 @@ h1, h2, h3, h4, h5, h6 {
 .btt-link {
     background-color: var(--pink);
     color: var(--main);
+}
+
+/* ------------------------------- Footer */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 10vh;
+    font-size: 2rem;
 }
 
 /* When mobile size

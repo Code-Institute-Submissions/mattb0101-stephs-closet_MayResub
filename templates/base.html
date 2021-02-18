@@ -106,6 +106,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="items-navbar">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li class="nav-item mx-2 mt-3 d-md-none">
+                                <a class="text-decoration-none text-main mobile-home" href="{% url 'home' %}">Stéphs Closet</a>
+                            </li>
                             <li class="nav-item dropdown mx-2">
                                 <a class="nav-link dropdown-toggle text-main" id="products-drop" data-bs-toggle="dropdown" aria-current="page" href="#">All Products</a>
                                 <ul class="dropdown-menu" aria-labelledby="products-drop">
@@ -165,6 +168,9 @@
     {% endblock %}
 
     {% block content %}
+    {% endblock %}
+
+    {% block footer %}
     {% endblock %}
 
     {% block postloadjs %}

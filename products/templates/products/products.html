@@ -18,16 +18,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                <ol class="breadcrumb w-50 mx-auto">
+                <ol class="breadcrumb ms-4">
                     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Products</li>
                 </ol>
             </nav>
         </div>
-        <div class="col-6 ">
-            <select id="sort-by-box" class="form-select w-50 mx-auto" aria-label="Default select example">
+        <div class="col-12 col-md-6">
+            <select id="sort-by-box" class="form-select w-50 float-end me-5 " aria-label="Default select example">
                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort By...</option>
                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>By Price (low to high)</option>
                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>By Price (high to low)</option>
@@ -39,7 +39,7 @@
     <div class="container col-10 offset-1">
         <div class="row">
             {% for product in products %}
-                <div class="col col-sm-6 col-md-4 col-lg-3 my-2">
+                <div class="col-12 col-md-4 col-lg-3 my-2">
                     <div class="card text-dark h-100">
                         {% if product.image %}
                             <a href="{% url 'product_info' product.id %}">
@@ -52,15 +52,12 @@
                         {% endif %}
                         <div class="card-body">
                             <p class="card-title"><strong>{{ product.name }}</strong></p>
-                        </div>
-                        <div class="card-footer border-0">
-                            <p>£{{ product.price }}</p>
-                            <p>{{ product.article_type }}</p>
+                            <p class="mb-0">£{{ product.price }}</p>
+                            <p class="mb-0">{{ product.article_type }}</p>
                             {% if product.category %}
-                                <p><a href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
+                                <p class="mb-0"><a href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
                             {% endif %}
                         </div>
-                        <a href="#" class="btn btn-primary align-self-end">Go somewhere</a>
                     </div>
                 </div>
             {% endfor %}
