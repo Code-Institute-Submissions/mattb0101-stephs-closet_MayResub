@@ -55,8 +55,8 @@
             <div class="col m-auto">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="search" placeholder="Search Stéph's Closet" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <input type="text" class="form-control" name="search" placeholder="Search Stéph's Closet" aria-label="Recipient's username" aria-describedby="button-addon3">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon3">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -99,63 +99,12 @@
         </div>
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <div class="container-fluid">
-                    <button class="navbar-toggler text-main" type="button" data-bs-toggle="collapse" aria-controls="items-navbar" data-bs-target="#items-navbar"
-                         aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="items-navbar">
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                            <li class="nav-item mx-2 mt-3 d-md-none">
-                                <a class="text-decoration-none text-main mobile-home" href="{% url 'home' %}">Stéphs Closet</a>
-                            </li>
-                            <li class="nav-item dropdown mx-2">
-                                <a class="nav-link dropdown-toggle text-main" id="products-drop" data-bs-toggle="dropdown" aria-current="page" href="#">All Products</a>
-                                <ul class="dropdown-menu" aria-labelledby="products-drop">
-                                    <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">By Name</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown mx-2">
-                                <a class="nav-link dropdown-toggle text-main" id="shoes-drop" data-bs-toggle="dropdown" aria-current="page" href="#">Shoes</a>
-                                <ul class="dropdown-menu" aria-labelledby="shoes-drop">
-                                    <li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">All Shoes</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">Heels</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">By Name</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown mx-2">
-                                <a class="nav-link dropdown-toggle text-main" href="#" id="accessories-drop" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Accessories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="accessories-drop">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown mx-2">
-                                <a class="nav-link dropdown-toggle text-main" href="#" id="personal-drop" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Personal Care
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="personal-drop">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <button class="navbar-toggler text-main" type="button" data-bs-toggle="collapse" aria-controls="items-navbar" data-bs-target="#items-navbar"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/mobile-top-nav.html' %}
+                {% include 'includes/main-top-nav.html' %}
             </nav>
         </div>
     </header>
