@@ -47,12 +47,29 @@
                                     <td>
                                         <form class="form item-update" method="POST" action="{% url 'update_cart' item.item_id %}">
                                             {% csrf_token %}
-                                            <div class="input-group">
-                                                <input name="quantity" type="number" class="form-control" value="1" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <button class="decrease-qty" data-item_id="{{ item.item_id }}"
+                                                            id="decrease-qty_{{ item.item_id }}">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                    </div>
+                                                    <input name="quantity" type="number" class="form-control qty-input" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                    <div class="input-group-append">
+                                                        <button class="increase-qty" data-item_id="{{ item.item_id }}"
+                                                            id="increase-qty_{{ item.item_id }}">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                    {% if item.product.size %}
+                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                                                    {% endif %}
+                                                </div>
                                             </div>
                                         </form>
-                                        <a class="text-dark update-button" href="">Update</a>
-                                        <a class="text-dark remove-button" href="" id="remove_{{ item.item_id }}" data-size="{{ item.size }}">Remove</a>
+                                        <a class="text-dark update-button" href=""><small>Update</small></a>
+                                        <a class="text-dark remove-button" href="" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
                                     <td>
                                         <p>{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -89,6 +106,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
     $('.update-button').click(function(e) {
@@ -105,7 +123,7 @@
 
         $.post(url, data)
         .done(function() {
-            location.reload()
+            location.reload();
         });
     })
 </script>
