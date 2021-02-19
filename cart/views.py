@@ -32,7 +32,6 @@ def add_to_cart(request, item_id):
             cart[item_id] = quantity
 
     request.session['cart'] = cart
-
     return redirect(redirect_url)
 
 
@@ -59,7 +58,6 @@ def update_cart(request, item_id):
             cart.pop(item_id)
 
     request.session['cart'] = cart
-
     return redirect(reverse('view_cart'))
 
 
