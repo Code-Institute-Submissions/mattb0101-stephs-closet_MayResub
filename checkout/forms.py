@@ -10,7 +10,7 @@ class OrderForm(forms.ModelForm):
                   'town_or_city', 'county', 'postcode',
                   'country',)
 
-    def __inti__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         """
         Put in customised form and make customised
         labels.
@@ -33,6 +33,6 @@ class OrderForm(forms.ModelForm):
                 placeholder = f'{placeholders[field]} *'
             else:
                 placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-                self.fields[field].label = False
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].label = False

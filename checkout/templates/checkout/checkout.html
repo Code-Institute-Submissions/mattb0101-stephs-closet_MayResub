@@ -21,7 +21,17 @@
                 <h2>Checkout</h2>
             </div>
         </div>
+    
         <div class="row">
+            <div class="col col-md-6 text-dark">
+                <div class="row">
+                {% for item in cart_items %}
+                    <p class="my-0">{{ item.product.name }}</p>
+                    <p class="my-0">{{ item.size }}</p>
+                    <p class="my-0">{{ item.quantity }}</p>
+                {% endfor %}
+                </div>
+            </div>
             <div class="col col-md-6  text-dark">
                 <p>Please fill out the form to complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-info-form">
