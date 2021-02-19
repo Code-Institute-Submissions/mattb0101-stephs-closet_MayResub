@@ -45,7 +45,7 @@
                                         <p>{{ item.product.price }}</p>
                                     </td>
                                     <td>
-                                        <form class="form item-update" method="POST" action="">
+                                        <form class="form item-update" method="POST" action="{% url 'update_cart' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="input-group">
                                                 <input name="quantity" type="number" class="form-control" value="1" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
