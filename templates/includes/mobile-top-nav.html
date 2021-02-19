@@ -15,8 +15,6 @@
         </form>
     </div>
 </li> 
-
-
 <li class="list-inline-item">
     <a href="#" class="text-main text-center text-decoration-none d-block d-lg-none" id="account-options" data-bs-toggle="dropdown" aria-haspopup="true">
         <i class="fas fa-user"></i>
@@ -27,8 +25,6 @@
         <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
     </ul>
 </li>
-
-
 <li class="list-inline-item">
     <a href="{% url 'view_cart' %}" class="text-main text-center text-decoration-none d-block d-lg-none">
         <i class="fas fa-shopping-cart"></i>
@@ -40,11 +36,9 @@
         </p>
     </a>
 </li>
-
-
 <li class="list-inline-item ">
     {% if request.user.is_authenticated %}
-        <a href="% url 'account_logout' %}" class="text-main text-center text-decoration-none d-block d-lg-none">
+        <a href="{% url 'account_logout' %}" class="text-main text-center text-decoration-none d-block d-lg-none">
             <i class="fas fa-sign-out-alt"></i>
             <p class="mb-0">Logout</p>
         </a>

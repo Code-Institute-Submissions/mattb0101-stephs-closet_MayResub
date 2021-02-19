@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container">
+    <div class="header-container">
         <div class="row">
             <div class="col"></div>
         </div>
@@ -10,6 +10,13 @@
 {% endblock %}
 
 {% block content %}
-<div class="products-overlay"></div>
-     <h2>Profile</h2>
+    <div class="products-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col text-dark text-center">
+                <h2>Welcome {{ user.username }}! This is your profile.</h2>
+            </div>
+        </div>
+    </div>
+     
 {% endblock %}

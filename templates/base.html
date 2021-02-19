@@ -63,12 +63,20 @@
                 </form>
             </div>
             <div class="col m-auto text-center">
-                <ul class="list-inline list-unstyled w-75 my-0 d-flex justify-content-between">
-                    <li class="list-inline-item mx-3">
-                        <a href="#" class="text-main text-decoration-none">
+                <ul class="list-inline list-unstyled w-75 my-0">
+                    <li class="list-inline-item">
+                        <a href="#" class="text-main text-center text-decoration-none" id="account-options" data-bs-toggle="dropdown" aria-haspopup="true">
                             <i class="fas fa-user fa-2x"></i>
-                            <p>Account</p>
+                            <p class="mb-0">Account</p>
                         </a>
+                        <ul class="dropdown-menu" aria-labelledby="account-options">
+                            {% if request.user.is_authenticated %}
+                            <li class="dropdown-item"><a href="{% url 'user_profile' %}">My Profile</a></li>
+                            <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
+                            {% else %}
+                            <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
+                            {% endif %}
+                        </ul>
                     </li>
                     <li class="list-inline-item mx-3">
                         <a href="{% url 'view_cart' %}" class="text-main text-decoration-none">
@@ -81,18 +89,18 @@
                             </p>
                         </a>
                     </li>
-                    <li class="list-inline-item mx-3 dropdown">
-                        <a class="text-main" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-sign-in-alt fa-2x"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
-                            {% else %}
-                                <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
-                                <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
-                            {% endif %}
-                        </ul>   
+                    <li class="list-inline-item ">
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'account_logout' %}" class="text-main text-center text-decoration-none">
+                                <i class="fas fa-sign-out-alt fa-2x"></i>
+                                <p class="mb-0">Logout</p>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'account_login' %}" class="text-main text-center text-decoration-none">
+                                <i class="fas fa-sign-in-alt fa-2x"></i>
+                                <p class="mb-0">Login</p>
+                            </a>
+                        {% endif %}
                     </li>
                 </ul>
             </div>

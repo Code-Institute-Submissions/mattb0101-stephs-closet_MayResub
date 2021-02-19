@@ -18,7 +18,6 @@
             <ul class="dropdown-menu" aria-labelledby="shoes-drop">
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">All Shoes</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">Heels</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">By Name</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown mx-2">
@@ -27,12 +26,7 @@
                 Accessories
             </a>
             <ul class="dropdown-menu" aria-labelledby="accessories-drop">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=accessories">All Accessories</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown mx-2">
@@ -41,12 +35,7 @@
                 Personal Care
             </a>
             <ul class="dropdown-menu" aria-labelledby="personal-drop">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=personal_care">All Personal Care</a></li>
             </ul>
         </li>
     </ul>
