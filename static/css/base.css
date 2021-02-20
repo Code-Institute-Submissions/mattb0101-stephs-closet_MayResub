@@ -89,6 +89,13 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
+.message-container {
+    position: fixed;
+    top: 100px;
+    left: 50px;
+    z-index: 9999999999999;
+}
+
 /* -------------------------------Admin Page */
 
 .wrapper {
