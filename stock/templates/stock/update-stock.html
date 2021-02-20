@@ -26,8 +26,7 @@
         <div class="admin-content container-fluid">
             <div class="row">
                 <div class="col">
-                    <h2 class="text-dark text-center">Stock</h2>
-                    <p class="text-dark">{{ stock }}</p>
+                    <h2 class="text-dark text-center">Update Stock</h2>
                 </div>
             </div>
             <div class="row">
@@ -36,8 +35,6 @@
                         <thead>
                             <tr>
                                 <th scope="col">Product</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Sub Category</th>
                                 <th scope="col">Qty In Stock</th>
                                 <th scope="col">Update Stock</th>
                             </tr>
@@ -46,11 +43,7 @@
                             {% for item in stock %}
                                 <tr>
                                     <td>{{ item.product }}</td>
-                                    <td>{{ item.product.category }}</td>
-                                    <td>{{ item.product.subcat }}</td>
-                                    <td>
-                                        <a href="{% url 'update_stock' item.id %}">{{ item.in_stock }}</a> 
-                                    </td>
+                                    <td>{{ item.quantity }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>

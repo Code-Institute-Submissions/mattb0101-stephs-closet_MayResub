@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Stock
 
 
@@ -15,12 +15,12 @@ def stock(request):
 
 
 def update_stock(request, item_id):
-    """ Update the stock for an individual item manually """
+    """ Update stock of an item manually """
 
-    stock = Stock.objects.all()
+    stock = get_object_or_404(Stock, pk=item_id)
 
     context = {
         'stock': stock,
     }
 
-    return redirect('stock/stock.html')
+    return render(request, 'stock/update-stock.html', context)
