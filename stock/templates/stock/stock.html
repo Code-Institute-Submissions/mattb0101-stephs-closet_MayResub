@@ -21,6 +21,13 @@
                 <li>
                     <span>Stock</span>
                 </li>
+                <li>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input type="submit" value="Filter">
+                    </form>
+                </li>
             </ul>
         </nav>
         <div class="admin-content container-fluid">
@@ -49,7 +56,7 @@
                                     <td>{{ item.product.category }}</td>
                                     <td>{{ item.product.subcat }}</td>
                                     <td>
-                                        <a href="{% url 'update_stock' item.id %}">{{ item.in_stock }}</a> 
+                                        <a href="{% url 'update_stock' item.product.id %}">{{ item.in_stock }}</a> 
                                     </td>
                                 </tr>
                             {% endfor %}
