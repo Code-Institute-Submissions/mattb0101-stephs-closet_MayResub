@@ -4,6 +4,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body bg-dark">
-        {{ message }}
+        <div class="row">
+            <div class="col">
+                {{ message }}
+            </div>
+        </div>
+        {% if grand_total %}
+            <p>{{ product_count }}</p>
+        {% endif %}
     </div>
 </div>

@@ -16,6 +16,9 @@ def checkout(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
+        if not cart:
+            messages.error(request, "Thers nothing here....")
+            return redirect(reverse('products'))
 
         form_data = {
             'full_name': request.POST['full_name'],
