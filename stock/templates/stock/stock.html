@@ -11,11 +11,7 @@
 
 {% block content %}
     <div class="products-overlay"></div>
-    <div class="wrapper">
-        <div class="col">
-            <h2 class="text-dark text-center">Stock</h2>
-        </div>
-        
+    <div class="wrapper">       
         <nav id="sidenav">
             <div>
                 <h3>Admin options</h3>
@@ -30,7 +26,35 @@
         <div class="admin-content container-fluid">
             <div class="row">
                 <div class="col">
-        
+                    <h2 class="text-dark text-center">Stock</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-dark">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Qty In Stock</th>
+                                <th scope="col">Update Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in stock %}
+                                <tr>
+                                    <td>{{ item.product }}</td>
+                                    <td>{{ item.in_stock }}</td>
+                                    <td>
+                                        <form class="form update-stock" method="POST" action="">
+                                            {% csrf_token %}
+                                                <input type="number">
+                                                <input type="submit">
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
