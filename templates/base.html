@@ -64,12 +64,14 @@
             </div>
             <div class="col m-auto text-center">
                 <ul class="list-inline list-unstyled w-75 my-0">
+                    {% if request.user.is_superuser %}
                     <li class="list-inline-item">
                         <a href="{% url 'store_admin' %}" class="text-main text-decoration-none">
                             <i class="fas fa-user-shield fa-2x"></i>
                             <p>Store Mgmt</p>
                         </a>
                     </li>
+                    {% endif %}
                     <li class="list-inline-item">
                         <a href="#" class="text-main text-center text-decoration-none" id="account-options" data-bs-toggle="dropdown" aria-haspopup="true">
                             <i class="fas fa-user fa-2x"></i>
