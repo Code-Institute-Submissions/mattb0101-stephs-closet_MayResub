@@ -89,6 +89,21 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
+/* -------------------------------Admin Page */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidenav {
+    min-width: 250px;
+    max-width: 250px;
+    height: calc(100vh - 158px);
+    background-color: var(--pink);
+}
+
 /* ------------------------------- Footer */
 
 footer {

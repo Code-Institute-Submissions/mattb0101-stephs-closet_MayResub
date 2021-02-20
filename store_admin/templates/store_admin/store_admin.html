@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="products-overlay"></div>
+    <div class="wrapper">
+        <nav id="sidenav">
+            <div>
+                <h3>Admin options</h3>
+            </div>
+
+            <ul class="list-unstyled">
+                <li>
+                    <span>Stock</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="row">
+            <div class="col">
+                <h2 class="text-dark">Admin</h2>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
