@@ -18,5 +18,20 @@
             </div>
         </div>
     </div>
+    <div class="row text-dark">
+        <div class="col">
+            <p>Default Del Info</p> 
+            <form action="{% url 'user_profile' %}" method="POST" id="delivery-info-update">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button>Update Delivery Info</button>
+            </form>
+        </div>
+        <div class="col">
+            <p>Order History</p>
+            {{ orders }}
+        </div>
+    </div>
+    {{ profile }}
      
 {% endblock %}
