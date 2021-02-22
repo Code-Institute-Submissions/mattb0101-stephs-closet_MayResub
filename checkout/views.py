@@ -6,8 +6,6 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
-from profile.models import UserAccount
-from profile.forms import UserAccountForm
 from cart.contexts import cart_contents
 
 import stripe
@@ -37,9 +35,6 @@ def checkout(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-        if not cart:
-            messages.error(request, "Thers nothing here....")
-            return redirect(reverse('products'))
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -76,7 +71,7 @@ def checkout(request):
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                size=size,
+                                product_size=size,
                             )
                             order_line_item.save()
                 except Product.DoesNotExist:
