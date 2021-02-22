@@ -21,7 +21,7 @@
     <div class="row text-dark">
         <div class="col">
             <p>Default Del Info</p> 
-            <form action="{% url 'user_profile' %}" method="POST" id="delivery-info-update">
+            <form action="{% url 'user_account' %}" method="POST" id="delivery-info-update">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <button>Update Delivery Info</button>
@@ -29,9 +29,34 @@
         </div>
         <div class="col">
             <p>Order History</p>
-            {{ orders }}
+            <div class="table-responsive">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Date</th>
+                        <th>Products</th>
+                        <th>Order total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.order_number|truncatechars:6</td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    <li class="small">
+                                        {{ item.product.name }} x {{ item.quantity }}
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>{{ grand_total }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </div>
         </div>
     </div>
-    {{ profile }}
+    
      
 {% endblock %}

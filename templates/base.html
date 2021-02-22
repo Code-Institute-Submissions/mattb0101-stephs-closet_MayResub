@@ -83,7 +83,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="account-options">
                             {% if request.user.is_authenticated %}
-                            <li class="dropdown-item"><a href="{% url 'user_profile' %}">My Profile</a></li>
+                            <li class="dropdown-item"><a href="{% url 'user_account' %}">My Profile</a></li>
                             <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
                             {% else %}
                             <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>

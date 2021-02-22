@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
+from checkout.models import Order
 from .models import UserAccount
 from .forms import UserAccountForm
 
 
-def user_profile(request):
+def user_account(request):
     """ display users profile """
     account = get_object_or_404(UserAccount, user=request.user)
 
@@ -25,3 +26,17 @@ def user_profile(request):
     }
 
     return render(request, 'profile/profile.html', context)
+
+
+def order_history(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.info(request, (
+        f'This is a past order for order {order_number}.'
+    ))
+    context = {
+        'order': order,
+        'history': True,
+    }
+
+    return render(request, 'checkout/checkout_success.html', context)
