@@ -30,7 +30,7 @@ class StripeWeb_Handler:
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
 
-        billing_details = intent.charge.data[0].billing_details
+        billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
@@ -44,14 +44,14 @@ class StripeWeb_Handler:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
-                    email__iexact=shipping_details.name,
-                    phone_number__iexact=shipping_details.name,
-                    street_address1__iexact=shipping_details.name,
-                    street_address2__iexact=shipping_details.name,
-                    town_or_city__iexact=shipping_details.name,
-                    county__iexact=shipping_details.name,
-                    postcode__iexact=shipping_details.name,
-                    country__iexact=shipping_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=shipping_details.phone,
+                    street_address1__iexact=shipping_details.address.line1,
+                    street_address2__iexact=shipping_details.address.line2,
+                    town_or_city__iexact=shipping_details.address.city,
+                    county__iexact=shipping_details.address.state,
+                    postcode__iexact=shipping_details.address.postal_code,
+                    country__iexact=shipping_details.address.country,
                     grand_total=grand_total,
                     original_cart=cart,
                     stripe_pid=pid,
