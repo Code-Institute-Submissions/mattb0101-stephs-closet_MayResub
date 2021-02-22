@@ -18,7 +18,7 @@ class StripeWeb_Handler:
         Handle specific or unknown web hook events
         """
         return HttpResponse(
-            content=f'Unhandled webhook received: {event[type]}',
+            content=f'Unhandled webhook received: {event["type"]}',
             status=200)
 
     def handle_payment_intent_succeed(self, event):
@@ -58,9 +58,6 @@ class StripeWeb_Handler:
                 )
                 order_exists = True
                 break
-                return HttpResponse(
-                    content=f'Webhook reveived: {event["type"]} | SUCCESS: Verified order already in database',
-                    status=200)
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
@@ -99,18 +96,18 @@ class StripeWeb_Handler:
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                product_size=size,
+                                size=size,
                             )
                             order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
                 return HttpResponse(
-                    content=f'Webhook received: {event[type]} | ERROR: {e}',
+                    content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
 
         return HttpResponse(
-            content=f'Webhook received: {event[type]} | SUCCESS Created order from Webhook',
+            content=f'Webhook received: {event["type"]} | SUCCESS Created order from Webhook',
             status=200)
 
     def handle_payment_intent_fail(self, event):
@@ -118,5 +115,5 @@ class StripeWeb_Handler:
         Handle payment intent fail from Stripe
         """
         return HttpResponse(
-            content=f'Intent Failed Webhook received: {event[type]}',
+            content=f'Intent Failed Webhook received: {event["type"]}',
             status=200)

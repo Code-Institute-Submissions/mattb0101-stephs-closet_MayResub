@@ -6,6 +6,8 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
+from profile.models import UserAccount
+from profile.forms import UserAccountForm
 from cart.contexts import cart_contents
 
 import stripe
@@ -25,7 +27,7 @@ def cache_checkout_data(request):
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \
-            processed right now. Try again')
+            processed right now. Try again.')
         return HttpResponse(content=e, status=400)
 
 
@@ -50,17 +52,18 @@ def checkout(request):
             'postcode': request.POST['postcode'],
             'country': request.POST['country'],
         }
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
+            order.save()
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
-                        order.save()
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -73,7 +76,7 @@ def checkout(request):
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                product_size=size,
+                                size=size,
                             )
                             order_line_item.save()
                 except Product.DoesNotExist:
@@ -83,6 +86,7 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_cart'))
 
+            # request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error')
@@ -121,7 +125,7 @@ def checkout_success(request, order_number):
 
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number} abd a confirmation \
+        Your order number is {order_number} and a confirmation \
             email will be sent to {order.email}')
 
     if 'cart' in request.session:
