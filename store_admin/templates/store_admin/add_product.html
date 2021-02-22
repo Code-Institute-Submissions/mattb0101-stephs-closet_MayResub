@@ -12,12 +12,9 @@
 {% block content %}
     <div class="products-overlay"></div>
     <div class="wrapper">
-        <div class="col">
-            <h2 class="text-dark text-center">Admin</h2>
-        </div>
         <nav id="sidenav">
             <div>
-                <h3>Add a new Product</h3>
+                <h3>Admin Options</h3>
             </div>
 
             <ul class="list-unstyled">
@@ -27,9 +24,12 @@
             </ul>
         </nav>
         <div class="admin-content container-fluid">
-            <div class="row">
-                <div class="col">
-                    <form method="POST" action="{% url 'add_product' %}" class="form" enctype="multipart/form-data">
+            <div class="col">
+                <h2 class="text-dark text-center">Add a Product</h2>
+            </div>
+            <div class="row text-dark">
+                <div class="col-6">
+                    <form method="POST" action="{% url 'add_product' %}" class="form h-100" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form | crispy }}
                         <a href="{% url 'store_admin' %}" class="btn">Cancel</a>

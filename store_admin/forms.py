@@ -15,3 +15,4 @@ class ProductForm(forms.ModelForm):
 
         self.fields['category'].choices = cat_friendlynames
         for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-0'

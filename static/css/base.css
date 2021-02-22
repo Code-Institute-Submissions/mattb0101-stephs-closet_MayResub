@@ -108,12 +108,13 @@ h1, h2, h3, h4, h5, h6 {
     position: fixed;
     height: calc(100vh - 158px);
     background-color: var(--pink);
+
 }
 
 .admin-content {
     width: calc(100% - 250px);
-    position: fixed;
-    right: 0;
+    position: inline-flex;
+    margin-left: 250px;
 }
 
 /* ------------------------------- Footer */
