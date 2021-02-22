@@ -1,0 +1,28 @@
+Hi There {{ order.full_name }}!
+
+Thanks so much for ordering from Steph's Closet!
+
+This is a confirmation of your order {{ order.order_number }}
+
+Order Date: {{ order.date }}
+
+Order Total: £{{ order.order_total }}
+Delivery: £{{ order.delivery_cost }}
+Grand Total: ${{ order.grand_total }}
+
+We will be shipping the order to:
+
+{{ order.full_name }}
+{{ order.street_address1 }}
+{{ order.town_or_city }}
+{{ order.postcode }}
+
+If there is any issues with your order, we will contact you on {{ order.phone_number }}.
+
+If there is anything wrong here, or you have any questions, please contact us at {{ contact_email }}, and we'll get back to you ASAP!
+
+Thanks again for your order!
+
+Sincerely
+
+Stéph's Closet

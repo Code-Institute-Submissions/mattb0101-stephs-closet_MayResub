@@ -30,30 +30,39 @@
         <div class="col">
             <p>Order History</p>
             <div class="table-responsive">
-                <thead>
-                    <tr>
-                        <th>Order Number</th>
-                        <th>Date</th>
-                        <th>Products</th>
-                        <th>Order total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for order in orders %}
+                <table>
+                    <thead>
                         <tr>
-                            <td>{{ order.order_number|truncatechars:6</td>
-                            <td>{{ order.date }}</td>
-                            <td>
-                                <ul class="list-unstyled">
-                                    <li class="small">
-                                        {{ item.product.name }} x {{ item.quantity }}
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>{{ grand_total }}</td>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Products</th>
+                            <th>Order total</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'order_history' order.order_number %}"
+                                    title="{{ order.order_number }}">
+                                        {{ order.order_number|truncatechars:6 }}
+                                    </a> 
+                                </td>
+                                <td>{{ order.date }}</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in order.lineitem_all %}
+                                        <li class="small">
+                                            {{ item.product.name }} x {{ item.quantity }}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>£{{ order.grand_total }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

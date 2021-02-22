@@ -83,7 +83,7 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_cart'))
 
-            # request.session['save_info'] = 'save-info' in request.POST
+            request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error')
@@ -104,7 +104,7 @@ def checkout(request):
 
         if request.user.is_authenticated:
             try:
-                account = UserAccount.object.get(user=request.user)
+                account = UserAccount.objects.get(user=request.user)
                 order_form = OrderForm(initial={
                     'full_name': account.user.get_full_name(),
                     'email': account.user.email,
@@ -148,9 +148,9 @@ def checkout_success(request, order_number):
         if save_info:
             account_data = {
                 'default_phone_number': order.phone_number,
-                'default:street_address1': order.street_address1,
+                'default_street_address1': order.street_address1,
                 'default_street_address2': order.street_address2,
-                'default.town_or_city': order.town_or_city,
+                'default_town_or_city': order.town_or_city,
                 'default_county': order.county,
                 'default_postcode': order.postcode,
                 'default_country': order.county,
