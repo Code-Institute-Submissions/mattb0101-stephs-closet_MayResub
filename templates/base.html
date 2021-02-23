@@ -62,13 +62,13 @@
                     </div>
                 </form>
             </div>
-            <div class="col m-auto text-center">
-                <ul class="list-inline list-unstyled w-75 my-0">
+            <div class="col m-auto text-center p-0">
+                <ul class="list-inline list-unstyled w-100 my-0">
                     {% if request.user.is_superuser %}
                     <li class="list-inline-item">
                         <a href="{% url 'store_admin' %}" class="text-main text-decoration-none">
                             <i class="fas fa-user-shield fa-2x"></i>
-                            <p>Store Mgmt</p>
+                            <p class="mb-0">Store Mgmt</p>
                         </a>
                     </li>
                     {% endif %}
@@ -93,7 +93,7 @@
                     <li class="list-inline-item mx-3">
                         <a href="{% url 'view_cart' %}" class="text-main text-decoration-none">
                             <i class="fas fa-shopping-cart fa-2x"></i>
-                            <p>{% if grand_total %}
+                            <p class="mb-0">{% if grand_total %}
                                     £{{ grand_total|floatformat:2 }}
                                 {% else %}
                                     £0.00

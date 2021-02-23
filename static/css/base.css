@@ -59,6 +59,25 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2rem;
 }
 
+.delivery-text{
+    display: inline-block;
+    position: relative;
+    font-size: 1rem;
+}
+
+.delivery-text::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 140%;
+    top: 0;
+    left: -10%;
+    background: var(--pink);
+    z-index: -1;
+    transform: rotate(-2deg);
+    box-shadow: 10px 10px 5px black;
+}
+
 .overlay, .products-overlay {
     background-color: rgba(0,0,0,0.5);
     height: 100%;
@@ -132,6 +151,11 @@ footer {
     .header-container {
         padding-top: 84px;
     }
+
+    .delivery-text{
+        width: 45%;
+    }
+
 }
 
 /* header container to push down main body on desktop and up */
