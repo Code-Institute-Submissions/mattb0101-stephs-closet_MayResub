@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 from checkout.models import Order
 from .models import UserAccount
 from .forms import UserAccountForm
 
 
+@login_required
 def user_account(request):
     """ display users profile """
     account = get_object_or_404(UserAccount, user=request.user)
@@ -30,6 +31,7 @@ def user_account(request):
     return render(request, 'profile/profile.html', context)
 
 
+@login_required
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 

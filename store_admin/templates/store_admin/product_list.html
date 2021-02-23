@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="products-overlay"></div>
+    <div class="wrapper">
+        <div class="col">
+            <h2 class="text-dark text-center">Admin</h2>
+        </div>
+        <nav id="sidenav">
+            <div>
+                <h3>Admin options</h3>
+            </div>
+
+            <ul class="list-unstyled">
+                <li>
+                    <a href="{% url 'stock' %}">Stock Management</a>
+                </li>
+                <li>
+                    <a href="#" class="text-center text-decoration-none" id="product-managment" data-bs-toggle="dropdown" aria-haspopup="true">
+                        <p>Product Management</p>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="product-management">
+                        <li class="dropdown-item"><a href="{% url 'add_product' %}"> Add Product</a></li>
+                        <li class="dropdown-item"><a href="#">Register</a></li>
+                        <li class="dropdown-item"><a href="{% url 'product_list' %}">Product List</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="admin-content container-fluid">
+            <div class="row">
+                <div class="col">
+                    <table class="table-responsive text-dark">
+                        <thead>
+                            <tr>
+                                <td scope="col">Id</td>
+                                <td scope="col">Product Name</td>
+                                <td scope="col">Category</td>
+                                <td scope="col">Sub Category</td>
+                                <td scope="col">Price</td>
+                                <td scope="col">Edit Item</td>
+                                <td scope="col">Delete Item</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product in page_obj %}
+                                <tr>
+                                    <td><a href="{% url 'product_info' product.id %}">{{ product.id }}</a></td>
+                                    <td>{{ product.name }}</td>
+                                    <td>{{ product.category }}</td>
+                                    <td>{{ product.subcat }}</td>
+                                    <td>{{ product.price }}</td>
+                                    <td><a href="{% url 'edit_product' product.id %}">Edit</a></td>
+                                    <td><a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center text-dark my-2">
+                    <div class="pagination mb-5">
+                        <span class="step-links">
+                            {% if page_obj.has_previous %}
+                                <a href="?page=1">&laquo; first</a>
+                                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                            {% endif %}
+
+                            <span class="current">
+                                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                            </span>
+
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

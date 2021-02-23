@@ -32,7 +32,7 @@
                     <form method="POST" action="#" class="form h-100" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form | crispy }}
-                        <a href="{% url 'store_admin' %}" class="btn">Cancel</a>
+                        <a href="{% url 'product_list' %}" class="btn">Back to list</a>
                         <button type="submit" class="btn">Edit Product</button>
                     </form>
                 </div>
