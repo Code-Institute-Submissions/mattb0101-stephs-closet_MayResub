@@ -3,10 +3,12 @@
 {% block content %}
     <div class="products-overlay"></div>
     <div class="header-container text-dark">
-        <div class="row">
-            <div class="col-6 m-2">
-                {% block inner_content %}
-                {% endblock %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col col-md-6 offset-md-1 mt-2">
+                    {% block inner_content %}
+                    {% endblock %}
+                </div>
             </div>
         </div>
     </div>

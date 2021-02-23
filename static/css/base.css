@@ -20,6 +20,15 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Hind Siliguri", Arial, sans-serif;
 }
 
+/* from Bulma which has come from the mini-project */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.2rem;
+}
+
 #main-nav {
     max-height: 100px;
 }
@@ -62,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 .delivery-text{
     display: inline-block;
     position: relative;
-    font-size: 1rem;
+    font-size: 3vmin;
 }
 
 .delivery-text::before {
@@ -91,6 +100,30 @@ h1, h2, h3, h4, h5, h6 {
 .products-overlay {
     background-color: rgba(255,255, 255, 0.7);
 }
+
+/* ------------------------------- Buttons */
+
+.btn-primary {
+    background: var(--pink) !important;
+    border-color: black !important;
+    border-style: outset;
+}
+
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+    background: var(--pink) !important;
+    border-color: black !important;
+    border-style: inset;
+}
+
+.btn-secondary {
+    border-color: var(--pink) !important;
+    border-style: outset;
+    color: black;
+    background: none;
+}
+
 
 .btn-rtn{
     height: 42px;
