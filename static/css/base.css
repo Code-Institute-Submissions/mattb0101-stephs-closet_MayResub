@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     width: 120%;
     height: 140%;
-    top: 0;
+    top: -5px;
     left: -10%;
     background: var(--pink);
     z-index: -1;
