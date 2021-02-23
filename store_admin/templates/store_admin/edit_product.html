@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="products-overlay"></div>
+    <div class="wrapper">
+        <nav id="sidenav">
+            <div>
+                <h3>Admin Options</h3>
+            </div>
+
+            <ul class="list-unstyled">
+                <li>
+                    <a href="{% url 'stock' %}">Stock Management</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="admin-content container-fluid">
+            <div class="col">
+                <h2 class="text-dark text-center">Edit a Product</h2>
+            </div>
+            <div class="row text-dark">
+                <div class="col-6">
+                    <form method="POST" action="#" class="form h-100" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <a href="{% url 'store_admin' %}" class="btn">Cancel</a>
+                        <button type="submit" class="btn">Edit Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
