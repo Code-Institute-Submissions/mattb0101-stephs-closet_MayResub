@@ -27,7 +27,7 @@ def product_list(request):
         return redirect(reverse('home'))
 
     products = Product.objects.all()
-    search = None
+    list_search = None
     categories = None
     sub_categories = None
     sort = None
@@ -62,25 +62,25 @@ def product_list(request):
             sub_categories = Sub_Category.objects.filter(
                 subcat_name__in=sub_categories)
 
-        if 'search' in request.GET:
-            search = request.GET['search']
-            if not search:
+        if 'list_search' in request.GET:
+            list_search = request.GET['list_search']
+            if not list_search:
                 messages.error(request, "There is nothing to search on!")
-                return redirect(reverse('products'))
+                return redirect(reverse('product_list'))
 
-            searches = Q(name__icontains=search)
-            products = products.filter(searches)
+            list_searches = Q(name__icontains=list_search)
+            products = products.filter(list_searches)
 
     current_sorting = f'{sort}_{direction}'
 
-    paginator = Paginator(products,50)
+    paginator = Paginator(products, 50)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     context = {
         'products': products,
-        'search_term': search,
+        'search_term': list_search,
         'current_categories': categories,
         'current_sub_categories': sub_categories,
         'current_sorting': current_sorting,
@@ -154,4 +154,4 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted')
-    return redirect(reverse('store_admin'))
+    return redirect(reverse('product_list'))
