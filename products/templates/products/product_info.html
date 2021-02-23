@@ -18,6 +18,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                         <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                        <li class="breadcrumb-item">{{ current_search }}</li>
                         <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
                     </ol>
                 </nav>
@@ -25,26 +26,26 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-md-4 col-lg-3 offset-md-2 offset-lg-3">
-                <div class="image-container">
+                <div class="image-container shadow-lg rounded-1">
                     {% if product.image %}
                         <a href="{{ product.image.url }}" target="_blank">
-                            <img src="{{ product.image.url }} " class="card-img-top shadow-lg" alt="{{ product.name }}">
+                            <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
                         </a>
                     {% else %}
                         <a href="">
-                            <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top shadow-lg" alt="{{ product.name }}">
+                            <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ product.name }}">
                         </a>
                     {% endif %}
                 </div>
             </div>
             <div class="col">
-                <div class="product-info-container text-dark">
+                <div class="product-info-container text-black">
                     <p class="fs-3 fw-bold">{{ product.name }}</p>
                     <p class="lead fs-2">£{{ product.price }}</p>
-                    <p>{{ product.article_type }}</p>
                     {% if product.category %}
-                        <p><a href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
+                        <p><i class="fas fa-tags"></i><a class="text-decoration-none text-black" href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
                     {% endif %}
+                    <pre>   <i class="fas fa-tag"></i>{{ product.article_type }}</pre>
                     
                     <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}

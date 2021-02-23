@@ -1,6 +1,7 @@
 :root {
     --main: #fffff0;
     --pink: #ee0ec9;
+    --black: #0e1111;
 }
 
 html {
@@ -14,6 +15,10 @@ body {
     background-size: cover;
     color: var(--main);
     font-size: 1.1rem;
+}
+
+pre {
+    font-family: "Josefin Slab", Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,6 +45,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-main {
     color: var(--pink) !important;
+}
+
+.text-black {
+    color: var(--black) !important;
 }
 
 .home-logo {

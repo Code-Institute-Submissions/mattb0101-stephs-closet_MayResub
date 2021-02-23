@@ -22,7 +22,14 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb ms-4">
                     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    {% if current_categories %}
+                    <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                        {% for category in current_categories %}
+                        <li class="breadcrumb-item active" aria-current="page">{{ category.cat_friendlyname }}</li>
+                        {% endfor %}
+                    {% else %}
                     <li class="breadcrumb-item active" aria-current="page">Products</li>
+                    {% endif %}
                 </ol>
             </nav>
         </div>
@@ -40,14 +47,14 @@
         <div class="row">
             {% for product in page_obj %}
                 <div class="col-12 col-md-4 col-lg-3 my-2">
-                    <div class="card text-dark h-100">
+                    <div class="card text-dark h-100 shadow-lg">
                         {% if product.image %}
                             <a href="{% url 'product_info' product.id %}">
-                                <img src="{{ product.image.url }} " class="card-img-top shadow-lg" alt="{{ product.name }}">
+                                <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
                             </a>
                         {% else %}
                             <a href="{% url 'product_info' product.id %}">
-                                <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top shadow-lg" alt="{{ product.name }}">
+                                <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ product.name }}">
                             </a>
                         {% endif %}
                         <div class="card-body">
