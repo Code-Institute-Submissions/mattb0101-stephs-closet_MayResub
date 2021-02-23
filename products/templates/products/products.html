@@ -40,7 +40,7 @@
             </nav>
         </div>
         <div class="col-12 col-md-6">
-            <select id="sort-by-box" class="form-select w-50 float-end me-5 " aria-label="Default select example">
+            <select id="sort-by-box" class="form-select float-end " aria-label="Default select example">
                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort By...</option>
                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>By Price (low to high)</option>
                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>By Price (high to low)</option>
@@ -49,10 +49,10 @@
             </select>
         </div>
     </div>
-    <div class="container col-10 offset-1">
+    <div class="container">
         <div class="row">
             {% for product in page_obj %}
-                <div class="col-12 col-md-4 col-lg-3 my-2">
+                <div class="col-12 col-sm-4 col-md-3 my-2">
                     <div class="card text-dark h-100 shadow-lg">
                         {% if product.image %}
                             <a href="{% url 'product_info' product.id %}">
