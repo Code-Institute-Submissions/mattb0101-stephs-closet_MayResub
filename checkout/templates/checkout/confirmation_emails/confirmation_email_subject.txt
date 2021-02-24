@@ -1,1 +1,1 @@
-Confirmation for Stéphs Closet Order {{ order.order_number }
+Confirmation for Stéphs Closet Order {{ order.order_number }}
