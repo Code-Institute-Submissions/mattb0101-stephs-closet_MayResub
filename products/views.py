@@ -80,7 +80,7 @@ def product_info(request, item_id):
     """ Single product info page that allows user to buy """
 
     product = get_object_or_404(Product, pk=item_id)
-    previous_page = request.GET.get('previous', '/default/url/?')
+    previous_page = request.GET.get('previous', '/default/url/')
 
     context = {
         'product': product,

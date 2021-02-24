@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item">{{ current_search }}</li>
                         <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
                     </ol>
-                    <p class="text-black">{{ previous_page }}, {{ request.path }}</p>
+                    <p class="text-black">{{ previous_page }}</p>
                 </nav>
             </div>
         </div>
@@ -88,13 +88,13 @@
                             </div>
                             <div class="row mt-5">
                                 <div class="col-6">
-                                    <a href="{% url 'products' %}" class=" btn btn-secondary">
+                                    <a href="{{ previous_page }}" class=" btn btn-secondary">
                                         <i class="fas fa-backward"></i>
                                         <span>Keep Shopping</span>
                                     </a>
                                     <input type="submit" class="btn btn-primary" value="Add to Cart">
                                 </div>
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
                                 </div>
                             </div>
                     </form>

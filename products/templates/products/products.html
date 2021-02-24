@@ -23,39 +23,40 @@
             {% endif %}
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                <ol class="breadcrumb ms-4">
-                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                    {% if current_categories %}
-                    <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
-                        {% for category in current_categories %}
-                        <li class="breadcrumb-item active" aria-current="page">{{ category.cat_friendlyname }}</li>
-                        {% endfor %}
-                    {% else %}
-                    <li class="breadcrumb-item active" aria-current="page">Products</li>
-                    {% endif %}
-                </ol>
-            </nav>
-        </div>
-        <div class="col-12 col-md-6">
-            <select id="sort-by-box" class="form-select float-end " aria-label="Default select example">
-                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort By...</option>
-                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>By Price (low to high)</option>
-                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>By Price (high to low)</option>
-                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>By Name (A-Z)</option>
-                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>By Name (Z-A)</option>
-            </select>
-        </div>
-    </div>
     <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb ms-4">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        {% if current_categories %}
+                        <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                            {% for category in current_categories %}
+                            <li class="breadcrumb-item active" aria-current="page">{{ category.cat_friendlyname }}</li>
+                            {% endfor %}
+                        {% else %}
+                        <li class="breadcrumb-item active" aria-current="page">Products</li>
+                        {% endif %}
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-12 col-md-4 offset-md-2">
+                <select id="sort-by-box" class="form-select  " aria-label="Default select example">
+                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort By...</option>
+                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>By Price (low to high)</option>
+                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>By Price (high to low)</option>
+                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>By Name (A-Z)</option>
+                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>By Name (Z-A)</option>
+                </select>
+            </div>
+        </div>
+    
         <div class="row">
             {% for product in page_obj %}
                 <div class="col-12 col-sm-4 col-md-3 my-2">
                     <div class="card text-dark h-100 shadow-lg">
                         {% if product.image %}
-                            <a href="{% url 'product_info' product.id %}?previous={{ request.path }}">
+                            <a href="{% url 'product_info' product.id %}?previous={{ request.get_full_path }}">
                                 <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
                             </a>
                         {% else %}

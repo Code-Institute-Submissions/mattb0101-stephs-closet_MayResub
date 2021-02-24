@@ -16,8 +16,8 @@
             <h2 class="text-dark text-center">Admin</h2>
         </div>
         <nav id="sidenav">
-            <div>
-                <h3>Admin options</h3>
+            <div class="text-center">
+                <h2>Admin options</h2>
             </div>
 
             <ul class="list-unstyled">
@@ -47,10 +47,10 @@
                 </li>
             </ul>
         </nav>
-        <div class="admin-content container-fluid">
+        <div class="admin-content container-fluid my-4">
             <div class="row">
                 <div class="col">
-                    <table class="table-responsive text-dark">
+                    <table class="table table-sm table-striped text-dark bg-light">
                         <thead>
                             <tr>
                                 <td scope="col">Id</td>
@@ -67,8 +67,8 @@
                                 <tr>
                                     <td><a href="{% url 'product_info' product.id %}">{{ product.id }}</a></td>
                                     <td>{{ product.name }}</td>
-                                    <td>{{ product.category }}</td>
-                                    <td>{{ product.subcat }}</td>
+                                    <td>{{ product.category.cat_friendlyname }}</td>
+                                    <td>{{ product.subcat.subcat_friendlyname }}</td>
                                     <td>{{ product.price }}</td>
                                     <td><a href="{% url 'edit_product' product.id %}">Edit</a></td>
                                     <td><a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a></td>
