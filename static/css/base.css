@@ -115,6 +115,11 @@ h1, h2, h3, h4, h5, h6 {
     overflow: scroll;
 }
 
+.bag-notification {
+    height: 30vh;
+    overflow-y: auto;
+}
+
 /* ------------------------------- Buttons */
 
 .btn-primary {
@@ -158,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
 .message-container {
     position: fixed;
     top: 100px;
-    left: 50px;
+    right: 50px;
     z-index: 9999999999999;
 }
 
