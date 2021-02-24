@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block page_header %}
     <div class="header-container">
@@ -14,8 +15,17 @@
     <div class="container-fluid text-black">
         <div class="row">
             <div class="col text-center">
-                <h1>Email us with questions!</h1>
+                <h1>Email us with any questions!</h1>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <form method="POST" action="" name="email-form" class="text-dark">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-primary" type="submit" value="Send">
+            </form>
         </div>
     </div>
 {% endblock %}
