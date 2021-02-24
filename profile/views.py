@@ -20,7 +20,7 @@ def user_account(request):
             messages.error(request, 'Update failed')
     else:
         form = UserAccountForm(instance=account)
-    orders = account.orders.all
+    orders = account.orders.order_by('-date').all
 
     context = {
         'form': form,
