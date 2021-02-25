@@ -17,6 +17,7 @@ def all_products(request):
     sub_categories = None
     sort = None
     direction = None
+    articles = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -34,6 +35,10 @@ def all_products(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
+
+        if 'article' in request.GET:
+            articles = request.GET['article'].split(',')
+            products = products.filter(article_type__in=articles)
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')

@@ -57,6 +57,7 @@
                                 <td scope="col">Product Name</td>
                                 <td scope="col">Category</td>
                                 <td scope="col">Sub Category</td>
+                                <td scope="col">Atricle Type</td>
                                 <td scope="col">Price</td>
                                 <td scope="col">Edit Item</td>
                                 <td scope="col">Delete Item</td>
@@ -69,6 +70,7 @@
                                     <td>{{ product.name }}</td>
                                     <td>{{ product.category.cat_friendlyname }}</td>
                                     <td>{{ product.subcat.subcat_friendlyname }}</td>
+                                    <td>{{ product.article_type }}</td>
                                     <td>{{ product.price }}</td>
                                     <td><a href="{% url 'edit_product' product.id %}">Edit</a></td>
                                     <td><a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a></td>
