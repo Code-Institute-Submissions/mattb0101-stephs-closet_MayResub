@@ -54,7 +54,7 @@
         <div class="row">
             {% for product in page_obj %}
                 <div class="col-12 col-sm-4 col-md-3 my-2">
-                    <div class="card text-dark h-100 shadow-lg">
+                    <div class="card text-dark h-100 shadow-lg product-card">
                         {% if product.image %}
                             <a href="{% url 'product_info' product.id %}?previous={{ request.get_full_path }}">
                                 <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
