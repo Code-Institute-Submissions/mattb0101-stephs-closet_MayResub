@@ -3,20 +3,29 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .forms import ProductForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.db.models.functions import Lower
 
 from products.models import Product, Category, Sub_Category
+from checkout.models import Order, OrderLineItem
 
 
 @login_required
 def store_admin(request):
     """ View to create index page return """
+    orders = Order.objects.all()
+    order_count = orders.count()
+
     if not request.user.is_superuser:
         messages.error(request, 'Sorry! thats for the store management only!')
         return redirect(reverse('home'))
 
-    return render(request, 'store_admin/store_admin.html')
+    context = {
+        'orders': orders,
+        'order_count': order_count,
+    }
+
+    return render(request, 'store_admin/store_admin.html', context)
 
 
 @login_required
