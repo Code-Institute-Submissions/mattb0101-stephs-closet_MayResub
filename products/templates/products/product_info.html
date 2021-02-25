@@ -56,7 +56,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrease-qty btn btn-primary" data-item_id="{{ product.id }}"
+                                            <button class="decrease-qty btn btn-pink" data-item_id="{{ product.id }}"
                                                 id="decrease-qty_{{ product.id }}">
                                                 <div class="icon">
                                                     <i class="fas fa-minus"></i>
@@ -65,7 +65,7 @@
                                         </div>
                                         <input name="quantity" type="number" class="form-control text-center qty-input" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                         <div class="input-group-append">
-                                            <button class="increase-qty btn btn-primary" data-item_id="{{ product.id }}"
+                                            <button class="increase-qty btn btn-pink" data-item_id="{{ product.id }}"
                                                 id="increase-qty_{{ product.id }}">
                                                 <div class="icon">
                                                     <i class="fas fa-plus"></i>
@@ -88,11 +88,11 @@
                             </div>
                             <div class="row mt-5">
                                 <div class="col-6">
-                                    <a href="{{ previous_page }}" class=" btn btn-secondary">
+                                    <a href="{{ previous_page }}" class=" btn btn-clear">
                                         <i class="fas fa-backward"></i>
                                         <span>Keep Shopping</span>
                                     </a>
-                                    <input type="submit" class="btn btn-primary" value="Add to Cart">
+                                    <input type="submit" class="btn btn-pink" value="Add to Cart">
                                 </div>
                                     <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
                                 </div>
