@@ -42,7 +42,11 @@
                 <div class="product-info-container text-black">
                     <p class="fs-3 fw-bold">{{ product.name }}</p>
                     <p class="lead fs-2 mb-0">£{{ product.price }}</p>
+                    {% if stock.in_stock == 0 %}
+                    <small class="text-danger fw-bold">Sorry! there is none of this product in stock!</small>
+                    {% else %}
                     <small class="text-muted">In Stock: {{ stock.in_stock }}</small>
+                    {% endif %}
                     {% if product.category %}
                         <p><i class="fas fa-tags mt-2"></i><a class="text-decoration-none text-black" href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
                     {% endif %}
@@ -92,7 +96,11 @@
                                         <i class="fas fa-backward"></i>
                                         <span>Keep Shopping</span>
                                     </a>
-                                    <input type="submit" class="btn btn-pink" value="Add to Cart">
+                                    {% if stock.in_stock == 0 %}
+                                        <input type="submit" class="btn btn-pink" value="Add to Cart" disabled>
+                                    {% else %}
+                                        <input type="submit" class="btn btn-pink" value="Add to Cart">
+                                    {% endif %}
                                 </div>
                                     <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
                                 </div>
