@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="products-overlay"></div>
+    <div class="wrapper">       
+        <nav id="sidenav">
+            <div>
+                <h3>Admin options</h3>
+            </div>
+
+            <ul class="list-unstyled">
+                <li>
+                    <span>Stock</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="admin-content container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-dark text-center">Receive Stock</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 text-dark">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form | crispy}}
+                        <input type="submit" value="Save">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
