@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bag-notification {
-    height: 30vh;
+    max-height: 30vh;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -126,7 +126,6 @@ h1, h2, h3, h4, h5, h6 {
 .btn-pink {
     background: var(--pink) !important;
     border-color: black !important;
-    border-style: outset;
 }
 
 .btn-pink:active,
@@ -134,12 +133,11 @@ h1, h2, h3, h4, h5, h6 {
 .btn-pink:hover {
     background: var(--pink) !important;
     border-color: black !important;
-    border-style: inset;
+    
 }
 
 .btn-clear {
     border-color: var(--pink) !important;
-    border-style: outset;
     color: black;
     background: none;
 }
