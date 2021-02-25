@@ -8,6 +8,7 @@ from django_countries.fields import CountryField
 
 from products.models import Product
 from profile.models import UserAccount
+from stock.models import Stock
 
 
 class Order(models.Model):
@@ -44,7 +45,7 @@ class Order(models.Model):
             self.delivery_cost = settings.STANDARD_DELIVERY_COST
         else:
             self.delivery_cost = 0
-        self.grand_total = self.order_total + self.delivery_cost
+        self.grand_total = self.order_total + int(self.delivery_cost)
         self.save()
 
     def save(self, *args, **kwargs):
