@@ -18,6 +18,8 @@ What apps do I need to make?!
 
  SIZES ARE ON ADDING PRODUCTS 3 -->
 
+ Talk about changing delivery to standard price and having to make sure changes were put in model.py and contexts.py and if, elif, else. delivery coming through as a flaot and total as a decimal, need to make delivery an int
+
 ## UX
  
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
