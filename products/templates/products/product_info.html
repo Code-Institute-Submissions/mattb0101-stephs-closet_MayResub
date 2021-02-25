@@ -41,9 +41,10 @@
             <div class="col">
                 <div class="product-info-container text-black">
                     <p class="fs-3 fw-bold">{{ product.name }}</p>
-                    <p class="lead fs-2">£{{ product.price }}</p>
+                    <p class="lead fs-2 mb-0">£{{ product.price }}</p>
+                    <small class="text-muted">In Stock: {{ stock.in_stock }}</small>
                     {% if product.category %}
-                        <p><i class="fas fa-tags"></i><a class="text-decoration-none text-black" href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
+                        <p><i class="fas fa-tags mt-2"></i><a class="text-decoration-none text-black" href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
                     {% endif %}
                     <pre>   <i class="fas fa-tag"></i>{{ product.article_type }}</pre>
                     
