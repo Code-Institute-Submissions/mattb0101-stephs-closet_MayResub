@@ -74,6 +74,7 @@ def all_products(request):
         'search_term': search,
         'current_categories': categories,
         'current_sub_categories': sub_categories,
+        'current_articles': articles,
         'current_sorting': current_sorting,
         'paginator': paginator,
         'page_obj': page_obj,
