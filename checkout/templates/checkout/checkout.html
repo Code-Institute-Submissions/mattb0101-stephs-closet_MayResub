@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools%}
 
 {% block extracss %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -18,21 +19,53 @@
     <div class="container">
         <div class="row text-dark text-center">
             <div class="col">
-                <h2>Checkout</h2>
+                <h1>Checkout</h1>
             </div>
         </div>
     
         <div class="row">
-            <div class="col col-md-6 text-dark"></div>
+            <div class="col col-md-6 text-black order-last">
                 <div class="row">
-                {% for item in cart_items %}
-                    <p class="my-0">{{ item.product.name }}</p>
-                    <p class="my-0">{{ item.size }}</p>
-                    <p class="my-0">{{ item.quantity }}</p>
-                {% endfor %}
+                    <p class="">Order Summary</p>
+                    <div class="row">
+                        <div class="col-9">
+                            <p class="my-0 fw-bold">Product Info</p>
+                        </div>
+                        <div class="col-3">
+                            <p class="my-0 fw-bold">Subtotal</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        {% for item in cart_items %}
+                        <div class="col-2">
+                            <a href="{% url 'product_info' item.product.id %}">
+                                {% if item.product.image %}
+                                    <img src="{{ item.product.image.url }}" alt="{{ product.name }}" class="w-100">
+                                {% else %}
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class="col-7">
+                            <p class="my-0 small">{{ item.product.name }}</p>
+                            <p class="my-0 small">Size: {{ item.size }}</p>
+                            <p class="my-0 small">Qty: {{ item.quantity }}</p>
+                        </div>
+                        <div class="col-3">
+                            <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <hr class="mt-2">
+                    <div class="row text-end">
+                        <p class="small my-0"><strong>Order Total:</strong> £{{ total }}</p>
+                        <p class="small my-0"><strong>Delivery:</strong> £{{ delivery }}</p>
+                        <p class="small my-0"><strong>Grand Total:</strong> £{{ grand_total }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="col col-md-6  text-dark">
+            <div class="col col-md-6 text-black order-first">
                 <p>Please fill out the form to complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-info-form">
                     {% csrf_token %}
@@ -55,14 +88,16 @@
                     <!-- We'll put the error messages in this element -->
                     <div id="card-errors" role="alert"></div>
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                    <div>
-                        <a href="{% url 'view_cart' %}" class="btn">
-                            <i class="fas fa-backward"></i>
-                            <span>Adjust Bag</span>
-                        </a>
-                        <button id="pay-button" class="btn">
-                            <span>Complete Order</span>
-                        </button>
+                    <div class="row mt-2">
+                        <div class="col text-end">
+                            <a href="{% url 'view_cart' %}" class="btn btn-clear">
+                                <i class="fas fa-backward"></i>
+                                <span>Adjust Bag</span>
+                            </a>
+                            <button id="pay-button" class="btn btn-pink">
+                                <span>Complete Order</span>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
