@@ -18,7 +18,9 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                         <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
-                        <li class="breadcrumb-item">{{ current_search }}</li>
+                        {% if current_search %}
+                            <li class="breadcrumb-item">{{ current_search }}</li>
+                        {% endif %}
                         <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
                     </ol>
                 </nav>
