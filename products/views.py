@@ -87,11 +87,13 @@ def product_info(request, item_id):
     """ Single product info page that allows user to buy """
 
     product = get_object_or_404(Product, pk=item_id)
+    stock = get_object_or_404(Stock, pk=item_id)
     previous_page = request.GET.get('previous', '/default/url/')
 
     context = {
         'product': product,
         'previous_page': previous_page,
+        'stock': stock,
     }
 
     return render(request, 'products/product_info.html', context)

@@ -51,6 +51,8 @@
                             <p class="my-0 small">{{ item.product.name }}</p>
                             <p class="my-0 small">Size: {{ item.size }}</p>
                             <p class="my-0 small">Qty: {{ item.quantity }}</p>
+                            <p class="my-0 small">In Stock: {{ item.stock.in_stock }}</p>
+                            <p class="my-0 small">To Issue: {{ item.stock.issue_qty }}</p>
                         </div>
                         <div class="col-3">
                             <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>

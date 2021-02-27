@@ -61,12 +61,18 @@ def checkout(request):
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
+                    stock = Stock.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
+                        stock_update = Stock(
+                            product=product,
+                            issue_qty=item_data,
+                        )
+                        stock_update.save()
                         order_line_item.save()
                     else:
                         for size, quantity in item_data['item_with_size'].items():
@@ -76,7 +82,14 @@ def checkout(request):
                                 quantity=quantity,
                                 product_size=size,
                             )
+                            stock_update = Stock(
+                                product=product,
+                                issue_qty=quantity,
+                            )
+                            stock_update.save()
                             order_line_item.save()
+                    messages.success(request, f'Got item {order_line_item.product} with \
+                    {stock.in_stock} and {stock_update.issue_qty} to issue!')
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your cart doesnt exist")

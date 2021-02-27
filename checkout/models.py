@@ -8,7 +8,7 @@ from django_countries.fields import CountryField
 
 from products.models import Product
 from profile.models import UserAccount
-from stock.models import Stock
+
 
 
 class Order(models.Model):
