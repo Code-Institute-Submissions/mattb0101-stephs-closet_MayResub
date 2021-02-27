@@ -253,3 +253,10 @@ footer {
         padding-top: 158px;
     }
 }
+
+@media (max-width: 992px) {
+    .message-container {
+        max-width: 95vw;
+        right: 2.5vw;
+    }
+}
