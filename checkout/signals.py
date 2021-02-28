@@ -2,7 +2,7 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 from .models import OrderLineItem
-from stock.models import Stock, StockTransactions
+from stock.models import StockTransactions
 
 
 @receiver(post_save, sender=OrderLineItem)
@@ -26,4 +26,4 @@ def update_stock(sender, instance, **kwargs):
     """
     Updating stock on order
     """
-    instance.stock.update_stock()
+    instance.product.update_stock()
