@@ -2,6 +2,7 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 from .models import OrderLineItem
+from stock.models import Stock, StockTransactions
 
 
 @receiver(post_save, sender=OrderLineItem)
@@ -18,3 +19,11 @@ def update_on_delete(sender, instance, **kwargs):
     Update order total on deleting line item
     """
     instance.order.update_total()
+
+
+@receiver(post_save, sender=StockTransactions)
+def update_stock(sender, instance, **kwargs):
+    """
+    Updating stock on order
+    """
+    instance.stock.update_stock()

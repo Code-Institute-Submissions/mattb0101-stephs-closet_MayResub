@@ -92,8 +92,8 @@ def product_info(request, item_id):
 
     context = {
         'product': product,
-        'previous_page': previous_page,
         'stock': stock,
+        'previous_page': previous_page,
     }
 
     return render(request, 'products/product_info.html', context)

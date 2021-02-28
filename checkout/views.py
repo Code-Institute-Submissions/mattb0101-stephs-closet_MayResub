@@ -6,7 +6,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
-from stock.models import Stock
+from stock.models import Stock, StockTransactions
 from cart.contexts import cart_contents
 from profile.models import UserAccount
 from profile.forms import UserAccountForm
@@ -61,19 +61,18 @@ def checkout(request):
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    stock = Stock.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
-                        stock_update = Stock(
-                            product=product,
-                            issue_qty=item_data,
-                        )
-                        stock_update.save()
                         order_line_item.save()
+                        stock_transaction = StockTransactions(
+                            product=product,
+                            amount=item_data,
+                        )
+                        stock_transaction.save()
                     else:
                         for size, quantity in item_data['item_with_size'].items():
                             order_line_item = OrderLineItem(
@@ -82,14 +81,12 @@ def checkout(request):
                                 quantity=quantity,
                                 product_size=size,
                             )
-                            stock_update = Stock(
-                                product=product,
-                                issue_qty=quantity,
-                            )
-                            stock_update.save()
                             order_line_item.save()
-                    messages.success(request, f'Got item {order_line_item.product} with \
-                    {stock.in_stock} and {stock_update.issue_qty} to issue!')
+                            stock_transaction = StockTransactions(
+                                product=product,
+                                amount=quantity,
+                            )
+                            stock_transaction.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your cart doesnt exist")

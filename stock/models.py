@@ -9,9 +9,14 @@ class Stock(models.Model):
     issue_qty = models.IntegerField(blank=True, null=True, default=0)
     receive_qty = models.IntegerField(blank=True, null=True, default=0)
 
-    def save(self, *args, **kwargs):
-        """ Update in Stock value with order qty """
-        super().save(*args, **kwargs)
+    def update_stock(self):
+        """ Update Stock  when there is a transaction """
+        self.in_stock = self.in_stock - self.transaction.amount
+        self.save()
 
-    def __int__(self):
-        return self.in_stock
+
+class StockTransactions(models.Model):
+    product = models.ForeignKey(Stock, max_length=254, blank=False, null=False,
+    on_delete=models.CASCADE, related_name='transaction')
+    amount = models.IntegerField(default=0)
+
