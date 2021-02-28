@@ -9,5 +9,10 @@ class Stock(models.Model):
     issue_qty = models.IntegerField(blank=True, null=True, default=0)
     receive_qty = models.IntegerField(blank=True, null=True, default=0)
 
+    def update_on_sale(self):
+        """ Update in Stock value with order qty """
+        self.in_stock = self.in_stock - self.issue_qty
+        self.save()
+
     def __int__(self):
         return self.in_stock

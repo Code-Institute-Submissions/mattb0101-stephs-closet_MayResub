@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.db import connection
 from .forms import ProductForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -13,16 +14,20 @@ from checkout.models import Order, OrderLineItem
 @login_required
 def store_admin(request):
     """ View to create index page return """
-    orders = Order.objects.all()
-    order_count = orders.count()
+    cursor = connection.cursor()
+    cursor.execute("SELECT count(order_number) AS orders, CAST(date AS DATE) AS date FROM checkout_order GROUP BY CAST(date AS DATE)")
+    columns = [col[0] for col in cursor.description]
+    results = [
+        dict(zip(columns, row))
+        for row in cursor.fetchall()
+    ]
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry! thats for the store management only!')
         return redirect(reverse('home'))
 
     context = {
-        'orders': orders,
-        'order_count': order_count,
+        'results': results,
     }
 
     return render(request, 'store_admin/store_admin.html', context)

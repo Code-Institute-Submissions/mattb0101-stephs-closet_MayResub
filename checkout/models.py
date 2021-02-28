@@ -33,7 +33,7 @@ class Order(models.Model):
     def _gen_order_number(self):
         """ Generate random order number """
         return uuid.uuid4().hex.upper()
-
+    
     def update_total(self):
         """
         Update grand total when a new line is added

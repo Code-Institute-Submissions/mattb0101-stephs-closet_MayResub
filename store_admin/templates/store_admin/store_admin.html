@@ -39,7 +39,9 @@
         <div class="admin-content container-fluid">
             <div class="row">
                 <div class="col text-black">
-                    {{ order_count }}
+                    {% for result in results %}
+                        <p>{{ result.date }} - {{ result.orders }}</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>

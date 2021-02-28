@@ -20,3 +20,10 @@ def update_on_delete(sender, instance, **kwargs):
     """
     instance.order.update_total()
 
+
+@receiver(post_save, sender=Stock)
+def update_on_sale(sender, instance, **kwargs):
+    """
+    Update stock on sale
+    """
+    instance.update_on_sale()
