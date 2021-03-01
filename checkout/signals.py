@@ -21,9 +21,11 @@ def update_on_delete(sender, instance, **kwargs):
     instance.order.update_total()
 
 
+# might need a dispatch_uid in here....
 @receiver(post_save, sender=StockTransactions)
 def update_stock(sender, instance, **kwargs):
     """
     Updating stock on order
     """
-    instance.product.update_stock()
+    instance.product.in_stock -= instance.amount
+    instance.product.save()

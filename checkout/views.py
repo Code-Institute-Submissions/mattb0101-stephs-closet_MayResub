@@ -6,7 +6,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
-from stock.models import Stock, StockTransactions
+from stock.models import StockTransactions
 from cart.contexts import cart_contents
 from profile.models import UserAccount
 from profile.forms import UserAccountForm
@@ -68,11 +68,12 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                        stock_transaction = StockTransactions(
-                            stock=product,
+                        transaction = StockTransactions(
+                            product=product,
                             amount=item_data,
                         )
-                        stock_transaction.save()
+                        transaction.save()
+                        messages.success(request, f'Item {product.name} now has {product.in_stock} left in stock.')
                     else:
                         for size, quantity in item_data['item_with_size'].items():
                             order_line_item = OrderLineItem(
@@ -82,11 +83,12 @@ def checkout(request):
                                 product_size=size,
                             )
                             order_line_item.save()
-                            stock_transaction = StockTransactions(
-                                stock=product,
+                            transaction = StockTransactions(
+                                product=product,
                                 amount=quantity,
                             )
-                            stock_transaction.save()
+                            transaction.save()
+                            messages.success(request, f'Item {product.name} now has {product.in_stock} left in stock.')
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your cart doesnt exist")

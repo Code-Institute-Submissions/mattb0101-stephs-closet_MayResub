@@ -42,6 +42,7 @@
                                         {% if item.size %}
                                             <p>Size: {{ item.size }}</p>
                                         {% endif %}
+                                        <p>In Stock: {{ item.product.in_stock }}</p>
                                     </td>
                                     <td>
                                         <p>£{{ item.product.price }}</p>
