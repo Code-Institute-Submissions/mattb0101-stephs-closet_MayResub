@@ -69,7 +69,7 @@ def checkout(request):
                         )
                         order_line_item.save()
                         stock_transaction = StockTransactions(
-                            product=product,
+                            stock=product,
                             amount=item_data,
                         )
                         stock_transaction.save()
@@ -83,7 +83,7 @@ def checkout(request):
                             )
                             order_line_item.save()
                             stock_transaction = StockTransactions(
-                                product=product,
+                                stock=product,
                                 amount=quantity,
                             )
                             stock_transaction.save()

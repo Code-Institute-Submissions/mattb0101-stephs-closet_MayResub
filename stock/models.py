@@ -16,7 +16,7 @@ class Stock(models.Model):
 
 
 class StockTransactions(models.Model):
-    product = models.ForeignKey(Stock, max_length=254, blank=False, null=False,
+    product = models.ForeignKey(Product, max_length=254, blank=False, null=False,
     on_delete=models.CASCADE, related_name='transaction')
     amount = models.IntegerField(default=0)
 
