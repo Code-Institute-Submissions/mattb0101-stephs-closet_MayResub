@@ -12,9 +12,6 @@
 {% block content %}
     <div class="products-overlay"></div>
     <div class="wrapper">
-        <div class="col">
-            <h2 class="text-dark text-center">Admin</h2>
-        </div>
         <nav id="sidenav">
             <div>
                 <h3>Admin options</h3>
@@ -38,13 +35,30 @@
         </nav>
         <div class="admin-content container-fluid">
             <div class="row">
-                <div class="col-6 text-black">
-                    {% for result in results %}
-                        <p>{{ result.date }} - {{ result.orders }}</p>
-                    {% endfor %}
+                <div class="col">
+                    <h2 class="text-dark text-center">Store Overview</h2>
                 </div>
-                <div class="col-6">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <canvas id="myChart" class="bg-light p-3" width="300" height="200"></canvas>
+                </div>
+                <div class="col-1 col-md-6 text-black reorder-products">
+                    <table class="table table-small bg-light p-3">
+                        <h3>Products to Re-order</h3>
+                        <thead>
+                            <th>Product</th>
+                        </thead>
+                        <tbody>
+                            {% for product in products %}
+                                <tr>
+                                {% if product.in_stock == 0 %}
+                                    <td class="small">{{ product.name }}</td>
+                                {% endif %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -64,7 +78,7 @@
                 url: endpoint,
                 success: function(data){
                     labels = data.labels
-                    defaultData = data.default
+                    defaultData = data.orders
                     setChart()
                 },
                 error: function(error_data){
@@ -74,30 +88,16 @@
             })
 
             function setChart(){
-                 var ctx = document.getElementById('myChart').getContext('2d');
+                var ctx = document.getElementById('myChart').getContext('2d'); 
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: '# of Votes',
+                            label: '# Orders by date',
                             data: defaultData,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
+                            backgroundColor: 'rgba(238, 14, 201, 1)',
+                            borderColor: 'rgba(14, 17, 17, 1)',
                             borderWidth: 1
                         }]
                     },

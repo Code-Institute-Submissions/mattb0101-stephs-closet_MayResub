@@ -10,24 +10,26 @@ from django.db.models.functions import Lower
 from products.models import Product, Category, Sub_Category
 from checkout.models import Order, OrderLineItem
 
-from django.views.generic import View
-from django.http import JsonResponse
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-
-class StoreAdmin(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'store_admin/store_admin.html', {})
+import datetime
 
 
-def get_data(request, *args, **kwargs):
-    data = {
-            "sales": 100,
-            "customers": 10,
-        }
-    return JsonResponse(data)
+@login_required
+def store_admin(request):
+    """ View to create index page return """
+    products = Product.objects.all()
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry! thats for the store management only!')
+        return redirect(reverse('home'))
+
+    context = {
+        'products': products
+    }
+
+    return render(request, 'store_admin/store_admin.html', context)
 
 
 class AdminChartData(APIView):
@@ -35,35 +37,26 @@ class AdminChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
-        labels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
-        default_items = [1, 5, 7, 2, 3, 4]
+        # Query to return orders per day
+        labels = []
+        data = []
+
+        cursor = connection.cursor()
+        cursor.execute("SELECT count(order_number) AS order_count, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
+        columns = [col[0] for col in cursor.description]
+        results = [
+            dict(zip(columns, row))
+            for row in cursor.fetchall()
+        ]
+        for result in results:
+            labels.append(result['date'])
+            data.append(result['order_count'])
+
         data = {
             "labels": labels,
-            "default": default_items,
+            "orders": data,
         }
         return Response(data)
-
-
-# @login_required
-# def store_admin(request):
-#     """ View to create index page return """
-#     cursor = connection.cursor()
-#     cursor.execute("SELECT count(order_number) AS orders, CAST(date AS DATE) AS date FROM checkout_order GROUP BY CAST(date AS DATE)")
-#     columns = [col[0] for col in cursor.description]
-#     results = [
-#         dict(zip(columns, row))
-#         for row in cursor.fetchall()
-#     ]
-
-#     if not request.user.is_superuser:
-#         messages.error(request, 'Sorry! thats for the store management only!')
-#         return redirect(reverse('home'))
-
-#     context = {
-#         'results': results,
-#     }
-
-#     return render(request, 'store_admin/store_admin.html', context)
 
 
 @login_required
