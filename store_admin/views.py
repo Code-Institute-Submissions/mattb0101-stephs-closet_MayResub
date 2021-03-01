@@ -7,33 +7,63 @@ from django.contrib import messages
 from django.db.models import Q, Count
 from django.db.models.functions import Lower
 
-from .models import Chart
 from products.models import Product, Category, Sub_Category
 from checkout.models import Order, OrderLineItem
 
-from django.views.generic import TemplateView
+from django.views.generic import View
+from django.http import JsonResponse
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 
-@login_required
-def store_admin(request):
-    """ View to create index page return """
-    cursor = connection.cursor()
-    cursor.execute("SELECT count(order_number) AS orders, CAST(date AS DATE) AS date FROM checkout_order GROUP BY CAST(date AS DATE)")
-    columns = [col[0] for col in cursor.description]
-    results = [
-        dict(zip(columns, row))
-        for row in cursor.fetchall()
-    ]
+class StoreAdmin(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'store_admin/store_admin.html', {})
 
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry! thats for the store management only!')
-        return redirect(reverse('home'))
 
-    context = {
-        'results': results,
-    }
+def get_data(request, *args, **kwargs):
+    data = {
+            "sales": 100,
+            "customers": 10,
+        }
+    return JsonResponse(data)
 
-    return render(request, 'store_admin/store_admin.html', context)
+
+class AdminChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        labels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+        default_items = [1, 5, 7, 2, 3, 4]
+        data = {
+            "labels": labels,
+            "default": default_items,
+        }
+        return Response(data)
+
+
+# @login_required
+# def store_admin(request):
+#     """ View to create index page return """
+#     cursor = connection.cursor()
+#     cursor.execute("SELECT count(order_number) AS orders, CAST(date AS DATE) AS date FROM checkout_order GROUP BY CAST(date AS DATE)")
+#     columns = [col[0] for col in cursor.description]
+#     results = [
+#         dict(zip(columns, row))
+#         for row in cursor.fetchall()
+#     ]
+
+#     if not request.user.is_superuser:
+#         messages.error(request, 'Sorry! thats for the store management only!')
+#         return redirect(reverse('home'))
+
+#     context = {
+#         'results': results,
+#     }
+
+#     return render(request, 'store_admin/store_admin.html', context)
 
 
 @login_required
@@ -172,20 +202,3 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted')
     return redirect(reverse('product_list'))
-
-
-class ChartView(TemplateView):
-    template_name = 'store_admin/store_admin.html'
-
-    def get_context_data(self, **kwargs):
-        cursor = connection.cursor()
-        cursor.execute("SELECT count(order_number) AS orders, CAST(date AS DATE) AS date FROM checkout_order GROUP BY CAST(date AS DATE)")
-        columns = [col[0] for col in cursor.description]
-        results = [
-            dict(zip(columns, row))
-            for row in cursor.fetchall()
-        ]
-
-        context = super().get_context_data(**kwargs)
-        context["qs"] = results.objects.all()
-        return context

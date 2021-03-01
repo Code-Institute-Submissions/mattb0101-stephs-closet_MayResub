@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'storages',
-    'chartjs',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
