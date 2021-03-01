@@ -7,8 +7,11 @@ from django.contrib import messages
 from django.db.models import Q, Count
 from django.db.models.functions import Lower
 
+from .models import Chart
 from products.models import Product, Category, Sub_Category
 from checkout.models import Order, OrderLineItem
+
+from django.views.generic import TemplateView
 
 
 @login_required
@@ -169,3 +172,20 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted')
     return redirect(reverse('product_list'))
+
+
+class ChartView(TemplateView):
+    template_name = 'store_admin/store_admin.html'
+
+    def get_context_data(self, **kwargs):
+        cursor = connection.cursor()
+        cursor.execute("SELECT count(order_number) AS orders, CAST(date AS DATE) AS date FROM checkout_order GROUP BY CAST(date AS DATE)")
+        columns = [col[0] for col in cursor.description]
+        results = [
+            dict(zip(columns, row))
+            for row in cursor.fetchall()
+        ]
+
+        context = super().get_context_data(**kwargs)
+        context["qs"] = results.objects.all()
+        return context
