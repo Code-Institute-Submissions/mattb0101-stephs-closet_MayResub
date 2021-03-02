@@ -151,6 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-pink {
     background: var(--pink) !important;
     border-color: black !important;
+    font-weight: bold;
 }
 
 .btn-pink:active,
@@ -221,10 +222,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ------------------------------- Footer */
-
-.container-fluid {
-    margin-bottom: 100px;
-}
 
 footer {
     height: 100px;

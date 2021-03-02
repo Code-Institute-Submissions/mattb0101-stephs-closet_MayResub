@@ -18,14 +18,14 @@
                 <h1>Email us with any questions!</h1>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-6 offset-3 bg-light py-2">
-            <form method="POST" action="" name="email-form" class="text-dark">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <input class="btn btn-pink my-2" type="submit" value="Send">
-            </form>
+        <div class="row mx-2">
+            <div class="col-12 col-md-6 offset-md-3 bg-light">
+                <form method="POST" action="" name="email-form" class="text-dark mt-2">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input class="btn btn-pink my-2" type="submit" value="Send">
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}
