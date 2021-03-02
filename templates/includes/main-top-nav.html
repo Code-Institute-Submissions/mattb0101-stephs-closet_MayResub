@@ -39,5 +39,11 @@
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=personal_care">All Personal Care</a></li>
             </ul>
         </li>
+        {% if request.user.is_superuser %}
+            <li><hr class="dropdown-divider d-md-none text-main"></li>
+            <li class="nav-item mx-2 d-md-none">
+                <a class="nav-link text-main fw-bold text-uppercase" href="{% url 'store_admin' %}"><i class="fas fa-user-shield"></i> Store Managment</a>
+            </li>
+        {% endif %}
     </ul>
 </div>
