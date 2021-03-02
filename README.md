@@ -16,8 +16,6 @@ What apps do I need to make?!
  - Media (Images)
 
 
- SIZES ARE ON ADDING PRODUCTS 3 -->
-
  Talk about changing delivery to standard price and having to make sure changes were put in model.py and contexts.py and if, elif, else. delivery coming through as a flaot and total as a decimal, need to make delivery an int
 
 ## UX
@@ -44,12 +42,70 @@ In addition, you may also use this section to discuss plans for additional featu
 ### Features Left to Implement
 - Another feature idea
 
-## Technologies Used
+# Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+#### [HTML (Hypertext Markup Language)](https://www.w3schools.com/html/)
+- HTML is the standard markup language for programmers to use to display content on a webpage.
 
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+#### [CSS (Cascading Style Sheets)](https://www.w3schools.com/css/)
+- CSS works alongside HTML to add style and effects to the website.
+
+#### [JavaScript](https://www.w3schools.com/js/default.asp)
+- JavaScript enables Interactive web pages and is an essential part of web applications.
+
+#### [jQuery](https://jquery.com/)
+- jQuery is a framework that enables easier manipulation of the DOM and i have used this to simplifiy the code from standard JavaScript.
+
+#### [Python](https://www.python.org/)
+- Python is a programming language similar to javascript but trying to make code more readble and trying to help programmers with clear and logical code. 
+
+#### [Github](https://github.com/)
+- A software development sharing platform used for hosting and sharing projects for open source, or team based projects. I was using github so other people can see, its easily hostable and can deploy easily.
+
+#### [Gitpod](https://www.gitpod.io/)
+- An IDE (Integrated Development Environment) for GitHub that lets you quickly launch your projects in a ready-to-code environment.
+
+#### [Git](https://git-scm.com/)
+- A free and open source version control system that handles all projects and keeps version history in check.
+
+#### [Font Awesome](https://fontawesome.com/)
+- A font and icon based toolkit based on CSS - Wikipedia. I used font awesome icons to give a more visual appearance to the Happiness and Followers, it also gave the user a quick viewing of what was being affected.
+
+#### [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
+ - A set of Web developer tools built into Google Chrome that allows you to make changes to a website on the fly for testing purposes and be able to diagnose issues. I used this for the console, to be able to view results as changes were made during gameplay. This also allowed me to issue commands to the game to carry on if there was a bug while testing rather than having to start the whole game again. 
+
+
+#### [Django]
+
+#### [DB Browser for SQLite]
+
+#### [Stripe]
+
+#### [Amazon Web Services]
+
+#### [Heroku]
+
+#### [Convertcsv.com]
+
+#### [Mockaroo]
+
+#### [Chartjs]
+
+#### [Django REST framework]
+
+#### [Crispy Forms]
+
+#### [Allauth]
+
+#### [Django Storages]
+
+#### [gunicorn]
+
+#### [Boto]
+
+#### [Bootstrap]
+
+
 
 
 ## Testing
