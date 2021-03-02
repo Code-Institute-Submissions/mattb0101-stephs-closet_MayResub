@@ -200,26 +200,6 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 20px rgba(0,0,0,0.5) !important;
 }
 
-/* -------------------------------Admin Page */
-
-.wrapper {
-    display: flex;
-    width: 100%;
-}
-
-#sidenav {
-    width: 250px;
-    position: fixed;
-    height: calc(100vh - 158px);
-    background-color: var(--pink);
-
-}
-
-.admin-content {
-    width: calc(100% - 250px);
-    position: inline-flex;
-    margin-left: 250px;
-}
 
 /* ------------------------------- Footer */
 
@@ -255,5 +235,45 @@ footer {
     .message-container {
         max-width: 95vw;
         right: 2.5vw;
+    }
+}
+
+/* -------------------------------- Store Admin - wants moving to other CSS file */
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidenav {
+    max-width: 250px;
+    min-width: 250px;
+    min-height: 100vh;
+    background-color: var(--pink);
+}
+
+#sidenav.active {
+    margin-left: -250px;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+
+@media (max-width: 768px) {
+    #sidenav {
+        margin-left: -250px;
+    }
+    #sidenav.active {
+        margin-left: 0;
     }
 }
