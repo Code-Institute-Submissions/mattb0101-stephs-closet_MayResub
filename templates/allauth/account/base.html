@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="products-overlay"></div>
-    <div class="header-container text-dark">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col col-md-6 offset-md-1 mt-4 bg-light p-3 shadow-lg">
-                    {% block inner_content %}
-                    {% endblock %}
-                </div>
+    <div class="header-container container">
+        <div class="products-overlay"></div>
+        <div class="row">
+            <div class="col col-md-6 offset-md-1 mt-4 bg-light m-3 p-3 shadow-lg text-black">
+                {% block inner_content %}
+                {% endblock %}
             </div>
         </div>
     </div>
