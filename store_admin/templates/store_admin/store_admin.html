@@ -51,6 +51,11 @@
                 <div class="col-12 col-md-6">
                     <canvas id="myChart" class="bg-light p-3" width="300" height="200"></canvas>
                 </div>
+                <div class="col-12 col-md-6">
+                    <canvas id="myChart2" class="bg-light p-3" width="300" height="200"></canvas>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-1 col-md-6 text-black reorder-products">
                     <table class="table table-small bg-light p-3">
                         <h3>Products to Re-order</h3>
@@ -83,14 +88,18 @@
     <script>
         $(document).ready(function(){
             var endpoint = 'api/chart/data/'
-            var defaultData = []
-            var labels = []
+            var orderData = []
+            var orderLabels = []
+            var valueData = []
+            var valueLabels = []
             $.ajax({
                 method: "GET",
                 url: endpoint,
                 success: function(data){
-                    labels = data.labels
-                    defaultData = data.orders
+                    orderLabels = data.ordersLabels
+                    orderData = data.orders
+                    valueLabels = data.valueLabels
+                    valueData = data.avgValue
                     setChart()
                 },
                 error: function(error_data){
@@ -100,14 +109,38 @@
             })
 
             function setChart(){
-                var ctx = document.getElementById('myChart').getContext('2d'); 
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var ctx2 = document.getElementById('myChart2').getContext('2d'); 
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: labels,
+                        labels: orderLabels,
                         datasets: [{
                             label: '# Orders by date',
-                            data: defaultData,
+                            data: orderData,
+                            backgroundColor: 'rgba(238, 14, 201, 1)',
+                            borderColor: 'rgba(14, 17, 17, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+                 
+                var myChart2 = new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: valueLabels,
+                        datasets: [{
+                            label: '# Average Order Value',
+                            data: valueData,
                             backgroundColor: 'rgba(238, 14, 201, 1)',
                             borderColor: 'rgba(14, 17, 17, 1)',
                             borderWidth: 1

@@ -38,23 +38,38 @@ class AdminChartData(APIView):
 
     def get(self, request, format=None):
         # Query to return orders per day
-        labels = []
-        data = []
+        labelsNumber = []
+        dataNumber = []
+        labelsValue = []
+        dataValue = []
 
         cursor = connection.cursor()
+
         cursor.execute("SELECT count(order_number) AS order_count, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
         columns = [col[0] for col in cursor.description]
-        results = [
+        resultsNumbers = [
             dict(zip(columns, row))
             for row in cursor.fetchall()
         ]
-        for result in results:
-            labels.append(result['date'])
-            data.append(result['order_count'])
+        for number in resultsNumbers:
+            labelsNumber.append(number['date'])
+            dataNumber.append(number['order_count'])
+
+        cursor.execute("SELECT avg(grand_total) AS average_value, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
+        columns = [col[0] for col in cursor.description]
+        resultsValues = [
+            dict(zip(columns, row))
+            for row in cursor.fetchall()
+        ]
+        for value in resultsValues:
+            labelsValue.append(value['date'])
+            dataValue.append(value['average_value'])
 
         data = {
-            "labels": labels,
-            "orders": data,
+            "ordersLabels": labelsNumber,
+            "orders": dataNumber,
+            "valueLabels": labelsValue,
+            "avgValue": dataValue
         }
         return Response(data)
 

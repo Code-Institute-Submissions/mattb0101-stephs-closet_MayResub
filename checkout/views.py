@@ -73,7 +73,6 @@ def checkout(request):
                             amount=item_data,
                         )
                         transaction.save()
-                        messages.success(request, f'Item {product.name} now has {product.in_stock} left in stock.')
                     else:
                         for size, quantity in item_data['item_with_size'].items():
                             order_line_item = OrderLineItem(
