@@ -55,7 +55,7 @@ class AdminChartData(APIView):
             labelsNumber.append(number['date'])
             dataNumber.append(number['order_count'])
 
-        cursor.execute("SELECT avg(grand_total) AS average_value, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
+        cursor.execute("SELECT ROUND(avg(grand_total),2) AS average_value, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
         columns = [col[0] for col in cursor.description]
         resultsValues = [
             dict(zip(columns, row))
