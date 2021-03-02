@@ -12,23 +12,23 @@
 
 {% block content %}
     <div class="products-overlay"></div>
-
     <div class="wrapper">
-
         <nav id="sidenav" class="text-center">
             <div class="sidenav-header">
                 <h3 class="title">Admin options</h3>
             </div>
 
             <ul class="list-unstyled">
+                <li> 
+                    <a href="{% url 'store_admin' %}">Store Overview</a>
+                </li>
                 <li>
                     <a href="#" class="text-center text-decoration-none" id="product-managment" data-bs-toggle="dropdown" aria-haspopup="true">
                         <p>Product Management</p>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="product-management">
-                        <li class="dropdown-item"><a href="{% url 'add_product' %}"> Add Product</a></li>
-                        <li class="dropdown-item"><a href="">Register</a></li>
                         <li class="dropdown-item"><a href="{% url 'product_list' %}">Product List</a></li>
+                        <li class="dropdown-item"><a href="{% url 'add_product' %}"> Add Product</a></li>
                     </ul>
                 </li>
                 <li> 
@@ -37,17 +37,17 @@
             </ul>
         </nav>
 
-        <div id="admin-content" class="w-100">
+        <div id="admin-content">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <button type="button" id="sidenavCollapse" class="btn btn-clear">
                         <i class="fas fa-align-left"></i>
                         <span>Toggle Sidenav</span>
                     </button>
-                    <h2 class="text-dark text-center">Store Overview</h2>
+                    <h2 class="text-dark justify-self-center">Store Overview</h2>
                 </div>
             </nav> 
-             <div class="row">
+             <div class="row mx-2">
                 <div class="col-12 col-md-6">
                     <canvas id="myChart" class="bg-light p-3" width="300" height="200"></canvas>
                 </div>
@@ -55,7 +55,7 @@
                     <canvas id="myChart2" class="bg-light p-3" width="300" height="200"></canvas>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mx-2 mt-2">
                 <div class="col-1 col-md-6 text-black reorder-products">
                     <table class="table table-small bg-light p-3">
                         <h3>Products to Re-order</h3>
@@ -82,7 +82,7 @@
     {{ block.super }}
     <script>
         $('#sidenavCollapse').on('click', function () {
-                $('#sidenav').toggleClass('active');
+                $('#sidenav, #admin-content').toggleClass('active');
             });
     </script>
     <script>

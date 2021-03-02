@@ -32,7 +32,7 @@ input, select {
 }
 
 .form-control {
-    border: 1px solid var(--black);
+    border: 1px solid var(--black) !important;
 }
 
 .form-control:focus {
@@ -242,31 +242,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .wrapper {
     display: flex;
-    align-items: stretch;
+    width: 100%;
 }
 
 #sidenav {
-    max-width: 250px;
-    min-width: 250px;
-    min-height: 100vh;
+    width: 250px;
+    top: 159;
+    left: 0;
+    position: fixed;
+    height: calc(100vh - 158px);
     background-color: var(--pink);
+    transition: all 0.3s;
 }
 
 #sidenav.active {
     margin-left: -250px;
 }
 
-a[data-toggle="collapse"] {
-    position: relative;
+#admin-content {
+    width: calc(100% - 250px);
+    position: absolute;
+    top: 159;
+    right: 0;
+    transition: all 0.3s;
 }
 
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
+#admin-content.active {
+    width: 100%;
 }
+
+
 
 
 @media (max-width: 768px) {

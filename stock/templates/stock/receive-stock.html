@@ -11,15 +11,27 @@
 
 {% block content %}
     <div class="products-overlay"></div>
-    <div class="wrapper">       
-        <nav id="sidenav">
-            <div>
-                <h3>Admin options</h3>
+    <div class="wrapper">
+        <nav id="sidenav" class="text-center">
+            <div class="sidenav-header">
+                <h3 class="title">Admin options</h3>
             </div>
 
             <ul class="list-unstyled">
+                <li> 
+                    <a href="{% url 'store_admin' %}">Store Overview</a>
+                </li>
                 <li>
-                    <span>Stock</span>
+                    <a href="#" class="text-center text-decoration-none" id="product-managment" data-bs-toggle="dropdown" aria-haspopup="true">
+                        <p>Product Management</p>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="product-management">
+                        <li class="dropdown-item"><a href="{% url 'add_product' %}"> Add Product</a></li>
+                        <li class="dropdown-item"><a href="{% url 'product_list' %}">Product List</a></li>
+                    </ul>
+                </li>
+                <li> 
+                    <a href="{% url 'stock' %}">Stock Management</a>
                 </li>
             </ul>
         </nav>

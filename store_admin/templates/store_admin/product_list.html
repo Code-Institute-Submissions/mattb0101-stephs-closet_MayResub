@@ -12,17 +12,14 @@
 {% block content %}
     <div class="products-overlay"></div>
     <div class="wrapper">
-        <div class="col">
-            <h2 class="text-dark text-center">Admin</h2>
-        </div>
-        <nav id="sidenav">
-            <div class="text-center">
-                <h2>Admin options</h2>
+        <nav id="sidenav" class="text-center">
+            <div class="sidenav-header">
+                <h3 class="title">Admin options</h3>
             </div>
 
             <ul class="list-unstyled">
-                <li>
-                    <a href="{% url 'stock' %}">Stock Management</a>
+                <li> 
+                    <a href="{% url 'store_admin' %}">Store Overview</a>
                 </li>
                 <li>
                     <a href="#" class="text-center text-decoration-none" id="product-managment" data-bs-toggle="dropdown" aria-haspopup="true">
@@ -30,12 +27,15 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="product-management">
                         <li class="dropdown-item"><a href="{% url 'add_product' %}"> Add Product</a></li>
-                        <li class="dropdown-item"><a href="#">Register</a></li>
                         <li class="dropdown-item"><a href="{% url 'product_list' %}">Product List</a></li>
                     </ul>
                 </li>
-                <br>
-                <li>
+                <li> 
+                    <a href="{% url 'stock' %}">Stock Management</a>
+                </li>
+            </ul>
+        </nav>
+                <!-- <li>
                     <form method="GET" action="{% url 'product_list' %}">
                         <div class="input-group">
                             <input type="text" class="form-control" name="list_search" placeholder="Category" aria-label="Recipient's username" aria-describedby="button-addon4">
@@ -44,11 +44,19 @@
                             </button>
                         </div>
                     </form>
-                </li>
-            </ul>
-        </nav>
-        <div class="admin-content container-fluid my-4">
-            <div class="row">
+                </li> -->
+
+        <div id="admin-content">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <button type="button" id="sidenavCollapse" class="btn btn-clear">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidenav</span>
+                    </button>
+                    <h2 class="text-dark justify-self-center">Store Overview</h2>
+                </div>
+            </nav> 
+            <div class="row mx-2">
                 <div class="col">
                     <table class="table table-sm table-striped text-dark bg-light">
                         <thead>
@@ -104,4 +112,13 @@
         </div>
     </div>
     
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        $('#sidenavCollapse').on('click', function () {
+                $('#sidenav, #admin-content').toggleClass('active');
+            });
+    </script>
 {% endblock %}
