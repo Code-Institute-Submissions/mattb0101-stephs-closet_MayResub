@@ -69,16 +69,22 @@ In addition, you may also use this section to discuss plans for additional featu
  - A set of Web developer tools built into Google Chrome that allows you to make changes to a website on the fly for testing purposes and be able to diagnose issues. I used this for the console, to be able to view results as changes were made during gameplay. This also allowed me to issue commands to the game to carry on if there was a bug while testing rather than having to start the whole game again. 
 
 #### [Django](https://www.djangoproject.com/)
+- 'Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design' - Taken from the website. Django is a full stack framework that I have used to create apps and easily manage them with front end and backend capabilities.
 
 ##### [Django REST framework](https://www.django-rest-framework.org/)
+- Django Rest framework is a toolkit made for building Web API's. I have used this in conjunction with Chartjs to easily query the data and display it, with options for authentication and user checking. 
 
 ##### [Django Crispy Forms]
+- 'Forms have never been this crispy' - From the site. Django crispy forms allows very easily control how your forms render and can make sure that forms across the site stay uniform. With the amount of forms on the site, crispy forms was a great way to easily handle them all.
 
 ##### [Django Allauth](https://django-allauth.readthedocs.io/en/latest/#)
+- A pre-built integrated set od Djano applications, allauth allows for easy use of them for user control and registration. Allauth handles all the user creation and validation to make sure standards are upheld.
 
 ##### [Django Storages](https://django-storages.readthedocs.io/en/latest/)
+- Storages is a collection fo storage backends that will work with external storage sites and apps. This creates storages at a backend level to be able to deal with AWS and collect and transfer data effectively.
 
 #### [gunicorn](https://gunicorn.org/)
+- Gunicorn is a Python WSGI HTTP server and I have used it as a simple and speedy way to join all the frameworks together upon deployment. 
 
 #### [Bootstrap](https://getbootstrap.com/)
 - Bootstrap is a front-end open source toolkit that gives extensive prebuilt components and a responsive grid system. I have used bootstrap to help with the basic design of the site and be able to used pre-built classes rather than having to create a lot of css code for all the content involved.
@@ -90,16 +96,22 @@ In addition, you may also use this section to discuss plans for additional featu
 - A font and icon based toolkit based on CSS - Wikipedia. I used font awesome icons to give a more visual appearance to the Happiness and Followers, it also gave the user a quick viewing of what was being affected.
 
 #### [Chartjs](https://www.chartjs.org/)
+- Chartjs provides simple and flexible JavaScript charts. This framework provides lots of pre-built, and easy to build in, charts and graphs. As a business owner of an e-commerce store, I think they would want to easily be able to see how business is going and how it is performing on a day to day basis. 
 
 #### [Stripe](https://stripe.com/en-gb)
+-  Stripe is a fully integrated suite of payment products which join to a website to accept be able to accept payments. I have used this as part of the full stack, and able to accept test payments with the correct checks.
 
 #### [Amazon Web Services](https://aws.amazon.com/)
+- Amazon Web services offers a wide range of cloud based solutions for web design, including, storage, analytics, mobile and management tools. I have used this to store static and media files, as with an e-commerce site, there is a lot of products and storing this on the site would make the site run a lot slower.
 
 #### [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+- Boto3 is the AWS SDK for Python. This is an APi that provides object oriente connecting with AWS services. This has been used as the connection between Django and the AWS. 
 
 #### [DB Browser for SQLite](https://sqlitebrowser.org/)
+- DB Browser is a way of querying an SQLite database. With the use of SQLite to test and lots of data going in from the Django app, a way of querying the database to quickly build SQL queries that had the correct syntax to put into the website where queries are needed. I used this when building queries for the Charts
 
 #### [Heroku](https://www.heroku.com/)
+- Heroku is a fully managed platform that allows designers and developers to easily host projects in a live app. Heroku is a platform that can link to github for ease of deploying throughout the process and can be managed well in a live environment. 
 
 #### [Github](https://github.com/)
 - A software development sharing platform used for hosting and sharing projects for open source, or team based projects. I was using github so other people can see, its easily hostable and can deploy easily.

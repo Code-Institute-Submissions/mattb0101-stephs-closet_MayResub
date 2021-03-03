@@ -45,6 +45,10 @@ class AdminChartData(APIView):
 
         cursor = connection.cursor()
 
+        # This has been duplicated as there is 2 different database
+        # styles being used. SQLite for development and Postgres for deployment
+        # which uses a different SQL. The queries have had to change 
+        # for the store owner graphs.
         if 'DEVELOPMENT' in os.environ:
             cursor.execute("SELECT count(order_number) AS order_count, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
             columns = [col[0] for col in cursor.description]
