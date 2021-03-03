@@ -74,7 +74,7 @@ class AdminChartData(APIView):
             }
             return Response(data)
         else:
-            cursor.execute('''SELECT count(order_number) AS order_count, DATE_FORMAT(date,'%d/%m/%y') AS date FROM checkout_order GROUP BY DATE_FORMAT(date,'%d/%m/%y')''')
+            cursor.execute("SELECT count(order_number) AS order_count, CAST(date as Date) AS date FROM checkout_order GROUP BY CAST(date as Date)")
             columns = [col[0] for col in cursor.description]
             resultsNumbers = [
                 dict(zip(columns, row))
@@ -84,7 +84,7 @@ class AdminChartData(APIView):
                 labelsNumber.append(number['date'])
                 dataNumber.append(number['order_count'])
 
-            cursor.execute('''SELECT ROUND(avg(grand_total),2) AS average_value, DATE_FORMAT(date,'%d/%m/%y') AS date FROM checkout_order GROUP BY DATE_FORMAT(date,'%d/%m/%y')''')
+            cursor.execute("SELECT ROUND(avg(grand_total),2) AS average_value, CAST(date as Date) AS date FROM checkout_order GROUP BY CAST(date as Date)")
             columns = [col[0] for col in cursor.description]
             resultsValues = [
                 dict(zip(columns, row))
