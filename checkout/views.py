@@ -87,7 +87,6 @@ def checkout(request):
                                 amount=quantity,
                             )
                             transaction.save()
-                            messages.success(request, f'Item {product.name} now has {product.in_stock} left in stock.')
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your cart doesnt exist")

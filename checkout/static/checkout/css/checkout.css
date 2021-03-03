@@ -3,7 +3,7 @@
   line-height: 1.5em;
   height: 38px;
   padding: .375rem .75rem;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--black);
   border-radius: .25rem;
   background-color: white;
   background-clip: padding-box;
@@ -15,13 +15,14 @@
     height: 1.5em;
 }
 
-.StripeElement:focus {
-    border-color: #86b7fe;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+.StripeElement--focus {
+    border: 1px solid var(--pink);
+    box-shadow: 0 0 0 0.25rem rgb(238 14 201 /25%);
 }
 
-
+.stripe-style-input {
+    margin-bottom: 0.5vmin;
+}
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
@@ -31,6 +32,9 @@
     color: #aab7c4;
 }
 
+.CardField {
+    font-family: "Josefin Slab", Arial, sans-serif !important;
+}
 
 
 .fieldset-label {
