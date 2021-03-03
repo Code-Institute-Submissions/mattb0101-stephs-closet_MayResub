@@ -101,10 +101,10 @@ def remove_from_cart(request, item_id):
             del cart[item_id]['item_with_size'][size]
             if not cart[item_id]['item_with_size']:
                 cart.pop(item_id)
-                messages.success(request, f'Removed {product.name} quantity in your bag')
+                messages.success(request, f'Removed {product.name} quantity from your cart')
         else:
             cart.pop(item_id)
-            messages.success(request, f'Removed {product.name} quantity in your bag')
+            messages.success(request, f'Removed {product.name} quantity from your cart')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)
