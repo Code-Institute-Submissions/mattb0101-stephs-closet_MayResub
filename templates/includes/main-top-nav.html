@@ -7,7 +7,7 @@
             <a class="nav-link text-main fw-bold text-uppercase" id="products-drop" data-bs-toggle="dropdown"
                 aria-current="page" href="#">All Products</a>
             <ul class="dropdown-menu" aria-labelledby="products-drop">
-                <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}">All Products</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">By Name</a></li>
             </ul>
@@ -16,7 +16,7 @@
             <a class="nav-link text-main fw-bold text-uppercase" id="shoes-drop" data-bs-toggle="dropdown" aria-current="page"
                 href="#">Shoes</a>
             <ul class="dropdown-menu" aria-labelledby="shoes-drop">
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">All Shoes</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=footwear">All Shoes</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?article=Heels">Heels</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?article=Casual Shoes,Flats"> Casual and Flats</a></li>
             </ul>
@@ -27,7 +27,7 @@
                 Accessories
             </a>
             <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="accessories-drop">
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=accessories">All Accessories</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=accessories">All Accessories</a></li>
                 <li class="dropdown-submenu">
                     <a href="#" class="dropdown-item" tabindex="-1">Bags</a>
                     <ul class="dropdown-menu">
