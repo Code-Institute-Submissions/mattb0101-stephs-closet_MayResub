@@ -13,7 +13,7 @@ from checkout.models import Order, OrderLineItem
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-import datetime
+import os
 
 
 @login_required
@@ -45,33 +45,62 @@ class AdminChartData(APIView):
 
         cursor = connection.cursor()
 
-        cursor.execute("SELECT count(order_number) AS order_count, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
-        columns = [col[0] for col in cursor.description]
-        resultsNumbers = [
-            dict(zip(columns, row))
-            for row in cursor.fetchall()
-        ]
-        for number in resultsNumbers:
-            labelsNumber.append(number['date'])
-            dataNumber.append(number['order_count'])
+        if 'DEVELOPMENT' in os.environ:
+            cursor.execute("SELECT count(order_number) AS order_count, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
+            columns = [col[0] for col in cursor.description]
+            resultsNumbers = [
+                dict(zip(columns, row))
+                for row in cursor.fetchall()
+            ]
+            for number in resultsNumbers:
+                labelsNumber.append(number['date'])
+                dataNumber.append(number['order_count'])
 
-        cursor.execute("SELECT ROUND(avg(grand_total),2) AS average_value, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
-        columns = [col[0] for col in cursor.description]
-        resultsValues = [
-            dict(zip(columns, row))
-            for row in cursor.fetchall()
-        ]
-        for value in resultsValues:
-            labelsValue.append(value['date'])
-            dataValue.append(value['average_value'])
+            cursor.execute("SELECT ROUND(avg(grand_total),2) AS average_value, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
+            columns = [col[0] for col in cursor.description]
+            resultsValues = [
+                dict(zip(columns, row))
+                for row in cursor.fetchall()
+            ]
+            for value in resultsValues:
+                labelsValue.append(value['date'])
+                dataValue.append(value['average_value'])
 
-        data = {
-            "ordersLabels": labelsNumber,
-            "orders": dataNumber,
-            "valueLabels": labelsValue,
-            "avgValue": dataValue
-        }
-        return Response(data)
+            data = {
+                "ordersLabels": labelsNumber,
+                "orders": dataNumber,
+                "valueLabels": labelsValue,
+                "avgValue": dataValue
+            }
+            return Response(data)
+        else:
+            cursor.execute("SELECT count(order_number) AS order_count, DATE_FORMAT(date,'%d-%m-%Y') AS date FROM checkout_order GROUP BY DATE_FORMAT(date,'%d-%m-%Y')")
+            columns = [col[0] for col in cursor.description]
+            resultsNumbers = [
+                dict(zip(columns, row))
+                for row in cursor.fetchall()
+            ]
+            for number in resultsNumbers:
+                labelsNumber.append(number['date'])
+                dataNumber.append(number['order_count'])
+
+            cursor.execute("SELECT ROUND(avg(grand_total),2) AS average_value, DATE_FORMAT(date,'%d-%m-%Y') AS date FROM checkout_order GROUP BY DATE_FORMAT(date,'%d-%m-%Y')")
+            columns = [col[0] for col in cursor.description]
+            resultsValues = [
+                dict(zip(columns, row))
+                for row in cursor.fetchall()
+            ]
+            for value in resultsValues:
+                labelsValue.append(value['date'])
+                dataValue.append(value['average_value'])
+
+            data = {
+                "ordersLabels": labelsNumber,
+                "orders": dataNumber,
+                "valueLabels": labelsValue,
+                "avgValue": dataValue
+            }
+            return Response(data)
 
 
 @login_required
