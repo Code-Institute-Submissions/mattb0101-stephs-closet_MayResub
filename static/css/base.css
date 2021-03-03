@@ -145,17 +145,25 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ------------------------------- Buttons */
 
-.btn-pink {
+.btn-pink, .btn-pink-pre,
+.btn-pink-apres {
     background: var(--pink) !important;
-    border-color: black !important;
+    border-color: black;
     font-weight: bold;
+}
+
+/* Button in input group loses border radius if not last element
+but there is hidden field in the input gorup so need to make the 
+button match with border radius' */
+.btn-pink-apres {
+    border-top-right-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
 }
 
 .btn-pink:active,
 .btn-pink:focus,
 .btn-pink:hover {
     box-shadow: 0 0 0 0.25rem rgb(14 17 17 /50%);
-    
 }
 
 .btn-clear {
