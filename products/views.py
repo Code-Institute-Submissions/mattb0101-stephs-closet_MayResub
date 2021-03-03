@@ -88,7 +88,7 @@ def product_info(request, item_id):
 
     product = get_object_or_404(Product, pk=item_id)
     stock = get_object_or_404(Stock, pk=item_id)
-    previous_page = request.GET.get('previous', '/default/url/')
+    previous_page = request.GET.get('previous')
 
     context = {
         'product': product,
