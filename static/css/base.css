@@ -27,9 +27,6 @@ pre {
 }
 
 /* ---------------------------------Crispy Forms */
-input, select {
-    margin-top: 3px;
-}
 
 .form-control {
     border: 1px solid var(--black) !important;
@@ -204,8 +201,12 @@ h1, h2, h3, h4, h5, h6 {
 /* ------------------------------- Footer */
 
 .footer-nav {
-    height: 100px;
     font-size: 2rem;
+    padding: 0;
+}
+
+.footer-nav ul {
+    margin: 0;
 }
 
 /* When mobile size */
