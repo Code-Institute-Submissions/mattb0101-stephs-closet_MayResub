@@ -70,7 +70,7 @@
                             </a>
                         {% endif %}
                         <div class="card-body">
-                            <p class="card-title"><strong>{{ product.name }}</strong></p>
+                            <p class="card-title"><strong>{{ product.name }} {{ product.sku }}</strong></p>
                             <p class="mb-0">£{{ product.price }}</p>
                             {% if product.category %}
                                 <p class="mb-0"><a href="{% url 'products' %}?category={{ product.category.cat_name }}">{{ product.category.cat_friendlyname }}</a></p>
