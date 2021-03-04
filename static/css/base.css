@@ -41,12 +41,19 @@ pre {
     border-radius: 0 6px 6px 6px;
 }
 
-.dropdown-submenu:hover>.dropdown-menu,
-.dropdown-submenu:active>.dropdown-menu{
-    display: block;
+.dropdown-submenu a::after {
+    position: absolute;
+    transform: rotate(-90deg);
+    right: 6px;
+    top: .8em;
 }
 
-.dropdown-submenu>a:after {
+/* .dropdown-submenu:hover>.dropdown-menu,
+.dropdown-submenu:active>.dropdown-menu{
+    display: block;
+} */
+
+/* .dropdown-submenu>a:after {
     display: block;
     content: " ";
     float: right;
@@ -58,7 +65,7 @@ pre {
     border-left-color: #ccc;
     margin-top: 5px;
     margin-right: -10px;
-}
+} */
 
 /* ---------------------------------Crispy Forms */
 
