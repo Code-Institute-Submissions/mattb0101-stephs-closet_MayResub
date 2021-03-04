@@ -10,30 +10,64 @@ Shopping online is a huge thing these days, and with the last year of the COVID 
 
 I want to be able to explore both sides of the shop and have created a functional site that I hope users enjoy using and find it easy to use and will return to shop at. It is also a site where the shop owners have full control and visibility of their sales and how their shop is doing. 
 
+Because of shopping being such a massive thing these days, I would like to be able to stand out a bit, give users a good memory of the site and think about coming back to search for things they want to buy again. 
+
 ## User Stories
 
+As a user of this site I would like:
+
+1. To be able to easily look at products and move back and forth between pages.
+2. To be able to filter the products I'm looking at so I'm not just searching through a long list.
+3. To be able to search for products when I know what I'm looking for.
+4. To be able to add products to a cart and be able to easily view and edit the cart.
+5. To be able to easily create/register for an account. 
+6. To be able to save my delivery information for future easy entry on future orders.
+7. To be able to contact the store if there are any issues or questions.
+8. To be able to see my past orders and easily keep track of them. 
+
+As A Store Owner I would like:
+
+1. To be able to see an overview of the stores performance.
+2. To be able to see daily sales.
+3. To be able to easily see what products need re-stocking.
+4. To be able to manually adjust and manage stock, editing prices and descriptions.
+5. To be able to add new products to the store.
+
+As an administrator for the site I would like:
+
+1. To be able to easily view information related to the store.
+2. To be able to override information and easily update if a user is having an issue with verification or part of their account
+3. To be able to look at the full order history and easily identify orders if they want changing.
+4. To be able to....
+ - NEEED A FEW MORE THINGS IN HERE
 
 ## Design Choices
 
+A lot of the design inspiration came from my girlfriend Stéph as treating the store like her own, she has given the initial way she would like it to look, drawings and colour. I have taken these things and then added a coding element to adapt and try make it as user friendly and feasible as possible. 
+
 ### Icons
+
+* With this site been mainly around shoppers, and across all devices, sometimes an icon to give display rather than lots of text makes things easier to look at. When icons are used it would be ideal for the user to know what they are pressing easily rather than having to guess or figure it out, I have tried to stick to this as much as possible using simple font awesome icons. 
 
 ### Colours
 
+* The colours used came from Stéph, as white, black and a bright pink to give simplicity, clarity and also stand out. We went through some colour palletes to choose the colours that worked best for the store owner, and when these decided on, I put them in as root variables to make sure that colours were kept the same throughout.
+
 ### Styling and background
+
+* The store owner wanted a wardrobe/closet as the background as the home page. This would be used across the site, but with different overlays giving it a very light background effect on most of the site, but keeping the theme throughout the site. 
 
 
 ## Wireframes
 
  
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+[Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+- As a user type, I want to perform an action, so that I can achieve a goal.]
 
 
 # Features
-
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
  
 ## Existing Features
 
