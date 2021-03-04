@@ -23,7 +23,7 @@
                 {% if cart_items %}
                     
                     <table class="table text-black">
-                        <div class="table-responsive"></div>
+                        <div class="table-responsive">
                             <thead>
                                 <th scope="col">Product Info</th>
                                 <th scope="col"></th>
@@ -34,7 +34,7 @@
                             <tbody>
                             {% for item in cart_items %}
                                 <tr>
-                                    <td class="w-25">
+                                    <td class="cart-img">
                                         <img class="img-fluid" src="{{ item.product.image.url }}" alt="">
                                     </td>
                                     <td>

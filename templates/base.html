@@ -51,6 +51,11 @@
 
     <header class="container-fluid fixed-top bg-light bg-gradient shadow-lg">
         <div id="main-nav" class="row d-none d-lg-flex">
+            <div class="col mt-2">
+                <a href="{% url 'home' %}" class="nav-link text-main w-100">
+                    <h1 class="header-logo">Stéph's Closet</h1>
+                </a>
+            </div>
             <div class="col m-auto">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group">
