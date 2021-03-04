@@ -43,8 +43,45 @@
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Personal Care
             </a>
-            <ul class="dropdown-menu" aria-labelledby="personal-drop">
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=personal_care">All Personal Care</a></li>
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="personal-drop">
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=personal_care">All Personal Care</a></li>
+                <li class="dropdown-submenu">
+                    <a href="#" class="dropdown-item" tabindex="-1">Makeup</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item text-black text-decoration-none" href="#">Face</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Concealer">Concealer</a></li>
+                                <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Foundation and Primer">Foundation & Peimer</a></li>
+                                <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Highlighter and Blush">Highlighter & Blush</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item text-black text-decoration-none" href="#">Eyes</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Eyeshadow">Eyeshadow</a></li>
+                                <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Kajal and Eyeliner">Kajal & Eyeliner</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Lip Gloss">Lip Gloss</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a class="dropdown-item" href="#">Skincare</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Mask and Peel">Mask and Peel</a></li>
+                        <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Lip Care">Lip Care</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a class="dropdown-item" href="#">Nails</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Nail Essentials">Nail Essentials</a></li>
+                        <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Nail Polish">Nail Polish</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Perfume and Body Mist">Perfumes & Bodymist</a></li> 
+                <li class="dropdown-item"><a class="text-black text-decoration-none" href="{% url 'products' %}?article=Beauty Accessory">Beauty Accessories</a></li>   
             </ul>
         </li>
         {% if request.user.is_superuser %}
