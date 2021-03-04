@@ -89,9 +89,11 @@ h1, h2, h3, h4, h5, h6 {
     max-height: 100px;
 }
 
+/* Put clamp on the font-size as on some larger screens, the logo was overflowing and
+making the whole main nav slide under the links bar. Advice from cousin */
 .header-logo {
     font-family: Sacramento, Arial, sans-serif;
-    font-size: 4.5vw;
+    font-size: clamp(2rem, 4.5vw, 4rem);
 }
 
 .text-main {
@@ -254,11 +256,11 @@ button match with border radius' */
 /* When mobile size */
 @media (max-width: 991px) {
     header {
-        height: 84px
+        height: 130px
     }
 
     .header-container {
-        padding-top: 84px;
+        padding-top: 130px;
     }
 
     .delivery-text{

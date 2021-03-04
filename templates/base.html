@@ -51,11 +51,6 @@
 
     <header class="container-fluid fixed-top bg-light bg-gradient shadow-lg">
         <div id="main-nav" class="row d-none d-lg-flex">
-            <div class="col mt-2">
-                <a href="{% url 'home' %}" class="nav-link text-main w-100">
-                    <h1 class="header-logo">Stéph's Closet</h1>
-                </a>
-            </div>
             <div class="col m-auto">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group">
@@ -116,8 +111,15 @@
                 </ul>
             </div>
         </div>
+        <div class="row d-block d-lg-none">
+            <div class="col text-center">
+                <a href="{% url 'home' %}" class="nav-link text-main w-100 p-0 ">
+                    <h1 class="header-logo mt-2">Stéph's Closet</h1>
+                </a>
+            </div>
+        </div> 
         <div class="row">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 pt-0 pt-lg-2">
                 <button class="navbar-toggler text-main" type="button" data-bs-toggle="collapse" aria-controls="items-navbar" data-bs-target="#items-navbar"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
