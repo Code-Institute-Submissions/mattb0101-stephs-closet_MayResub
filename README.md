@@ -1,46 +1,72 @@
 # Stéph's Closet
 
-A fabulous thing for Stéph to sell clothes - basic README in here to start and need to make sure i stay on top of this!
+Stéph's Closet is an e-commerce store built for my 4th Milestone project with the Code Institue Web and Software Development course. This is a full stack project using Django for complete control of front and back-end.
 
-What apps do I need to make?!
- - Home (this holds the index - does it want to store things that will be available on all apps - navbars etc)
- - Register/Logon (Think this is handled by allauth!)
- - Products
- - Shopping Cart
- - Checkout
- - User Profile
- - Store Owner Trends / Sale monitoring
- - Stock?!
- - Store owner making a sale
- - Static files (CSS and JS)
- - Media (Images)
+Shopping online is a huge thing these days, and with the last year of the COVID pandemic, people have had to be at home so online shopping has become evern more prevelant. My girlfriend Steph is an avid online shopper so having someone nearby to be able to give advice about what a shopper, and what someone who owned the shop, would like to see. 
+
+# UX
+
+## Project Goals
+
+I want to be able to explore both sides of the shop and have created a functional site that I hope users enjoy using and find it easy to use and will return to shop at. It is also a site where the shop owners have full control and visibility of their sales and how their shop is doing. 
+
+## User Stories
 
 
- Talk about changing delivery to standard price and having to make sure changes were put in model.py and contexts.py and if, elif, else. delivery coming through as a flaot and total as a decimal, need to make delivery an int
+## Design Choices
 
-## UX
+### Icons
+
+### Colours
+
+### Styling and background
+
+
+## Wireframes
+
  
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
 - As a user type, I want to perform an action, so that I can achieve a goal.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
-## Features
+# Features
 
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
  
-### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+## Existing Features
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+#### Register
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+#### Login / Logout
 
-### Features Left to Implement
-- Another feature idea
+#### User Account
+
+#### Home
+
+#### Products
+
+#### Cart
+
+#### Checkout
+
+#### Store Admin
+
+#### Stock
+
+#### Static and Media Files?
+ 
+
+
+## Features Left to Implement
+
+#### Store Owner making Sale
+
+#### Product Reviews
+
+#### Ordering stock in
+
 
 # Technologies Used
 
@@ -58,6 +84,9 @@ In addition, you may also use this section to discuss plans for additional featu
 
 #### [jQuery](https://jquery.com/)
 - jQuery is a framework that enables easier manipulation of the DOM and i have used this to simplifiy the code from standard JavaScript.
+
+#### [Kaggle](https://www.kaggle.com/)
+- Kaggle is a Data Science community with people uploading large sets of data free to use for testing. I have taken a large dataset from [here](https://www.kaggle.com/paramaggarwal/fashion-product-images-dataset) that contained images as well as a large number of products. I have cut this down from 45000 lines to just over 1000 for this project and had to make some amends. but this saved a lot of time creating test data for an e-commerce shop.
 
 #### [Convertcsv.com](www.convertcsv.com)
 - Convertcsv is a website that I used to be able to convert csv files into JSON files. This was used for creating and importing the data, from an excel spreadsheet into a JSON file to be used as a fixture. 
@@ -123,7 +152,8 @@ In addition, you may also use this section to discuss plans for additional featu
 - A free and open source version control system that handles all projects and keeps version history in check.
 
 
-## Testing
+
+# Testing
 
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
@@ -143,22 +173,76 @@ You should also mention in this section any interesting bugs or problems you dis
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
+
+Talk about changing delivery to standard price and having to make sure changes were put in model.py and contexts.py and if, elif, else. delivery coming through as a flaot and total as a decimal, need to make delivery an int
+
+
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+I have depolyed this to heroku taking the following steps:
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+1. On the [Heroku Wesbite](https://dashboard.heroku.com), clikcing on "New" on the dashboard. Name the app and select the Europe region.
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
+2. When the app has been created, click on the "Deploy" tab, and under the section for "Deployment method", click GitHub.
+
+3. Confirm this link to GitHub, which will update the app based on commits and pushes to GitHub.
+
+4. In the code for the project in Gitpod (or your IDE), create a `<requirements.txt>` file, which stores all the things we are using on the site. Do this by typing `<pip3 freeze --local > requirements.txt>` into your CLI.
+
+5. As well as a requirments files, a `<Procfile>` is also needed to deploy. Create this by typing `<echo web: python app.py>` into your CLI. (`app.py` can be exchanged for the name of your python file, if you have named it `run.py` for example.)
+
+6. Make sure to `<git add .>` and `<git commit -m "...">` these files, then `<git push>`. This will push everything to GitHub which will sync up with heroku. 
+
+7. Back in Heroku under the "Settings" tab, there is a section called "Config Vars", click to reveal these and set the following vars:
+
+Key | Value
+----| ----
+I.P | 0.0.0.0
+MONGO_DBNAME | lakes_walks
+MONGO_URI | mongodb+srv://<your_username>:<your_password>@myfirstcluster.0i01h.mongodb.net/<your_db_name>?retryWrites=true&w=majority"
+PORT | 5000
+SECRET_KEY | <your_secret_key>
+
+8. From your app dahsboard, under "Deploy", make sure Automatic deploys are Enabled, and under "Manual Deploys", the correct branch you want to deploy is selected i.e. master.
+
+9. The site is now successfully deployed. 
+
+
 
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- All the product information and images came from a dataset on [kaggle](https://www.kaggle.com/paramaggarwal/fashion-product-images-dataset).
+- [Django documentation]
+- [Crispy forms Documentation]
+- [Product Variations](https://www.youtube.com/watch?v=cRbU7OH1RaQ) was used to help me understand a bit about how to incorpate sizes when the same product had multiple sizes.
+- [Pagination](https://www.youtube.com/watch?v=acOktTcTVEQ). This helped me get the basic and then using the [django documentation](https://docs.djangoproject.com/en/3.1/topics/pagination/) to split products into pages, with a view function, not a ListView.
+- [Chartjs](https://www.youtube.com/watch?v=B4Vmm3yZPgc) was a simple tutorial how to firstly incorporate chartjs into django, this helped build the basic that I could then take further. 
+- [Stock Management](https://www.youtube.com/playlist?list=PL6RgKo1nB4TlJDfWz3czfXHkg8wSn8THV) -  Gave me an understanding of a simple way to control stock in a store. 
+- [Contact form](https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/). Having used contact forms before, but this time actually sending emails and messages, learning how to incorporate these into Django. 
+
+
+
+##### [w3schools](https://www.w3schools.com/)
+- [Toasts](https://www.w3schools.com/bootstrap4/bootstrap_toast.asp) - very simple thing needed checking here with the document ready needed to make toasts show. 
+- [Root Variable](https://www.w3schools.com/css/css3_variables.asp) is something i have seen on numerous research videos and used this to give me full understanding. 
+- [Colspan](https://www.w3schools.com/tags/att_td_colspan.asp) to understand colspans and how they worked.
+
+##### Stack Overflow
+- [CSS Offset background](https://stackoverflow.com/questions/35505528/offset-background-behind-html-element-tag) for the free delivery tag on the homepage, helped my fully understand this.
+- Django returning to previous page. [Previous URL](https://stackoverflow.com/questions/35894990/django-how-to-return-to-previous-url) and [back button](https://stackoverflow.com/questions/51776862/django-2-0-back-button-redirecting-to-different-pages-based-on-where-you-came-f). These were both explored for going back with filters and pagination were involved. Eventually using the back button to make sure the full url matched.
+-Django template language ['and'](https://stackoverflow.com/questions/14957564/django-if-and-template/14957680) and ['or'](https://stackoverflow.com/questions/19284270/django-template-if-or-statement). These helped make sure i got the syntax right when putting multiple parameters in an if statement.
+- [Nested if else in templates](https://stackoverflow.com/questions/36528958/django-nested-if-else-in-templates/36529093). This helped with making sure I had the correct terminolgy for nested if statements and if/else if/else statements.
+- [Pagination appending url](https://stackoverflow.com/questions/64630914/django-pagination-filters-appending-to-url-rather-than-replacing). This was an issue that came up mutliple times that when changing to page 2, it would remove any other filters, this helped me understand and fix that issue.
+- [Joining list](https://stackoverflow.com/questions/1236593/comma-separated-lists-in-django-templates). Sometimes when there was multiple categories or articles in the filter and I wanted these in the title, this showed how to put the list into one tag.
+- [Date time functions in SQLite](https://stackoverflow.com/questions/3014667/how-can-i-convert-datetime-to-date-format-in-sqlite). Knowing standard SQL for my queries, this showed the SQLite counterparts for use in development.
+- [Putting field names to raw SQL](https://stackoverflow.com/questions/60744714/get-associative-array-from-raw-sql-query-in-django). This page lead me to the area of the Django documentation that i needed to help me be able to display raw SQL results properly. 
+- [Post Save signal](https://stackoverflow.com/questions/13014411/django-post-save-signal-implementation). This helped being able to reformat how my stock was being handled so that it would adjust when a sale is done using a post_save signal. 
+
+
+
+
 
 ### Media
 - Main background image got from [pixabay](https://pixabay.com/photos/closet-clothing-walk-in-3615613/)
