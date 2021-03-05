@@ -113,8 +113,6 @@ In particular, as part of this section we recommend that you provide a list of U
 * Stock is attributed to the product, but the stock app allows issues and receipts of this stock level. The user can see this level against the item and they will not be able to purchase more items than the store has in stock. 
 * Orders, once payment is complete, will deduct stock from the stock level.
 * The store owner can manually adjust these stock levels, either issuing or receipting these in.
-
-#### Static and Media Files?
  
 
 

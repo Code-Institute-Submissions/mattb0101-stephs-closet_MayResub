@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-3 offset-md-2 offset-lg-3">
+            <div class=" col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 offset-md-2 offset-lg-3">
                 <div class="image-container shadow-lg rounded-1">
                     {% if product.image %}
                         <a href="{{ product.image.url }}" target="_blank">
@@ -40,7 +40,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col">
+            <div class="col-10 offset-1 col-sm-12 mt-3 mt-sm-0">
                 <div class="product-info-container text-black">
                     <p class="fs-3 fw-bold">{{ product.name }}</p>
                     <p class="lead fs-2 mb-0">£{{ product.price }}</p>
@@ -57,8 +57,8 @@
                     <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="col-12 col-md-4">
-                                <p>Quantity</p>
+                            <div class="col-12 col-md-4 mb-2 mb-sm-0">
+                                <p class="mb-0">Quantity</p>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <button class="decrease-qty btn btn-pink-pre" data-item_id="{{ product.id }}"
@@ -77,10 +77,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-6 mb-3 mb-sm-0">
                                 <!-- Size selector when there is size on product -->
                                 {% if product.size_set.all %}
-                                <p>Size</p>
+                                <p class="mb-0">Size</p>
                                     <select class="form-select w-75" name="size" aria-label="Shoe Sizes">
                                         {% for item in product.size_set.all %}
                                             <option>{{ item.size }}</option>
@@ -88,7 +88,7 @@
                                     </select>
                                 {% endif %}
                             </div>
-                            <div class="row mt-5">
+                            <div class="row mt-sm-5 mb-3 mb-sm-0">
                                 <div class="col-12 col-md-6">
                                     <a href="{{ previous_page }}" class=" btn btn-clear">
                                         <i class="fas fa-backward"></i>

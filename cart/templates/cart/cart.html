@@ -21,7 +21,6 @@
         <div class="row">
             <div class="col">
                 {% if cart_items %}
-                    
                     <table class="table text-black">
                         <div class="table-responsive">
                             <thead>
@@ -94,11 +93,21 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        
                         </div>
                     </table>
                 {% else %}
-                    <p class="text-dark">Nothing in your cart</p>
+                <div class="row text-center">
+                    <p class="text-dark">Nothing in your cart right now!</p>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a href="{% url 'products' %}" class="btn btn-clear">
+                            <i class="fas fa-backward"></i>
+                            <span>Go Shopping!</span>
+                        </a>
+                    </div>
+                </div>
+                    
                 {% endif %}
             </div>
         </div>
