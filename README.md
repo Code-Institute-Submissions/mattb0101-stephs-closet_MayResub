@@ -72,22 +72,47 @@ In particular, as part of this section we recommend that you provide a list of U
 ## Existing Features
 
 #### Register
+* Registering for an Account allows users to save their delivery information and view their history of previous orders. This is done through Allauth and will send a verification email to the email used in order for them to be able to log on.
 
 #### Login / Logout
+* Users can use the site without logging in or creating an account, but logging in will allow for quicker checkout and be able to look at previous orders. This is also done through Allauth. Superusers logging in will be able to see the store management part of the site.
 
 #### User Account
+* A users Account has two main features; Storing their delivery information as a standard, so that everytime they checkout, the information will be auto populated. There is also a list of historical orders placed by the user, they can go into the order and see the confirmation to check what this order entailed.
 
 #### Home
+* This is like a landing page for the store, showing the background of the site, with the main site text overlayed. This is built as a pretty eyecatching but simple place where the user will start, being able to decide what they want to do rather than getting lots of information thrown at them. This page has the main navbar at the top, with links and search functionality
+
+##### Search
+* Search functionality, as mentioned above is present on all pages and allows the user to be able to search the site. This search function looks into the names of products to filter the list to.
+
+##### Store Contact
+* This functionality is available on multiple pages on the site, such as the home page or the users account. The email icon at the bottom allows the user to contact the store directly. This sends as email to stepsclosetstore@gmail.com with a notification for the store to contact the user back.
 
 #### Products
+* Products is the main bulk of the site with it being a shop. Products are split up into Catgories, Sub Categories and Articles and the nav links help the user be able to cut down the list.
+* With a lot of products on the site, products are split into pages with a small er number of products on the page. Users can then easily see a smaller number of products rather than have to scroll through hundreds to find anything. 
+* Products can be sorted live from the page, by name or price in ascending or descending order.
+* When a product is clicked on, this will take the user to a specific page for that product. From here, the user can add it to their cart at whatever quantity they like.
+
+##### Toasts
+* Toasts are built in across the site to enable the user to be shown messages and keep them informed. These will note the user of success, information, warning or error. Some of these toasts allow users to go to their cart when they add a product to it. 
 
 #### Cart
+* The cart shows the user what items they have chosen to purchase, it gives a full overview or items and the quantity that they want to buy. This is like a check before the user purchases. From here the user can edit the quantity of the item and update it, or remove the item altogether.
 
 #### Checkout
+* Checkout is for the user to enter their delivery details along with payment details to purchase their items. The payment details here are built from Stripe and make using a test account will make sure the user can actually pay and place the order. If the user is logged in, their details will be populated from their account. 
+* On this page to keep the user informed there is an overview of their bag so they know what they are purchasing.
 
 #### Store Admin
+* This part of the site is only available for the store owners of employees. This gives the store owner an overview of the shop, showing orders and also the average value of orders on a daily basis. The overview screen also shows items that are out of stock so the store owner can order them. 
+* The Store owner can edit, remove or add new items here. Using the product list and then finding and then selecting the item, the store owner can change numerous attributes of the item. 
 
 #### Stock
+* Stock is attributed to the product, but the stock app allows issues and receipts of this stock level. The user can see this level against the item and they will not be able to purchase more items than the store has in stock. 
+* Orders, once payment is complete, will deduct stock from the stock level.
+* The store owner can manually adjust these stock levels, either issuing or receipting these in.
 
 #### Static and Media Files?
  
@@ -96,8 +121,10 @@ In particular, as part of this section we recommend that you provide a list of U
 ## Features Left to Implement
 
 #### Store Owner making Sale
+* As a store owner, it would be good to have full and simple access over the store. They might decide to put a sale on a certain category of items and it would be good to have them able to do this and it go across the site to reduce the price and let users know that there is a sale. Right now, I didnt have time ti implement this, but it would be very useful for future and give control to the store owner. 
 
-#### Product Reviews
+#### Product Reviews & Descriptions
+* Right now the products so not have a description as there was not one in the downloaded data set. I think it would be great to have descriptions and reviews against all the items so users have a clearer understanding of what they are looking at, but I did not have time to write descriptions for 1000 items.
 
 #### Ordering stock in
 
@@ -215,7 +242,7 @@ Talk about changing delivery to standard price and having to make sure changes w
 
 I have depolyed this to heroku taking the following steps:
 
-1. On the [Heroku Wesbite](https://dashboard.heroku.com), clikcing on "New" on the dashboard. Name the app and select the Europe region.
+1. On the [Heroku Wesbite](https://dashboard.heroku.com), clicking on "New" on the dashboard. Name the app and select the Europe region.
 
 2. When the app has been created, click on the "Deploy" tab, and under the section for "Deployment method", click GitHub.
 
@@ -223,23 +250,21 @@ I have depolyed this to heroku taking the following steps:
 
 4. In the code for the project in Gitpod (or your IDE), create a `<requirements.txt>` file, which stores all the things we are using on the site. Do this by typing `<pip3 freeze --local > requirements.txt>` into your CLI.
 
-5. As well as a requirments files, a `<Procfile>` is also needed to deploy. Create this by typing `<echo web: python app.py>` into your CLI. (`app.py` can be exchanged for the name of your python file, if you have named it `run.py` for example.)
+5. As well as a requirments files, a `<Procfile>` is also needed to deploy. Create a file called `<Procfile>` at the same level as your app, and inside type `<web: gunicorn <app_name>.wsgi:application>`. The app name should be the name of your app in the development repository, and we are using gunicorn as a server, so this needs to be present too. 
 
-6. Make sure to `<git add .>` and `<git commit -m "...">` these files, then `<git push>`. This will push everything to GitHub which will sync up with heroku. 
+6. From here the Heroku link is almost set up, before pushing anything to it, the other API's we are using need setting up. 
 
-7. Back in Heroku under the "Settings" tab, there is a section called "Config Vars", click to reveal these and set the following vars:
+7. Using Stripe. To access stripe, there will be a STRIPE_PUBLIC_KEY, a STRIPE_SECRET_KEY and a STRIPE_WH_SECRET. The first two handle access to the stripe application for your user and the WH secret allows stripe webhooks to link through to stripe aswell. These 3 variables need to be included in the settings file of the main app, and then the values put into "Config Vars" under "settings" in Heroku. The three stripe keys need to be present here so the live app can communicate with Stripe.
 
-Key | Value
-----| ----
-I.P | 0.0.0.0
-MONGO_DBNAME | lakes_walks
-MONGO_URI | mongodb+srv://<your_username>:<your_password>@myfirstcluster.0i01h.mongodb.net/<your_db_name>?retryWrites=true&w=majority"
-PORT | 5000
-SECRET_KEY | <your_secret_key>
+8. Aswell as stripe we are using AWS for out static and media files. When using AWS and creating a bucket there will be an AWS_ACCESS_KEY_ID and an AWS_SECRET_ACCESS_KEY that are downloaded in a csv file for you. Keep these safe and populate them into the same "Config Vars" section of Heroku as well in the settings on your app. To make Heroku know that AWS will be picking up these files, set a USE_AWS with value of True in the "Config Vars"
 
-8. From your app dahsboard, under "Deploy", make sure Automatic deploys are Enabled, and under "Manual Deploys", the correct branch you want to deploy is selected i.e. master.
+9. Emails. As we are sending confirmation emails and verifciation emails to users, Heroku needs to know this too. From whatever email account you use, set up 2 way email integration, which will then give you a passcode. In our terms this is through gmail, so the email address goes in the "Config Vars" under EMAIL_HOST_USER and then the passcode gmail gives goes in under EMAIL_HOST_PASS.
 
-9. The site is now successfully deployed. 
+10. Back in Heroku, the last couple of "Config Vars" to make sure are there, are our SECRET_KEY from the django app itself. This needs to be stored in the settings file or as an environment variable, and then in Heroku too. When we are running the live app, we are using a postgres database and not the SQLite one from Django. This variable should be in the list as standard when Postgres is chosen, but this variable needs to be put as an environment variable on the development app. Make sure that DATABASE_URL is set to the Postgres database so that when deploying, all the data will be populated into here. 
+
+11. From your app dahsboard, under "Deploy", make sure Automatic deploys are Enabled, and under "Manual Deploys", the correct branch you want to deploy is selected i.e. master. Make sure to `<git add .>` and `<git commit -m "...">` these files, then `<git push>`. This will push everything to GitHub which will sync up with heroku.
+
+12. The site is now successfully deployed. 
 
 
 
@@ -254,7 +279,8 @@ SECRET_KEY | <your_secret_key>
 - [Pagination](https://www.youtube.com/watch?v=acOktTcTVEQ). This helped me get the basic and then using the [django documentation](https://docs.djangoproject.com/en/3.1/topics/pagination/) to split products into pages, with a view function, not a ListView.
 - [Chartjs](https://www.youtube.com/watch?v=B4Vmm3yZPgc) was a simple tutorial how to firstly incorporate chartjs into django, this helped build the basic that I could then take further. 
 - [Stock Management](https://www.youtube.com/playlist?list=PL6RgKo1nB4TlJDfWz3czfXHkg8wSn8THV) -  Gave me an understanding of a simple way to control stock in a store. 
-- [Contact form](https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/). Having used contact forms before, but this time actually sending emails and messages, learning how to incorporate these into Django. 
+- [Contact form](https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/). Having used contact forms before, but this time actually sending emails and messages, learning how to incorporate these into Django.
+ - [Nested Dropdown Menu's](https://mdbootstrap.com/snippets/jquery/mdbootstrap/949080#html-tab-view) with [clicked menu items](https://stackoverflow.com/questions/51871908/bootstrap-4-nested-dropdown). This helped with building submenus within bootstrap dropdowns, and then using JS to click on them to populate the new menu rather than hover, which would not work on mobile devices.
 
 
 

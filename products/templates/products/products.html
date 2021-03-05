@@ -65,7 +65,7 @@
                                 <img src="{{ product.image.url }} " class="card-img-top" alt="{{ product.name }}">
                             </a>
                         {% else %}
-                            <a href="{% url 'product_info' product.id %}">
+                            <a href="{% url 'product_info' product.id %}?previous={{ request.get_full_path }}">
                                 <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ product.name }}">
                             </a>
                         {% endif %}
