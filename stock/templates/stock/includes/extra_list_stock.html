@@ -1,0 +1,12 @@
+{% block extra_list_items %}
+    <li class="list-group-item bg-pink">
+        <form method="GET" action="{% url 'stock' %}">
+            <div class="input-group">
+                <input type="text" class="form-control" name="list_search" placeholder="Search List" aria-label="Recipient's username" aria-describedby="list-search-btn">
+                <button class="btn btn-pink" type="submit" id="list-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </li>
+{% endblock %}

@@ -104,10 +104,22 @@ As A Store Owner I would like:
 As an administrator for the site I would like:
 
 1. To be able to easily view information related to the store.
+
+    E. Able to see all the information available in the store, able to look at the all the apps together and be able to edit any part of them, even data that is not available on the site. 
+    T. Add /admin/ to the end of the starting url, logged in as a superuser.
+    R. This brings up the backend adming site for Django. I am able to add, change and view all parts of the site that have backend tables. 
+
 2. To be able to override information and easily update if a user is having an issue with verification or part of their account
+
+    E. If a user has not received a verification email, or if a new user is a store manager that needs to be able to see certain things, that I can change these.
+    T. From the admin page, go to email addresses and try verifying an unverified email. Go to users and make a user a superuser or staff.
+    R. Results all as expected. 
+
 3. To be able to look at the full order history and easily identify orders if they want changing.
-4. To be able to....
- - NEEED A FEW MORE THINGS IN HERE
+
+    E. From the Admin, go to the orders, choose one and be able to make amendments to the order.
+    T. Went to the orders section fo the admin portal. Found an order that had a 0 value total from older testing, added a new line item to this order and checked to see if this orders total and grand total were updated. For extra testing, tried removing an order.
+    R. All results as expected. 
 
 
 ## External User Testing

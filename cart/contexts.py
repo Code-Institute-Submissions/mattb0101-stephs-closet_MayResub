@@ -2,7 +2,6 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
-from stock.models import Stock
 
 
 def cart_contents(request):
@@ -16,7 +15,6 @@ def cart_contents(request):
     for item_id, item_data in cart.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
-            stock = get_object_or_404(Stock, pk=item_id)
             total += item_data * product.price
             issue_qty += item_data
             product_count += item_data
@@ -24,11 +22,9 @@ def cart_contents(request):
                 'item_id': item_id,
                 'quantity': item_data,
                 'product': product,
-                'stock': stock,
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
-            stock = get_object_or_404(Stock, pk=item_id)
             for size, quantity in item_data['item_with_size'].items():
                 total += quantity * product.price
                 product_count += quantity
@@ -38,7 +34,6 @@ def cart_contents(request):
                     'quantity': quantity,
                     'product': product,
                     'size': size,
-                    'stock': stock,
                 })
     if total == 0:
         delivery = 0

@@ -13,38 +13,36 @@
     <div class="products-overlay"></div>
     <div class="wrapper">
         <nav id="sidenav" class="text-center">
-            <div class="sidenav-header">
-                <h3 class="title">Admin options</h3>
+
+            <div id="dismiss" class="d-block d-md-none">
+                <i class="fas fa-arrow-left"></i>
             </div>
 
-            <ul class="list-unstyled">
-                <li> 
-                    <a href="{% url 'store_admin' %}">Store Overview</a>
-                </li>
-                <li>
-                    <a href="#" class="text-center text-decoration-none" id="product-managment" data-bs-toggle="dropdown" aria-haspopup="true">
-                        <p>Product Management</p>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="product-management">
-                        <li class="dropdown-item"><a href="{% url 'add_product' %}"> Add Product</a></li>
-                        <li class="dropdown-item"><a href="{% url 'product_list' %}">Product List</a></li>
-                    </ul>
-                </li>
-                <li> 
-                    <a href="{% url 'stock' %}">Stock Management</a>
-                </li>
-            </ul>
+            <div class="sidenav-header">
+                <h2 class="title">Admin options</h2>
+            </div>
+
+            {% include 'store_admin/includes/sidenav.html' %}
         </nav>
         
-        <div class="admin-content container-fluid">
-            <div class="row">
-                <div class="col">
-                    <h2 class="text-dark text-center">Update Stock</h2>
+        <div id="admin-content">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <div class="col-12 col-md-2 order-md-1">
+                        <button type="button" id="sidenavCollapse" class="btn btn-clear">
+                            <i class="fas fa-align-left"></i>
+                            <span>Toggle Sidenav</span>
+                        </button>
+                    </div>
+                    <div class="col-12 text-center order-first col-md-8 order-md-2">
+                        <h1 class="text-dark">Store Overview</h1>
+                    </div>
+                    <div class="col-md-2 order-md-3"></div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-6 text-dark">
-                    <table class="table">
+            </nav> 
+            <div class="row mx-2">
+                <div class="col-10 offset-1 col-md-6 offset-md-3">
+                    <table class="table table-sm table-striped text-black bg-light">
                         <thead>
                             <tr>
                                 <th scope="col">Product</th>
@@ -54,15 +52,19 @@
                         </thead>
                         <tbody>
                                 <tr>
-                                    <td>{{ item.product.name }}</td>
-                                    <td>{{ item.in_stock }}</td>
-                                </tr>
-                                <tr>
-                                    <a href="{% url 'issue_stock' item.product.id %}" class="btn btn-pink">Issue Stock</a>
-                                    <a href="{% url 'receive_stock' item.product.id %}" class="btn btn-pink">Receive Stock</a>
+                                    <td>{{ product.name }}</td>
+                                    <td>{{ product.in_stock }}</td>
+                                    <td>
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            {{ form | crispy}}
+                                        </form>
+                                    </td>
                                 </tr>
                         </tbody>
                     </table>
+                    <a href="#" class="btn btn-pink">Issue Stock</a>
+                    <a href="#" class="btn btn-pink">Receive Stock</a>
                 </div>
             </div>
         </div>

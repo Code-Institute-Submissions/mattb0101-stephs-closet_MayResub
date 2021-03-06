@@ -173,7 +173,7 @@ As a store owner, these were the things it was agreed on that she would like to 
 ##### [Django REST framework](https://www.django-rest-framework.org/)
 - Django Rest framework is a toolkit made for building Web API's. I have used this in conjunction with Chartjs to easily query the data and display it, with options for authentication and user checking. 
 
-##### [Django Crispy Forms]
+##### [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 - 'Forms have never been this crispy' - From the site. Django crispy forms allows very easily control how your forms render and can make sure that forms across the site stay uniform. With the amount of forms on the site, crispy forms was a great way to easily handle them all.
 
 ##### [Django Allauth](https://django-allauth.readthedocs.io/en/latest/#)

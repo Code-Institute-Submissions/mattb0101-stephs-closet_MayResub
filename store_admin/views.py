@@ -47,7 +47,7 @@ class AdminChartData(APIView):
 
         # This has been duplicated as there is 2 different database
         # styles being used. SQLite for development and Postgres for deployment
-        # which uses a different SQL. The queries have had to change 
+        # which uses a different SQL. The queries have had to change
         # for the store owner graphs.
         if 'DEVELOPMENT' in os.environ:
             cursor.execute("SELECT count(order_number) AS order_count, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
@@ -116,40 +116,8 @@ def product_list(request):
 
     products = Product.objects.all()
     list_search = None
-    categories = None
-    sub_categories = None
-    sort = None
-    direction = None
 
     if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
-            if sortkey == 'category':
-                sortkey == 'category__cat_name'
-            if sortkey == 'sub_category':
-                sortkey == 'sub_category__subcat_name'
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
-
-        if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products = products.filter(category__cat_name__in=categories)
-            categories = Category.objects.filter(cat_name__in=categories)
-
-        if 'sub_category' in request.GET:
-            sub_categories = request.GET['sub_category'].split(',')
-            products = products.filter(
-                subcat__subcat_name__in=sub_categories)
-            sub_categories = Sub_Category.objects.filter(
-                subcat_name__in=sub_categories)
-
         if 'list_search' in request.GET:
             list_search = request.GET['list_search']
             if not list_search:
@@ -159,8 +127,6 @@ def product_list(request):
             list_searches = Q(category__cat_name__icontains=list_search) | Q(name__icontains=list_search)
             products = products.filter(list_searches)
 
-    current_sorting = f'{sort}_{direction}'
-
     paginator = Paginator(products, 50)
 
     page_number = request.GET.get('page')
@@ -169,9 +135,6 @@ def product_list(request):
     context = {
         'products': products,
         'search_term': list_search,
-        'current_categories': categories,
-        'current_sub_categories': sub_categories,
-        'current_sorting': current_sorting,
         'paginator': paginator,
         'page_obj': page_obj,
     }

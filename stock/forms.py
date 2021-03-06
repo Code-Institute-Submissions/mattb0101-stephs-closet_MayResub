@@ -1,20 +1,22 @@
 from django import forms
-from .models import Stock
+from .models import StockTransactions
+from products.models import Product
 
 
 class SearchForm(forms.ModelForm):
     class Meta:
-        model = Stock
-        fields = ['product']
+        model = Product
+        fields = ['name']
 
 
-class AddStock(forms.ModelForm):
+class UpdateStock(forms.ModelForm):
     class Meta:
-        model = Stock
-        fields = ['receive_qty']
+        model = StockTransactions
+        fields = ['amount']
 
-
-class RemoveStock(forms.ModelForm):
-    class Meta:
-        model = Stock
-        fields = ['issue_qty']
+    def __init__(self, *args, **kwargs):
+        """
+        Put in customised form and remove labels
+        """
+        super().__init__(*args, **kwargs)
+        self.fields['amount'].label = False

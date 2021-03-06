@@ -1,6 +1,9 @@
+from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from .models import Stock
-from .forms import SearchForm, AddStock, RemoveStock
+from .models import StockTransactions
+from .forms import SearchForm, UpdateStock
 
 from django.contrib import messages
 
@@ -8,74 +11,48 @@ from django.contrib import messages
 from products.models import Product
 
 
+@login_required
 def stock(request):
     """ View to show list of items and stock """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry! thats for the store management only!')
+        return redirect(reverse('home'))
 
-    stock = Stock.objects.all()
-    form = SearchForm(request.POST or None)
+    products = Product.objects.all()
+    list_search = None
+
+    if request.GET:
+        if 'list_search' in request.GET:
+            list_search = request.GET['list_search']
+            if not list_search:
+                messages.error(request, "There is nothing to search on!")
+                return redirect(reverse('product_list'))
+
+            list_searches = Q(category__cat_name__icontains=list_search) | Q(name__icontains=list_search)
+            products = products.filter(list_searches)
+
+    paginator = Paginator(products, 50)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     context = {
-        'stock': stock,
-        'form': form,
+        'products': products,
+        'paginator': paginator,
+        'page_obj': page_obj,
     }
-    if request.method == "POST":
-        stock = Stock.objects.filter(
-            product__icontains=form['product'].value())
-
-        context = {
-            'form': form,
-            'stock': stock,
-        }
     return render(request, 'stock/stock.html', context)
 
 
 def update_stock(request, item_id):
     """ Update stock of an item manually """
 
-    item = get_object_or_404(Stock, pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
+    form = UpdateStock()
 
     context = {
-        'item': item,
+        'product': product,
+        'form': form
     }
 
     return render(request, 'stock/update-stock.html', context)
-
-
-def issue_stock(request, item_id):
-    """ Issue Stock of Item """
-
-    item = get_object_or_404(Stock, pk=item_id)
-    form = RemoveStock(request.POST or None, instance=item)
-    if form.is_valid():
-        instance = form.save(commit=False)
-        instance.in_stock -= instance.issue_qty
-        messages.success(request, 'Issued Stock')
-        instance.save()
-
-        return redirect(reverse('update_stock', args=[item.product.id]))
-
-    context = {
-        'item': item,
-        'form': form,
-    }
-    return render(request, 'stock/issue-stock.html', context)
-
-
-def receive_stock(request, item_id):
-    """ Receive Stock of Item """
-
-    item = get_object_or_404(Stock, pk=item_id)
-    form = AddStock(request.POST or None, instance=item)
-    if form.is_valid():
-        instance = form.save(commit=False)
-        instance.in_stock += instance.receive_qty
-        messages.success(request, 'Received Stock')
-        instance.save()
-
-        return redirect(reverse('update_stock', args=[item.product.id]))
-
-    context = {
-        'item': item,
-        'form': form,
-    }
-    return render(request, 'stock/receive-stock.html', context)
