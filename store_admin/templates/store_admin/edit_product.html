@@ -13,46 +13,54 @@
     <div class="products-overlay"></div>
     <div class="wrapper">
         <nav id="sidenav" class="text-center">
-            <div class="sidenav-header">
-                <h3 class="title">Admin options</h3>
+
+            <div id="dismiss" class="d-block d-md-none">
+                <i class="fas fa-arrow-left"></i>
             </div>
 
-            <ul class="list-unstyled">
-                <li> 
-                    <a href="{% url 'store_admin' %}">Store Overview</a>
-                </li>
-                <li>
-                    <a href="#" class="text-center text-decoration-none" id="product-managment" data-bs-toggle="dropdown" aria-haspopup="true">
-                        <p>Product Management</p>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="product-management">
-                        <li class="dropdown-item"><a href="{% url 'add_product' %}"> Add Product</a></li>
-                        <li class="dropdown-item"><a href="{% url 'product_list' %}">Product List</a></li>
-                    </ul>
-                </li>
-                <li> 
-                    <a href="{% url 'stock' %}">Stock Management</a>
-                </li>
-            </ul>
+            <div class="sidenav-header">
+                <h2 class="title">Admin options</h2>
+            </div>
+            {% include 'store_admin/includes/sidenav.html' %}
         </nav>
 
         <div id="admin-content">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <button type="button" id="sidenavCollapse" class="btn btn-clear">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidenav</span>
-                    </button>
-                    <h2 class="text-dark justify-self-center">Store Overview</h2>
+                    <div class="col-12 col-md-2 order-md-1">
+                        <button type="button" id="sidenavCollapse" class="btn btn-clear">
+                            <i class="fas fa-align-left"></i>
+                            <span>Toggle Sidenav</span>
+                        </button>
+                    </div>
+                    <div class="col-12 text-center order-first col-md-8 order-md-2">
+                        <h1 class="text-dark">Edit a Product</h1>
+                    </div>
+                    <div class="col-md-2 order-md-3"></div>
                 </div>
             </nav> 
-            <div class="row text-dark">
-                <div class="col-12 col-md-6 offset-md-3">
-                    <form method="POST" action="#" class="form text-black bg-light p-4 h-100" enctype="multipart/form-data">
+            <div class="row w-100 text-black">
+                <div class="col-12 ">
+                    <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ form | crispy }}
-                        <a href="{% url 'product_list' %}" class="btn btn-clear mt-2">Back to list</a>
-                        <button type="submit" class="btn btn-pink mt-2">Edit Product</button>
+                        {{ form.name | as_crispy_field }}
+                        {{ form.sku | as_crispy_field }}
+                        {{ form.category | as_crispy_field }}
+                        {{ form.subcat | as_crispy_field }}
+                        {{ form.article_type | as_crispy_field }}
+                        {{ form.gender | as_crispy_field }}
+                        {{ form.colour | as_crispy_field }}
+                        {{ form.season | as_crispy_field }}
+                        {{ form.year | as_crispy_field }}
+                        {{ form.usage | as_crispy_field }}
+                        {{ form.price | as_crispy_field }}
+                        {{ form.image | as_crispy_field}}
+                        <div class="row">
+                            <div class="col text-center">
+                                <a href="{% url 'product_list' %}" class="btn btn-clear">Cancel</a>
+                                <button type="submit" class="btn btn-pink">Confirm Edit</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -227,11 +227,16 @@ As A User of the site
 1. To be able to easily look at products and move back and forth between pages.
 
     E. Going to all products, changing, clicking on a product to go to it and then pressing keep shopping to go back to the page I was on.
-    T. Fresh site, not logged in, responsive laptop, ipad and mobile size, pressing all products, clicking an item then clicking keep shopping.
+    T. Fresh site, not logged in, responsive laptop, table and mobile size, pressing all products, clicking an item then clicking keep shopping.
     R. Navigation worked as expected, but viewing on ipad size devices wasnt right.
-    F
+    F. Resizing navbar and products per row for display at tablet size
 
 2. To be able to filter the products I'm looking at so I'm not just searching through a long list.
+
+    E. From the all products page type something in the search box at the top and the products filtering to include that search term.
+    T. From products on all device sizes, type 'bag' in the search bar and press search. Only products with bag in their name or category to show.
+    R. Only 2 items showed up both with bag in the name. One showed up with incorrect category (see Store Owner - 6 for fix)
+
 3. To be able to search for products when I know what I'm looking for.
 4. To be able to add products to a cart and be able to easily view and edit the cart.
 5. To be able to easily create/register for an account. 
@@ -246,6 +251,9 @@ As A Store Owner I would like:
 3. To be able to easily see what products need re-stocking.
 4. To be able to manually adjust and manage stock, editing prices and descriptions.
 5. To be able to add new products to the store.
+6. To be able to edit existing products in the store.
+
+    E. 
 
 As an administrator for the site I would like:
 
