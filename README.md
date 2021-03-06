@@ -64,16 +64,16 @@ A lot of the design inspiration came from my girlfriend Stéph as treating the s
 With this site being created for a store owner, I asked Steph to draw some images of how she would want the site to look, i then converted these into computer mock up wireframes.
 
 The site was to have a home page, with an image of a walk in wardrobe as the main background.
-![Home page Wireframe](/Wireframe1.jpg)
+![Home page Wireframe](/Wireframe1.JPG)
 
 The name was to go accross the center but with another instance of the name over the top like below.
-![Logo Design](/Wireframe2.jpg)
+![Logo Design](/Wireframe2.JPG)
 
 This is how the product page should be layed out.
-![Product page](/Wireframe3.jpg)
+![Product page](/Wireframe3.JPG)
 
 As a store owner, these were the things it was agreed on that she would like to see.
-![Store Admin](/Wireframe4.jpg)
+![Store Admin](/Wireframe4.JPG)
 
 
 # Features
