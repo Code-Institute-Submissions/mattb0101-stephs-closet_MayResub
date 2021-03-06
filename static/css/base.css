@@ -84,7 +84,15 @@ making the whole main nav slide under the links bar. Advice from cousin */
     font-size: clamp(2rem, 4.5vw, 4rem);
 }
 
+.bg-pink {
+    background-color: var(--pink);
+}
+
 .text-main {
+    color: var(--main) !important;
+}
+
+.text-pink {
     color: var(--pink) !important;
 }
 
@@ -170,6 +178,8 @@ making the whole main nav slide under the links bar. Advice from cousin */
 .cart-img {
     width: 10%;
 }
+
+
 
 /* ------------------------------- Buttons */
 
@@ -319,9 +329,9 @@ button match with border radius' */
     #sidenav {
         min-width: 250px;
         max-width: 250px;
-        height: calc(100vh - 130px);
+        height: 100%;
         position: fixed;
-        top: 159;
+        top: 130;
         left: 0;
         z-index: 9999;
     }
@@ -336,6 +346,11 @@ button match with border radius' */
         position: absolute;
         top: 10x;
         right: 10px;
+    }
+
+    /* This is for a crispy form image input that was pushing the screen on mobile devices */
+    .custom-file-input {
+        width: 100%;
     }
 
 }

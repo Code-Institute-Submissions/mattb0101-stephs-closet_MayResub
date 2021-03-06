@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse" id="items-navbar">
     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown mx-2">
-            <a class="nav-link text-main fw-bold text-uppercase dropdown-toggle" id="products-drop" data-bs-toggle="dropdown"
+            <a class="nav-link text-pink fw-bold text-uppercase dropdown-toggle" id="products-drop" data-bs-toggle="dropdown"
                 aria-current="page" href="#">All Products</a>
             <ul class="dropdown-menu" aria-labelledby="products-drop">
                 <li><a class="dropdown-item fw-bold" href="{% url 'products' %}">All Products</a></li>
@@ -10,7 +10,7 @@
             </ul>
         </li>
         <li class="nav-item dropdown mx-2">
-            <a class="nav-link text-main fw-bold text-uppercase dropdown-toggle" id="shoes-drop" data-bs-toggle="dropdown" aria-current="page"
+            <a class="nav-link text-pink fw-bold text-uppercase dropdown-toggle" id="shoes-drop" data-bs-toggle="dropdown" aria-current="page"
                 href="#">Shoes</a>
             <ul class="dropdown-menu" aria-labelledby="shoes-drop">
                 <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=footwear">All Shoes</a></li>
@@ -19,7 +19,7 @@
             </ul>
         </li>
         <li class="nav-item dropdown mx-2">
-            <a class="nav-link text-main fw-bold text-uppercase dropdown-toggle" href="#" id="accessories-drop" role="button"
+            <a class="nav-link text-pink fw-bold text-uppercase dropdown-toggle" href="#" id="accessories-drop" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Accessories
             </a>
@@ -39,7 +39,7 @@
             </ul>
         </li>
         <li class="dropdown show mx-2">
-            <a class="nav-link text-main fw-bold text-uppercase dropdown-toggle" href="#" id="personal-drop" role="button"
+            <a class="nav-link text-pink fw-bold text-uppercase dropdown-toggle" href="#" id="personal-drop" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Personal Care
             </a>
@@ -85,9 +85,9 @@
             </ul>
         </li>
         {% if request.user.is_superuser %}
-            <li><hr class="dropdown-divider d-md-none text-main"></li>
+            <li><hr class="dropdown-divider d-md-none text-pink"></li>
             <li class="nav-item mx-2 d-md-none">
-                <a class="nav-link text-main fw-bold text-uppercase" href="{% url 'store_admin' %}"><i class="fas fa-user-shield"></i> Store Managment</a>
+                <a class="nav-link text-pink fw-bold text-uppercase" href="{% url 'store_admin' %}"><i class="fas fa-user-shield"></i> Store Managment</a>
             </li>
         {% endif %}
     </ul>

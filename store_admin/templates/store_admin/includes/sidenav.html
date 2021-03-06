@@ -1,0 +1,21 @@
+<ul class="list-group list-unstyled mt-3">
+    <li class="list-group-item bg-pink"> 
+        <a href="{% url 'store_admin' %}" class="text-main text-decoration-none">Store Overview</a>
+    </li>
+    <li class="list-group-item bg-pink">
+        <a href="#product-management" class="text-center text-decoration-none text-main dropdown-toggle"  data-bs-toggle="collapse">
+            Product Management
+        </a>
+        <ul class="collapse list-unstyled list-group" id="product-management">
+            <li>
+                <a href="{% url 'product_list' %}" class="list-group-item text-decoration-none text-main bg-pink">Product List</a>
+            </li>
+            <li>
+                <a href="{% url 'add_product' %}" class="list-group-item text-decoration-none text-main bg-pink"> Add Product</a>
+            </li>
+        </ul>
+    </li>
+    <li class="list-group-item bg-pink"> 
+        <a href="{% url 'stock' %}" class="text-main text-decoration-none my-2">Stock Management</a>
+    </li>
+</ul>
