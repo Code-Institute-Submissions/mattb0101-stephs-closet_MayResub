@@ -18,4 +18,6 @@
     <li class="list-group-item bg-pink"> 
         <a href="{% url 'stock' %}" class="text-main text-decoration-none my-2">Stock Management</a>
     </li>
+    {% block extra_list_items %}
+    {% endblock %}
 </ul>

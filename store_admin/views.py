@@ -156,7 +156,7 @@ def product_list(request):
                 messages.error(request, "There is nothing to search on!")
                 return redirect(reverse('product_list'))
 
-            list_searches = Q(category__cat_name__icontains=list_search)
+            list_searches = Q(category__cat_name__icontains=list_search) | Q(name__icontains=list_search)
             products = products.filter(list_searches)
 
     current_sorting = f'{sort}_{direction}'
