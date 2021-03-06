@@ -258,7 +258,10 @@ As A Store Owner I would like:
 5. To be able to add new products to the store.
 6. To be able to edit existing products in the store.
 
-    E. 
+    E. To be able to edit a product field and then save the product.
+    T. Using the product found in User - 3: going to the store management module, clicking product management nd then product list. Searching 'bag' in the search and then pressing Edit in the table. Updating the category to accessories and Article type to Handbags then pressing 'Confirm Edit' for this to change and take me back to the list of products.
+    R. this took me onto a product information screen with no image and had created a new product. The action was incorrect in product edit and was looking at product add.
+    F. Changed the action to the correct 
 
 As an administrator for the site I would like:
 
