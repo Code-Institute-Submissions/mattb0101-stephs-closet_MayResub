@@ -214,6 +214,43 @@ In particular, as part of this section we recommend that you provide a list of U
 
 # Testing
 
+Testing the User Stories that were previsouly defined in the UX section of the README:
+
+Key: 
+- E - Expected
+- T - Testing
+- R - Results
+- F - Fixes
+
+As A User of the site
+
+1. To be able to easily look at products and move back and forth between pages.
+2. To be able to filter the products I'm looking at so I'm not just searching through a long list.
+3. To be able to search for products when I know what I'm looking for.
+4. To be able to add products to a cart and be able to easily view and edit the cart.
+5. To be able to easily create/register for an account. 
+6. To be able to save my delivery information for future easy entry on future orders.
+7. To be able to contact the store if there are any issues or questions.
+8. To be able to see my past orders and easily keep track of them. 
+
+As A Store Owner I would like:
+
+1. To be able to see an overview of the stores performance.
+2. To be able to see daily sales.
+3. To be able to easily see what products need re-stocking.
+4. To be able to manually adjust and manage stock, editing prices and descriptions.
+5. To be able to add new products to the store.
+
+As an administrator for the site I would like:
+
+1. To be able to easily view information related to the store.
+2. To be able to override information and easily update if a user is having an issue with verification or part of their account
+3. To be able to look at the full order history and easily identify orders if they want changing.
+4. To be able to....
+ - NEEED A FEW MORE THINGS IN HERE
+
+
+
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
 Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
