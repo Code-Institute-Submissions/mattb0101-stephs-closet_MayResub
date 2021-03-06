@@ -31,7 +31,7 @@ As A Store Owner I would like:
 1. To be able to see an overview of the stores performance.
 2. To be able to see daily sales.
 3. To be able to easily see what products need re-stocking.
-4. To be able to manually adjust and manage stock, editing prices and descriptions.
+4. To be able to manually adjust and manage stock.
 5. To be able to add new products to the store.
 
 As an administrator for the site I would like:
@@ -61,11 +61,19 @@ A lot of the design inspiration came from my girlfriend Stéph as treating the s
 
 ## Wireframes
 
- 
-[Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+With this site being created for a store owner, I asked Steph to draw some images of how she would want the site to look, i then converted these into computer mock up wireframes.
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.]
+The site was to have a home page, with an image of a walk in wardrobe as the main background.
+![Home page Wireframe](/Wireframe1.jpg)
+
+The name was to go accross the center but with another instance of the name over the top like below.
+![Logo Design](/Wireframe2.jpg)
+
+This is how the product page should be layed out.
+![Product page](/Wireframe3.jpg)
+
+As a store owner, these were the things it was agreed on that she would like to see.
+![Store Admin](/Wireframe4.jpg)
 
 
 # Features
@@ -126,6 +134,8 @@ In particular, as part of this section we recommend that you provide a list of U
 * Right now the products so not have a description as there was not one in the downloaded data set. I think it would be great to have descriptions and reviews against all the items so users have a clearer understanding of what they are looking at, but I did not have time to write descriptions for 1000 items.
 
 #### Ordering stock in
+
+#### First and Last Name on the Sign up Form. 
 
 
 # Technologies Used

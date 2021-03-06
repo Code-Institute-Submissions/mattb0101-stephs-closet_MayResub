@@ -69,21 +69,20 @@ As A Store Owner I would like:
 
     E. When logged in as a user with staff or superuser status, being able to see some figures or orders in the store.
     T. Logging in as a user with superuser status, making sure the store management icon appears and been able to see the graphs of number of orders and average order value and easily understand what is said. Testing this across all devices. 
-    R.Graphs are visible and its easy to understand what it going on. The dates are not in the correct order though. 
+    R.Graphs are visible and its easy to understand what it going on. The dates are not in the correct order though on the Heroku App.
+    F. Updated the postgres SQL queries to have an ORDER BY in. Refreshed the page
 
 2. To be able to see daily sales.
 
-    E. 
-    T.
-    R.
+    This was covered in the story above so is working fine.
 
 3. To be able to easily see what products need re-stocking.
 
-    E. 
-    T.
-    R.
+    E. Being able to see a list of what products are out of stock and be able to re-order them.  
+    T. Check the store admin page to see the Out of stock list.
+    R. There is a list of what items are out of stock, but there is no extra functionality. With a deadline, this is been added to the list of features still to implement. 
 
-4. To be able to manually adjust and manage stock, editing prices and descriptions.
+4. To be able to manually adjust and manage stock.
 
     E. 
     T.
@@ -91,9 +90,9 @@ As A Store Owner I would like:
 
 5. To be able to add new products to the store.
 
-    E. 
-    T.
-    R.
+    E. From the Store admin page, be able to add a new product, able to add all the information and then be able to see it on the products pages
+    T. From store admin, clicking Product Management and then Add a product. trying to add the product with no name in. Filling in a name and then numerous other fields, adding an image and then adding the product and being able to see that product. 
+    R. New product would not add with no name, adding the product takes me to the product info page, the image has uploaded and there is no stock so this cant be bought yet. All a success.
 
 6. To be able to edit existing products in the store.
 
@@ -111,24 +110,26 @@ As an administrator for the site I would like:
  - NEEED A FEW MORE THINGS IN HERE
 
 
+## External User Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+With this being a shop and a lot of code, it was a good idea to get as much testing done as possible. I sent the site out at various stages of development to all my friends and all my family too, gave them instructions about the payment details and asked them to treat it like a store and create a user account and buy things. This also helped with my store admin section and the ability to monitor orders from the store.
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+Below is a list of issues that were brought up by external users and the fixes I put in to amend the issues:
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+    I. pagination buttons were not working on product pages.
+    F. Upon looking this was a row at the bottom containing the back to top button that was obscuring the next page button. I added a margin to bottom of the pages section so that it would sit above the back to top row.
 
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+    I. On mobiles the toasts are appearing half off the screen.
+    F. Added a media query in to give a max-width and different positioning at mobile size. 
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+    I. Profile links not working at mobile size and clicking the register button would take you back to home.
+    F. I streamline the button process. I used to have dropdown menus for all the headings when only 1 option was often needed, so a lot of the buttons now function depending on the user and the state they are in, logged in or not.
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+    I. Issues with phone size display, certain fields like quantity were overrunning the row and splitting onto two.
+    F. Through the testing of the operations and user stories, any minor changes to display have been fixed with bootstrap classes. 
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+    I. Some information on items is wrong, or they have a size option when they are a bag so are not supposed to. 
+    F. Using the admin portal, these items have been adjusted so that sizes are taken off when not needed. Editing items has been built into the store admin, so that any member of staff can easily edit things on an item. 
 
-
-Talk about changing delivery to standard price and having to make sure changes were put in model.py and contexts.py and if, elif, else. delivery coming through as a flaot and total as a decimal, need to make delivery an int
+    I. Name was not a field on the default delivery information so didnt pull through to delivery info at checkout.
+    F. This is not yet fixed, the name comes from the user account but with the allauth form, these are not fields present on the signup. I had a look into adding them into it, but did not get time. This would be nice to have so has gone down as a feature left to implement. 
