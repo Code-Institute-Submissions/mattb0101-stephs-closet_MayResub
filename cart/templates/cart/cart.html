@@ -21,8 +21,84 @@
         <div class="row">
             <div class="col">
                 {% if cart_items %}
-                    <table class="table text-black">
-                        <div class="table-responsive">
+                    <!-- Up to Medium Size displays -->
+                    <div class="d-block d-md-none text-black">
+                        <div class="row">
+                            <div class="col">
+                                <p><strong>Total: </strong>£{{ total|floatformat:2 }}</p>
+                                <p>Delivery: £{{ delivery|floatformat:2 }}</p>
+                                <p>Grand Total: £{{ grand_total|floatformat:2 }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <a href="{% url 'products' %}" class="btn btn-clear">
+                                    <i class="fas fa-backward"></i>
+                                    <span>Keep Shopping</span>
+                                </a>
+                                <a href="{% url 'checkout' %}" class="btn btn-pink">
+                                    <span class="fw-bold"> Secure Checkout</span>
+                                </a>
+                                <p class="text-center mt-2">A Summary of your cart is below</p>
+                            </div>
+                        </div>
+                        {% for item in cart_items %}
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                {% if item.product.image %}
+                                    <a href="{{ item.product.image.url }}" target="_blank">
+                                        <img src="{{ item.product.image.url }} " class="card-img-top" alt="{{ item.product.name }}">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ item.product.name }}">
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="col-10 offset-1">
+                                <p class="lead fw-bold">{{ item.product.name }}</p>
+                                {% if item.size %}
+                                    <p>Size: {{ item.size }}</p>
+                                {% endif %}
+                                <p>In Stock: {{ item.product.in_stock }}</p>
+                            </div>
+                            <div class="col-10 offset-1">
+                                <p>Item Price: £{{ item.product.price }}</p>
+                            </div>
+                            <div class="col-10 offset-1">
+                                <p>Subtotal: £{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            </div>
+                            <div class="col-10 offset-1">
+                                <form class="form item-update" method="POST" action="{% url 'update_cart' item.item_id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <button class="decrease-qty btn btn-pink-pre" data-item_id="{{ item.item_id }}"
+                                                id="decrease-qty_{{ item.item_id }}">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <input name="quantity" type="number" class="form-control qty-input" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                            <button class="increase-qty btn btn-pink-apres" data-item_id="{{ item.item_id }}"
+                                                id="increase-qty_{{ item.item_id }}">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                            {% if item.size %}
+                                                <input type="hidden" name="size" value="{{ item.size }}">
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </form>
+                                <a class="text-dark update-button"><small>Update</small></a>
+                                <a class="text-danger remove-button float-end" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                            </div>
+                        </div>
+                        <div class="row"><div class="col"><hr></div></div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Medium size displays and up  -->
+                    <div class="table-responsive d-none d-md-block">
+                        <table class="table text-black d-none d-md-block">
                             <thead>
                                 <th scope="col">Product Info</th>
                                 <th scope="col"></th>
@@ -34,7 +110,15 @@
                             {% for item in cart_items %}
                                 <tr>
                                     <td class="cart-img">
-                                        <img class="img-fluid" src="{{ item.product.image.url }}" alt="">
+                                        {% if item.product.image %}
+                                            <a href="{{ item.product.image.url }}" target="_blank">
+                                                <img src="{{ item.product.image.url }} " class="card-img-top" alt="{{ item.product.name }}">
+                                            </a>
+                                        {% else %}
+                                            <a href="">
+                                                <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top" alt="{{ item.product.name }}">
+                                            </a>
+                                        {% endif %}
                                     </td>
                                     <td>
                                         <p class="lead fw-bold">{{ item.product.name }}</p>
@@ -93,8 +177,8 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </div>
-                    </table>
+                        </table>
+                    </div>
                 {% else %}
                 <div class="row text-center">
                     <p class="text-dark">Nothing in your cart right now!</p>
