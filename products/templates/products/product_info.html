@@ -13,7 +13,7 @@
 <div class="products-overlay"></div>
      <div class="container-fluid">
         <div class="row my-2">
-            <div class="col">
+            <div class="col-12">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
@@ -40,7 +40,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-10 offset-1 col-sm-12 mt-3 mt-sm-0">
+            <div class="col-10 offset-1 col-sm-12 offset-sm-0 col-md-6 mt-3 mt-sm-0">
                 <div class="product-info-container text-black">
                     <p class="fs-3 fw-bold">{{ product.name }}</p>
                     <p class="lead fs-2 mb-0">£{{ product.price }}</p>

@@ -24,10 +24,10 @@
                     <!-- Up to Medium Size displays -->
                     <div class="d-block d-md-none text-black">
                         <div class="row">
-                            <div class="col">
-                                <p><strong>Total: </strong>£{{ total|floatformat:2 }}</p>
+                            <div class="col-10 offset-1">
+                                <p><strong>Cart Total: </strong>£{{ total|floatformat:2 }}</p>
                                 <p>Delivery: £{{ delivery|floatformat:2 }}</p>
-                                <p>Grand Total: £{{ grand_total|floatformat:2 }}</p>
+                                <p class="fs-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></strong></p>
                             </div>
                         </div>
                         <div class="row">
@@ -98,7 +98,7 @@
 
                     <!-- Medium size displays and up  -->
                     <div class="table-responsive d-none d-md-block">
-                        <table class="table text-black d-none d-md-block">
+                        <table class="table text-black">
                             <thead>
                                 <th scope="col">Product Info</th>
                                 <th scope="col"></th>
@@ -160,9 +160,9 @@
                             {% endfor %}
                                 <tr>
                                     <td colspan="5" class="text-end">
-                                        <p><strong>Total: </strong>£{{ total|floatformat:2 }}</p>
+                                        <p><strong>Cart Total: </strong>£{{ total|floatformat:2 }}</p>
                                         <p>Delivery: £{{ delivery|floatformat:2 }}</p>
-                                        <p>Grand Total: £{{ grand_total|floatformat:2 }}</p>
+                                        <p class="fs-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></p>
                                     </td>
                                 </tr>
                                 <tr>
