@@ -23,8 +23,8 @@ As a user of this site I would like:
 5. To be able to checkout an order easily and get a confirmation email. 
 6. To be able to easily create/register for an account. 
 7. To be able to save my delivery information for future easy entry on future orders.
-8. To be able to contact the store if there are any issues or questions.
-9. To be able to see my past orders and easily keep track of them. 
+8. To be able to see my past orders and easily keep track of them. 
+9. To be able to contact the store if there are any issues or questions.
 
 As A Store Owner I would like:
 

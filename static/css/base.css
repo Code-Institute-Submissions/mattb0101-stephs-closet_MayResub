@@ -283,6 +283,12 @@ button match with border radius' */
     }
 }
 
+@media (min-width: 1140px) {
+    .profile-container {
+        max-width: 80%;
+    }
+}
+
 /* -------------------------------- Store Admin - wants moving to other CSS file */
 
 .wrapper {

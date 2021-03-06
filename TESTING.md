@@ -41,35 +41,35 @@ As A User of the site
 
 6. To be able to easily create/register for an account.
 
-    E. 
-    T.
-    R.
+    E. Knowing how to register for an account, easily been able to fill in and verify my information, knowing if I am logged in and being able to log in and log out successfully.
+    T. Pressing Register at the top of the screen to bring up the registrations form. Using temp-mail.org, taking an email address and using it to create an account. Firstly, trying to register with a username that I know already exists and a 2 letter password. Then trying a new username and 8 charcater password. Checking for a verification email then verifying the address. After verifying, logging in as the newly created user.
+    R. All results as expected, email was received, signed in easily and shows me the user I am logged in as at the top. 
 
 7. To be able to save my delivery information for future easy entry on future orders.
 
-    E. 
-    T.
-    R.
+    E. Updating some delivery information in the user profile and then when going to checkout, the information to be pre-populated in the form. When some of this information is changed, for it to update my profile. 
+    T. Enter some information in the form for this user on the profile then updating it. From there, adding some items to the cart and checking out. Checking the information has populated. Changing a few of the details on the delivery information and making sure the 'Save this info' box is checked. Going back to the profile to check if the information had been updated. 
+    R. All as expected, exact information saved and then populated through the checkout page. Returning to profile showed the new information used as the new default.  
 
-8. To be able to contact the store if there are any issues or questions.
+8. To be able to see my past orders and easily keep track of them.
 
-    E. 
-    T.
-    R.
+    E. To be able to see a list of orders on my profile and click them to see the order summary.
+    T. Click on the profile and if there is an order in the order history section, click the order number.
+    R. There was an order in the history, and clicking the order number took me to the checkout success page, but with an information popup and a message on the screen telling me it was a historical order. the keep shopping button was now a back to profile button and took me back to my profile. 
 
-9. To be able to see my past orders and easily keep track of them.
+9. To be able to contact the store if there are any issues or questions.
 
-    E. 
-    T.
-    R.
+    E. To be able to contact the store with a message and make sure it gets to them
+    T. From the user profile, pressing the mail button at the bottom, filling out a message with contact details and sending it. Checking the stores email account to see if the message was successfull
+    R. Results were all as expected. Message with contact information was sent to the stores email. 
 
 As A Store Owner I would like:
 
 1. To be able to see an overview of the stores performance.
 
-    E. 
-    T.
-    R.
+    E. When logged in as a user with staff or superuser status, being able to see some figures or orders in the store.
+    T. Logging in as a user with superuser status, making sure the store management icon appears and been able to see the graphs of number of orders and average order value and easily understand what is said. Testing this across all devices. 
+    R.Graphs are visible and its easy to understand what it going on. The dates are not in the correct order though. 
 
 2. To be able to see daily sales.
 
