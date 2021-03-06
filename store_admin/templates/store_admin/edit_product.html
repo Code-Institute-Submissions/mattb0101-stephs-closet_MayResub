@@ -41,7 +41,7 @@
             </nav> 
             <div class="row w-100 text-black">
                 <div class="col-12 ">
-                    <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+                    <form method="POST" action="{% url 'edit_product' %}" class="form mb-2" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.name | as_crispy_field }}
                         {{ form.sku | as_crispy_field }}

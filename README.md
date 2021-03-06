@@ -233,11 +233,16 @@ As A User of the site
 
 2. To be able to filter the products I'm looking at so I'm not just searching through a long list.
 
+    E. Using the dropdown menus in the nav bar to look at different product groups with only the results showing. 
+    T. Select a group from one of the four dropdown menus and look at the products on the page to see if they matched what group I was looking for. Used some of the dropdown submenus to check display. Did this on all device sizes.
+    R. Results were as expected the correct type of products showed up with correct titles and still able to move to new ones from that page.    
+
+3. To be able to search for products when I know what I'm looking for.
+
     E. From the all products page type something in the search box at the top and the products filtering to include that search term.
     T. From products on all device sizes, type 'bag' in the search bar and press search. Only products with bag in their name or category to show.
     R. Only 2 items showed up both with bag in the name. One showed up with incorrect category (see Store Owner - 6 for fix)
 
-3. To be able to search for products when I know what I'm looking for.
 4. To be able to add products to a cart and be able to easily view and edit the cart.
 5. To be able to easily create/register for an account. 
 6. To be able to save my delivery information for future easy entry on future orders.
