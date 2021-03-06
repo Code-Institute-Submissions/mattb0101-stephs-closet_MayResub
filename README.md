@@ -225,6 +225,12 @@ Key:
 As A User of the site
 
 1. To be able to easily look at products and move back and forth between pages.
+
+    E. Going to all products, changing, clicking on a product to go to it and then pressing keep shopping to go back to the page I was on.
+    T. Fresh site, not logged in, responsive laptop, ipad and mobile size, pressing all products, clicking an item then clicking keep shopping.
+    R. Navigation worked as expected, but viewing on ipad size devices wasnt right.
+    F
+
 2. To be able to filter the products I'm looking at so I'm not just searching through a long list.
 3. To be able to search for products when I know what I'm looking for.
 4. To be able to add products to a cart and be able to easily view and edit the cart.
