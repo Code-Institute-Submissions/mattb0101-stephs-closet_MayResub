@@ -153,8 +153,24 @@ Below is a list of issues that were brought up by external users and the fixes I
 
 
 [UAT doc - Samantha Bruce](/testing_from_pc_POV.docx)
+This was a document sent to me by a family member who tests things for her job, I have looked through and looked at issues occuring. 
+
+    F. The navbar was overriding the free delivery banner, I had taken top padding off at certain sizes, but not bottom padding, put this in and my testing doesnt have this covered on any screen size. 
+
+    F. Links on the homepage were not actually directing anywhere, expect for the email one that brought up the contact form. As there is no instagram or facebook for Stephs closet, I have put links to my facebook and Stephs instagram in, just to show I am not just putting icons in, but that they can link to new pages.
+
+    F. Pictures missing for lots of products. The products have an image link but the image has not been uploaded and as there was a reference, the noimage image was not showing up. I went through the list of products and uploaded any image files that were missing.
+
+    F. Consistency issues. These have been noted and with the data coming from a big data set, is not something I can manage. I have made note and so if I ever had to do something like this as a real job, to make sure that consistency is there in all images and the layout. 
+
+    F. Broke up the Accessories and Personal Care products into categories. This information came from Steph for what she would want them split into, I then tweaked for web layout and the way the data was in.
+    ![Categories1](/categories1-min.jpeg)
+    ![Categories2](/categories2-min.jpeg)
+
 
 
 ## Bugs Found
 
 * Quantity Changer on shopping cart. This works no problem on product info when adding to cart, but when trying to update the cart, the disabled buttons only works on mobile size. I think this is something to do with there being 2 lots of code on that page, for mobile and desktop and its only picking up one. Noticed and would be great to sort in the future, but didnt have time, and on the cart page, any update that goes over the in stock value throws and error, so this is a temporary fix anyway.
+
+* Allauth remember me does not seem to do anything, tried this. This might go hand in hand with trying to add First and last name to the allauth form in the future (See features left to implement.)
