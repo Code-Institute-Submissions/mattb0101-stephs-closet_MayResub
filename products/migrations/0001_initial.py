@@ -15,32 +15,54 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
                 ('cat_name', models.CharField(max_length=254)),
-                ('cat_friendlyname', models.CharField(blank=True, max_length=254, null=True)),
+                ('cat_friendlyname', models.CharField(
+                    blank=True, max_length=254)),
             ],
         ),
         migrations.CreateModel(
             name='Sub_Category',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
                 ('sub_name', models.CharField(max_length=254)),
-                ('sub_friendlyname', models.CharField(blank=True, max_length=254, null=True)),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.category')),
+                ('sub_friendlyname', models.CharField(
+                    blank=True, max_length=254)),
+                ('category', models.ForeignKey(
+                    blank=True, null=True,
+                    on_delete=django.db.models.deletion.SET_NULL,
+                    to='products.category')),
             ],
         ),
         migrations.CreateModel(
             name='Product',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sku', models.CharField(blank=True, max_length=254, null=True)),
-                ('gender', models.CharField(blank=True, max_length=254, null=True)),
+                ('id', models.AutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
+                ('sku', models.CharField(
+                    blank=True, max_length=254)),
+                ('gender', models.CharField(
+                    blank=True, max_length=254)),
                 ('name', models.CharField(max_length=254)),
-                ('article_type', models.CharField(blank=True, max_length=254, null=True)),
-                ('price', models.DecimalField(blank=True, decimal_places=2, max_digits=6, null=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='')),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.category')),
-                ('subcat', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.sub_category')),
+                ('article_type', models.CharField(
+                    blank=True, max_length=254)),
+                ('price', models.DecimalField(
+                    blank=True, decimal_places=2, max_digits=6, null=True)),
+                ('image', models.ImageField(
+                    blank=True, upload_to='')),
+                ('category', models.ForeignKey(
+                    blank=True, null=True,
+                    on_delete=django.db.models.deletion.SET_NULL,
+                    to='products.category')),
+                ('subcat', models.ForeignKey(
+                    blank=True, null=True,
+                    on_delete=django.db.models.deletion.SET_NULL,
+                    to='products.sub_category')),
             ],
         ),
     ]

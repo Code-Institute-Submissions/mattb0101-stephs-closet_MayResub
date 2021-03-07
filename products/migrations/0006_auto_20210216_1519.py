@@ -18,9 +18,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Size',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('size', models.CharField(blank=True, max_length=2, null=True)),
-                ('product', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='products.product')),
+                ('id', models.AutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
+                ('size', models.CharField(blank=True, max_length=2)),
+                ('product', models.ForeignKey(
+                    blank=True, null=True,
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='products.product')),
             ],
         ),
     ]

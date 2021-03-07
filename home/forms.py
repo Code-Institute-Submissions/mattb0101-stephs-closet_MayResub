@@ -6,4 +6,3 @@ class EmailForm(forms.Form):
         label="Full Name", max_length=80, required=True)
     contact_email = forms.EmailField(required=True)
     message = forms.CharField(widget=forms.Textarea)
-    

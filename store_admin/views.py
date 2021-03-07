@@ -4,11 +4,9 @@ from django.db import connection
 from .forms import ProductForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q, Count
-from django.db.models.functions import Lower
+from django.db.models import Q
 
-from products.models import Product, Category, Sub_Category
-from checkout.models import Order, OrderLineItem
+from products.models import Product
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -50,7 +48,12 @@ class AdminChartData(APIView):
         # which uses a different SQL. The queries have had to change
         # for the store owner graphs.
         if 'DEVELOPMENT' in os.environ:
-            cursor.execute("SELECT count(order_number) AS order_count, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
+            cursor.execute(
+                "SELECT count(order_number) AS order_count, \
+                    strftime('%d-%m-%Y',date) AS date \
+                FROM checkout_order \
+                GROUP BY strftime('%d-%m-%Y',date) \
+                ORDER BY julianday('now') - julianday(date) desc")
             columns = [col[0] for col in cursor.description]
             resultsNumbers = [
                 dict(zip(columns, row))
@@ -60,7 +63,12 @@ class AdminChartData(APIView):
                 labelsNumber.append(number['date'])
                 dataNumber.append(number['order_count'])
 
-            cursor.execute("SELECT ROUND(avg(grand_total),2) AS average_value, strftime('%d-%m-%Y',date) AS date FROM checkout_order GROUP BY strftime('%d-%m-%Y',date) ORDER BY julianday('now') - julianday(date) desc")
+            cursor.execute(
+                "SELECT ROUND(avg(grand_total),2) AS average_value,\
+                    strftime('%d-%m-%Y',date) AS date \
+                FROM checkout_order \
+                GROUP BY strftime('%d-%m-%Y',date) \
+                ORDER BY julianday('now') - julianday(date) desc")
             columns = [col[0] for col in cursor.description]
             resultsValues = [
                 dict(zip(columns, row))
@@ -78,7 +86,12 @@ class AdminChartData(APIView):
             }
             return Response(data)
         else:
-            cursor.execute("SELECT count(order_number) AS order_count, CAST(date as Date) AS date FROM checkout_order GROUP BY CAST(date as Date) ORDER BY CAST(date as Date)")
+            cursor.execute(
+                "SELECT count(order_number) AS order_count, \
+                    CAST(date as Date) AS date \
+                FROM checkout_order \
+                GROUP BY CAST(date as Date) \
+                ORDER BY CAST(date as Date)")
             columns = [col[0] for col in cursor.description]
             resultsNumbers = [
                 dict(zip(columns, row))
@@ -88,7 +101,12 @@ class AdminChartData(APIView):
                 labelsNumber.append(number['date'])
                 dataNumber.append(number['order_count'])
 
-            cursor.execute("SELECT ROUND(avg(grand_total),2) AS average_value, CAST(date as Date) AS date FROM checkout_order GROUP BY CAST(date as Date) ORDER BY CAST(date as Date)")
+            cursor.execute(
+                "SELECT ROUND(avg(grand_total),2) AS average_value,\
+                    CAST(date as Date) AS date \
+                FROM checkout_order \
+                GROUP BY CAST(date as Date) \
+                ORDER BY CAST(date as Date)")
             columns = [col[0] for col in cursor.description]
             resultsValues = [
                 dict(zip(columns, row))
@@ -124,7 +142,9 @@ def product_list(request):
                 messages.error(request, "There is nothing to search on!")
                 return redirect(reverse('product_list'))
 
-            list_searches = Q(category__cat_name__icontains=list_search) | Q(name__icontains=list_search)
+            list_searches = Q(
+                category__cat_name__icontains=list_search) | Q(
+                    name__icontains=list_search)
             products = products.filter(list_searches)
 
     paginator = Paginator(products, 50)

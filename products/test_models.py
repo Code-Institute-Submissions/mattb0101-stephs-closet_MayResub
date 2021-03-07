@@ -1,6 +1,4 @@
 from django.test import TestCase
-from django.http import Http404
-from django.shortcuts import get_object_or_404
 from .models import Product
 
 

@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='orderlineitem',
             name='product_size',
-            field=models.CharField(blank=True, max_length=10, null=True),
+            field=models.CharField(blank=True, max_length=10),
         ),
     ]

@@ -15,11 +15,17 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='stock',
             name='category',
-            field=models.ForeignKey(blank=True, max_length=254, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.category'),
+            field=models.ForeignKey(
+                blank=True, max_length=254, null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to='products.category'),
         ),
         migrations.AddField(
             model_name='stock',
             name='sub_category',
-            field=models.ForeignKey(blank=True, max_length=254, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.sub_category'),
+            field=models.ForeignKey(
+                blank=True, max_length=254, null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to='products.sub_category'),
         ),
     ]

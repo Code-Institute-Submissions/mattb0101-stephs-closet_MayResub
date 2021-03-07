@@ -15,6 +15,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='stocktransactions',
             name='product',
-            field=models.ForeignKey(max_length=254, on_delete=django.db.models.deletion.CASCADE, related_name='transaction', to='products.product'),
+            field=models.ForeignKey(
+                max_length=254,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='transaction', to='products.product'),
         ),
     ]

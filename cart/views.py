@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404)
 from django.contrib import messages
 
 from products.models import Product
@@ -11,7 +12,7 @@ def view_cart(request):
 
 
 def add_to_cart(request, item_id):
-    """ add item and quantity to the cart"""
+    """ Add item and quantity to the cart"""
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -31,17 +32,22 @@ def add_to_cart(request, item_id):
             if item_id in list(cart.keys()):
                 if size in cart[item_id]['item_with_size'].keys():
                     cart[item_id]['item_with_size'][size] += quantity
-                    messages.success(request, f'Updated {size} {product.name} to your cart')
+                    messages.success(
+                        request, f'Updated {size} {product.name} to your cart')
                 else:
                     cart[item_id]['item_with_size'][size] = quantity
-                    messages.success(request, f'Added {size} {product.name} to your cart')
+                    messages.success(
+                        request, f'Added {size} {product.name} to your cart')
             else:
                 cart[item_id] = {'item_with_size': {size: quantity}}
-                messages.success(request, f'Added size {size} {product.name} to your cart')
+                messages.success(
+                    request, f'Added size {size} {product.name} to your cart')
         else:
             if item_id in list(cart.keys()):
                 cart[item_id] += quantity
-                messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+                messages.success(
+                    request, f'Updated {product.name} quantity \
+                         to {cart[item_id]}')
             else:
                 cart[item_id] = quantity
                 messages.success(request, f'Added {product.name} to your cart')
@@ -69,19 +75,24 @@ def update_cart(request, item_id):
         if size:
             if quantity > 0:
                 cart[item_id]['item_with_size'][size] = quantity
-                messages.success(request, f'Updated {product.name} quantity in your bag')
+                messages.success(
+                    request, f'Updated {product.name} quantity in your bag')
             else:
                 del cart[item_id]['item_with_size'][size]
                 if not cart[item_id]['item_with_size']:
                     cart.pop(item_id)
-                    messages.success(request, f'Removed {product.name} quantity in your bag')
+                    messages.success(
+                        request, f'Removed {product.name} quantity \
+                             in your bag')
         else:
             if quantity > 0:
                 cart[item_id] = quantity
-                messages.success(request, f'Updated {product.name} quantity in your bag')
+                messages.success(
+                    request, f'Updated {product.name} quantity in your bag')
             else:
                 cart.pop(item_id)
-                messages.success(request, f'Removed {product.name} to your bag')
+                messages.success(
+                    request, f'Removed {product.name} to your bag')
 
         request.session['cart'] = cart
         return redirect(reverse('view_cart'))
@@ -101,10 +112,12 @@ def remove_from_cart(request, item_id):
             del cart[item_id]['item_with_size'][size]
             if not cart[item_id]['item_with_size']:
                 cart.pop(item_id)
-                messages.success(request, f'Removed {product.name} quantity from your cart')
+                messages.success(
+                    request, f'Removed {product.name} quantity from your cart')
         else:
             cart.pop(item_id)
-            messages.success(request, f'Removed {product.name} quantity from your cart')
+            messages.success(
+                request, f'Removed {product.name} quantity from your cart')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)

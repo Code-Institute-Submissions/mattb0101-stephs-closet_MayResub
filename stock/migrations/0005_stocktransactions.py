@@ -14,9 +14,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='StockTransactions',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
                 ('amount', models.IntegerField(default=0)),
-                ('product', models.ForeignKey(max_length=254, on_delete=django.db.models.deletion.CASCADE, related_name='transaction', to='stock.stock')),
+                ('product', models.ForeignKey(
+                    max_length=254,
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='transaction', to='stock.stock')),
             ],
         ),
     ]

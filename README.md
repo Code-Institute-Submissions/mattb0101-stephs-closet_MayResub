@@ -137,6 +137,10 @@ As a store owner, these were the things it was agreed on that she would like to 
 
 #### Social Media login through allauth
 
+#### Product 
+
+#### Stock Management
+
 
 # Technologies Used
 

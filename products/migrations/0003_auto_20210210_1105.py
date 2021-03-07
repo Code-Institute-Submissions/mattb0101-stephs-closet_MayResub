@@ -13,21 +13,21 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='colour',
-            field=models.CharField(blank=True, max_length=254, null=True),
+            field=models.CharField(blank=True, max_length=254),
         ),
         migrations.AddField(
             model_name='product',
             name='season',
-            field=models.CharField(blank=True, max_length=254, null=True),
+            field=models.CharField(blank=True, max_length=254),
         ),
         migrations.AddField(
             model_name='product',
             name='usage',
-            field=models.CharField(blank=True, max_length=254, null=True),
+            field=models.CharField(blank=True, max_length=254),
         ),
         migrations.AddField(
             model_name='product',
             name='year',
-            field=models.CharField(blank=True, max_length=254, null=True),
+            field=models.CharField(blank=True, max_length=254),
         ),
     ]

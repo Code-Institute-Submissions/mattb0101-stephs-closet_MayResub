@@ -129,6 +129,8 @@ As an administrator for the site I would like:
 With this being a shop and a lot of code, it was a good idea to get as much testing done as possible. I sent the site out at various stages of development to all my friends and all my family too, gave them instructions about the payment details and asked them to treat it like a store and create a user account and buy things. This also helped with my store admin section and the ability to monitor orders from the store.
 
 Below is a list of issues that were brought up by external users and the fixes I put in to amend the issues:
+I - Issue
+F - Fix
 
     I. pagination buttons were not working on product pages.
     F. Upon looking this was a row at the bottom containing the back to top button that was obscuring the next page button. I added a margin to bottom of the pages section so that it would sit above the back to top row.
@@ -165,10 +167,21 @@ This was a document sent to me by a family member who tests things for her job, 
 
     F. Broke up the Accessories and Personal Care products into categories. This information came from Steph for what she would want them split into, I then tweaked for web layout and the way the data was in.
 
+    F. Sorting. The sorting box is available in all product ranges now, agreed the size sorting on shoes would be great. I have built this into a future implementation (Product Variants)
+
+    F. Stock issue with letting you take multiple lines of the same item as long as this one line doesnt go over stock level. This is another future feature to implement. (Stock management)
+
 ![Categories1](/categories1-min.jpeg)
 ![Categories2](/categories2-min.jpeg)
 
 
+## Flake8 and Code Refactoring
+
+* Due to the large amounts of files, running everything through code validators would take days. using the command `<python3 -m flake8>` this shows all the errors and I have gone through and fixed them.
+
+* Fixed a lot of issues where null=True is bad practice. This was how it was done in the tutorials but I have read up and learnt from this.
+
+* Using flake8, all the errors have been solved except 2 saying that the signals files are not used, but they are being used. Followed the method in the tutorial videos and I cant find a reason why they are showing as errors. 2 errors with continuations line at the same indentations level, moving the section below creates a full indentation error against that section, not sure how to handle this.
 
 ## Bugs Found
 

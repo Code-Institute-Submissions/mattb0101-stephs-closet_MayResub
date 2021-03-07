@@ -1,6 +1,6 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from products.models import Product, Category, Sub_Category
+from products.models import Product, Category
 
 
 class ProductForm(forms.ModelForm):

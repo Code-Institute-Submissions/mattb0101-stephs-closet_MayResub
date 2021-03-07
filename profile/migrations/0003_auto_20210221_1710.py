@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='useraccount',
             name='default_town_or_city',
-            field=models.CharField(blank=True, max_length=40, null=True),
+            field=models.CharField(blank=True, max_length=40),
         ),
     ]
