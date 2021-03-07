@@ -228,7 +228,7 @@ As a store owner, these were the things it was agreed on that she would like to 
 
 # Testing
 
-
+[See testing Doc](/TESTING.md)
 
 
 ## Deployment
