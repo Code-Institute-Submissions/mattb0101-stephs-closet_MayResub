@@ -47,11 +47,14 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     in_stock = models.IntegerField(blank=True, null=True, default=0)
 
+    def issue_stock(self):
+        self.in_stock = self.in_stock - self.stockproduct.amount
+        self.save()
+
     def __str__(self):
         return self.name
 
 
-# Product Size Test
 class Size(models.Model):
     product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE)
     size = models.CharField(max_length=10, null=True, blank=True)

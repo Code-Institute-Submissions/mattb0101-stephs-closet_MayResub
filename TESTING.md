@@ -145,3 +145,13 @@ Below is a list of issues that were brought up by external users and the fixes I
 
     I. Name was not a field on the default delivery information so didnt pull through to delivery info at checkout.
     F. This is not yet fixed, the name comes from the user account but with the allauth form, these are not fields present on the signup. I had a look into adding them into it, but did not get time. This would be nice to have so has gone down as a feature left to implement. 
+
+    I. At extra large screens, the home logo was cutting off and overflowing into the nav bar below, this made the menu button overflow too.
+    F. This was because I had font size on a 4.5vw so on an extra large screen, it grew too big. I put clamp in against this logo, which allowed it to have a viewport responsiveness, but have a max and min so that it didnt grow too big. This solved the issue. 
+
+    [UAT doc - Samantha Bruce](/From a pc POV.docx)
+
+
+## Bugs Found
+
+* Quantity Changer on shopping cart. This works no problem on product info when adding to cart, but when trying to update the cart, the disabled buttons only works on mobile size. I think this is something to do with there being 2 lots of code on that page, for mobile and desktop and its only picking up one. Noticed and would be great to sort in the future, but didnt have time, and on the cart page, any update that goes over the in stock value throws and error, so this is a temporary fix anyway.

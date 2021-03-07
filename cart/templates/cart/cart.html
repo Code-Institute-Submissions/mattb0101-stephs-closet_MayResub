@@ -69,27 +69,7 @@
                                 <p>Subtotal: £{{ item.product.price | calc_subtotal:item.quantity }}</p>
                             </div>
                             <div class="col-10 offset-1">
-                                <form class="form item-update" method="POST" action="{% url 'update_cart' item.item_id %}">
-                                    {% csrf_token %}
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <button class="decrease-qty btn btn-pink-pre" data-item_id="{{ item.item_id }}"
-                                                id="decrease-qty_{{ item.item_id }}">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
-                                            <input name="quantity" type="number" class="form-control qty-input" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                            <button class="increase-qty btn btn-pink-apres" data-item_id="{{ item.item_id }}"
-                                                id="increase-qty_{{ item.item_id }}">
-                                                <i class="fas fa-plus"></i>
-                                            </button>
-                                            {% if item.size %}
-                                                <input type="hidden" name="size" value="{{ item.size }}">
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </form>
-                                <a class="text-dark update-button"><small>Update</small></a>
-                                <a class="text-danger remove-button float-end" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                                {% include 'cart/includes/cart_qty.html' %}
                             </div>
                         </div>
                         <div class="row"><div class="col"><hr></div></div>
@@ -131,27 +111,7 @@
                                         <p>£{{ item.product.price }}</p>
                                     </td>
                                     <td>
-                                        <form class="form item-update" method="POST" action="{% url 'update_cart' item.item_id %}">
-                                            {% csrf_token %}
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <button class="decrease-qty btn btn-pink-pre" data-item_id="{{ item.item_id }}"
-                                                        id="decrease-qty_{{ item.item_id }}">
-                                                        <i class="fas fa-minus"></i>
-                                                    </button>
-                                                    <input name="quantity" type="number" class="form-control qty-input" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                                    <button class="increase-qty btn btn-pink-apres" data-item_id="{{ item.item_id }}"
-                                                        id="increase-qty_{{ item.item_id }}">
-                                                        <i class="fas fa-plus"></i>
-                                                    </button>
-                                                    {% if item.size %}
-                                                        <input type="hidden" name="size" value="{{ item.size }}">
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <a class="text-dark update-button"><small>Update</small></a>
-                                        <a class="text-danger remove-button float-end" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                                        {% include 'cart/includes/cart_qty.html' %}
                                     </td>
                                     <td>
                                         <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>

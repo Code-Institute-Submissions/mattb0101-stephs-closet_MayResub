@@ -39,8 +39,7 @@ As an administrator for the site I would like:
 1. To be able to easily view information related to the store.
 2. To be able to override information and easily update if a user is having an issue with verification or part of their account
 3. To be able to look at the full order history and easily identify orders if they want changing.
-4. To be able to....
- - NEEED A FEW MORE THINGS IN HERE
+
 
 ## Design Choices
 
@@ -124,7 +123,6 @@ As a store owner, these were the things it was agreed on that she would like to 
 * The store owner can manually adjust these stock levels, either issuing or receipting these in.
  
 
-
 ## Features Left to Implement
 
 #### Store Owner making Sale
@@ -136,6 +134,8 @@ As a store owner, these were the things it was agreed on that she would like to 
 #### Ordering stock in
 
 #### First and Last Name on the Sign up Form. 
+
+#### Social Media login through allauth
 
 
 # Technologies Used
@@ -209,6 +209,9 @@ As a store owner, these were the things it was agreed on that she would like to 
 #### [DB Browser for SQLite](https://sqlitebrowser.org/)
 - DB Browser is a way of querying an SQLite database. With the use of SQLite to test and lots of data going in from the Django app, a way of querying the database to quickly build SQL queries that had the correct syntax to put into the website where queries are needed. I used this when building queries for the Charts
 
+#### [Temp Mail](https://temp-mail.org/en/)
+- Temp Mail is a site that provides temporary email addresses. I used this a lot when testing users and the verification emails, as this allowed me to create lots of different users and check things were working right as emails were sent back to the temp-mail site.
+
 #### [Heroku](https://www.heroku.com/)
 - Heroku is a fully managed platform that allows designers and developers to easily host projects in a live app. Heroku is a platform that can link to github for ease of deploying throughout the process and can be managed well in a live environment. 
 
@@ -271,7 +274,7 @@ I have depolyed this to heroku taking the following steps:
 - [Stock Management](https://www.youtube.com/playlist?list=PL6RgKo1nB4TlJDfWz3czfXHkg8wSn8THV) -  Gave me an understanding of a simple way to control stock in a store. 
 - [Contact form](https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/). Having used contact forms before, but this time actually sending emails and messages, learning how to incorporate these into Django.
  - [Nested Dropdown Menu's](https://mdbootstrap.com/snippets/jquery/mdbootstrap/949080#html-tab-view) with [clicked menu items](https://stackoverflow.com/questions/51871908/bootstrap-4-nested-dropdown). This helped with building submenus within bootstrap dropdowns, and then using JS to click on them to populate the new menu rather than hover, which would not work on mobile devices.
-
+- [Django tests](https://fossies.org/linux/Django/tests/get_object_or_404/tests.py). I was looking to include automated tests and started on them for Products, there were issues with the get_object_or_404 and this helped me understand this a little better.
 
 
 ##### [w3schools](https://www.w3schools.com/)
