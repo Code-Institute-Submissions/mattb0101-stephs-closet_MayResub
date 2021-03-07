@@ -164,8 +164,9 @@ This was a document sent to me by a family member who tests things for her job, 
     F. Consistency issues. These have been noted and with the data coming from a big data set, is not something I can manage. I have made note and so if I ever had to do something like this as a real job, to make sure that consistency is there in all images and the layout. 
 
     F. Broke up the Accessories and Personal Care products into categories. This information came from Steph for what she would want them split into, I then tweaked for web layout and the way the data was in.
-    ![Categories1](/categories1-min.jpeg)
-    ![Categories2](/categories2-min.jpeg)
+
+![Categories1](/categories1-min.jpeg)
+![Categories2](/categories2-min.jpeg)
 
 
 
