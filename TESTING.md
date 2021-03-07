@@ -1,3 +1,5 @@
+# Testing
+
 Testing the User Stories that were previsouly defined in the UX section of the README:
 
 Key: 
@@ -149,7 +151,8 @@ Below is a list of issues that were brought up by external users and the fixes I
     I. At extra large screens, the home logo was cutting off and overflowing into the nav bar below, this made the menu button overflow too.
     F. This was because I had font size on a 4.5vw so on an extra large screen, it grew too big. I put clamp in against this logo, which allowed it to have a viewport responsiveness, but have a max and min so that it didnt grow too big. This solved the issue. 
 
-    [UAT doc - Samantha Bruce](/From a pc POV.docx)
+
+[UAT doc - Samantha Bruce](/testing_from_pc_POV.docx)
 
 
 ## Bugs Found

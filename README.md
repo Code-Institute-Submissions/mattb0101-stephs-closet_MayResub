@@ -299,6 +299,7 @@ I have depolyed this to heroku taking the following steps:
 
 ### Media
 - Main background image got from [pixabay](https://pixabay.com/photos/closet-clothing-walk-in-3615613/)
+- All Product Images come from the downloaded dataset from Kaggle [here](https://www.kaggle.com/paramaggarwal/fashion-product-images-dataset)
 
 ### Acknowledgements
 
