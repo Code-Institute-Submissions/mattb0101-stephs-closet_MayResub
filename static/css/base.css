@@ -64,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Sacramento", Arial, sans-serif;
 }
 
+
 /* from Bulma which has come from the mini-project */
 .icon {
     align-items: center;
@@ -84,6 +85,7 @@ making the whole main nav slide under the links bar. Advice from cousin */
     font-size: clamp(2rem, 4.5vw, 4rem);
 }
 
+/* ----------------------------------------Colours */
 .bg-pink {
     background-color: var(--pink);
 }
@@ -100,6 +102,8 @@ making the whole main nav slide under the links bar. Advice from cousin */
     color: var(--black) !important;
 }
 
+
+/* ---------------------------------------Home Screen Main Logo */
 .home-container {
     margin-bottom: 0 !important;
 }
@@ -131,6 +135,7 @@ making the whole main nav slide under the links bar. Advice from cousin */
     font-size: 2rem;
 }
 
+/* -----------------------------------------Delivery banner */
 .delivery-text{
     display: inline-block;
     position: relative;
@@ -227,6 +232,8 @@ button match with border radius' */
     cursor: pointer;
 }
 
+/*---------------------------Toast Container */
+
 .message-container {
     position: fixed;
     top: 100px;
@@ -255,6 +262,8 @@ button match with border radius' */
     margin: 0;
 }
 
+/*------------------------------------------ Media Queries */
+
 /* When mobile size */
 @media (max-width: 768px) {
     header {
@@ -276,7 +285,7 @@ button match with border radius' */
 
 }
 
-/* header container to push down main body on desktop and up */
+
 @media (min-width: 768px) {
     .header-container {
         padding-top: 158px;
@@ -289,8 +298,10 @@ button match with border radius' */
     }
 }
 
-/* -------------------------------- Store Admin - wants moving to other CSS file */
+/* -------------------------------- Store Admin */
 
+/* Moving this to a seperate CSS file in Stock Admin
+was not working so had to move the items into here */
 .wrapper {
     display: flex;
     width: 100%;
@@ -321,8 +332,6 @@ button match with border radius' */
 #admin-content.active {
     width: 100%;
 }
-
-
 
 
 @media (max-width: 768px) {

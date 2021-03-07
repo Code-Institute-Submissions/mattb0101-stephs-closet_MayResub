@@ -86,9 +86,7 @@ As A Store Owner I would like:
 
 4. To be able to manually adjust and manage stock.
 
-    E. 
-    T.
-    R.
+    This Feature was not fully implemented and has gone into the features to implement in the future section.
 
 5. To be able to add new products to the store.
 
@@ -188,3 +186,5 @@ This was a document sent to me by a family member who tests things for her job, 
 * Quantity Changer on shopping cart. This works no problem on product info when adding to cart, but when trying to update the cart, the disabled buttons only works on mobile size. I think this is something to do with there being 2 lots of code on that page, for mobile and desktop and its only picking up one. Noticed and would be great to sort in the future, but didnt have time, and on the cart page, any update that goes over the in stock value throws and error, so this is a temporary fix anyway.
 
 * Allauth remember me does not seem to do anything, tried this. This might go hand in hand with trying to add First and last name to the allauth form in the future (See features left to implement.)
+
+* With pagination, i have included a previous page that takes the get_full_path method and shows it, but when trying to return to the previous page, it loses the & from the parameters for instance `<?category=footwear&page=2>` only keeps the category but not the page, will sort this in the future

@@ -54,6 +54,7 @@ class Product(models.Model):
     in_stock = models.IntegerField(blank=True, null=True, default=0)
 
     def issue_stock(self):
+        """ set up to issues stock """
         self.in_stock = self.in_stock - self.stockproduct.amount
         self.save()
 

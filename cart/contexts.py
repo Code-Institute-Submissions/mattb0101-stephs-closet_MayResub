@@ -4,7 +4,10 @@ from products.models import Product
 
 
 def cart_contents(request):
-
+    """ 
+    This shows the contens=ts of the cart
+    and makes them available across the project
+    """
     cart_items = []
     total = 0
     product_count = 0

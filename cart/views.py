@@ -99,7 +99,7 @@ def update_cart(request, item_id):
 
 
 def remove_from_cart(request, item_id):
-    """ Update items already in the cart """
+    """ Remove items from the cart """
 
     try:
         product = get_object_or_404(Product, pk=item_id)

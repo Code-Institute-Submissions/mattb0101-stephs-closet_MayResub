@@ -132,14 +132,19 @@ As a store owner, these were the things it was agreed on that she would like to 
 * Right now the products so not have a description as there was not one in the downloaded data set. I think it would be great to have descriptions and reviews against all the items so users have a clearer understanding of what they are looking at, but I did not have time to write descriptions for 1000 items.
 
 #### Ordering stock in
+* The store owners can see what products have no stock, but they have no way of eaasily ordering this from the site. In the future, either an export of a csv file, or suppliers on the site that link and automatically send a purchase order.
 
-#### First and Last Name on the Sign up Form. 
+#### First and Last Name on the Sign up Form.
+* These come from the User profile to auto fill on the delivery information at the moment, but there is no way for a user to put this in. In the future adding first and last name to the sign up form with allauth would be perfect. 
 
 #### Social Media login through allauth
+* I attempted to get this working, but it would throw errors all the time. Was not essential so in the future with more time it would be great to learn how to get this implemented.
 
-#### Product 
+#### Cart quantity buttons
+* Right now at mobile size, these work as expected in the cart, but at tablet size and above, the javascript is not being picked up. Could not easily figure this out, but would be one for the future.
 
 #### Stock Management
+* Currently the stock level is only managed by the checkout and this reducing stock levels when an order is confirmed. I have not had time to be able to get manual stock adjusting working, but along with purchasing in the future, this would be really good for store owners. Stock could do with being reserved per cart and across the system as well instead of just one line, but this is a future development. 
 
 
 # Technologies Used
@@ -264,14 +269,12 @@ I have depolyed this to heroku taking the following steps:
 12. The site is now successfully deployed. 
 
 
-
-
 ## Credits
 
 ### Content
 - All the product information and images came from a dataset on [kaggle](https://www.kaggle.com/paramaggarwal/fashion-product-images-dataset).
-- [Django documentation]
-- [Crispy forms Documentation]
+- [Django documentation](https://docs.djangoproject.com/en/3.1/) - Used this a lot throughout the project.
+- [Crispy forms Documentation](https://django-crispy-forms.readthedocs.io/en/latest/) - Used this a lot throughout the project.
 - [Product Variations](https://www.youtube.com/watch?v=cRbU7OH1RaQ) was used to help me understand a bit about how to incorpate sizes when the same product had multiple sizes.
 - [Pagination](https://www.youtube.com/watch?v=acOktTcTVEQ). This helped me get the basic and then using the [django documentation](https://docs.djangoproject.com/en/3.1/topics/pagination/) to split products into pages, with a view function, not a ListView.
 - [Chartjs](https://www.youtube.com/watch?v=B4Vmm3yZPgc) was a simple tutorial how to firstly incorporate chartjs into django, this helped build the basic that I could then take further. 
@@ -298,13 +301,12 @@ I have depolyed this to heroku taking the following steps:
 - [Post Save signal](https://stackoverflow.com/questions/13014411/django-post-save-signal-implementation). This helped being able to reformat how my stock was being handled so that it would adjust when a sale is done using a post_save signal. 
 
 
-
-
-
 ### Media
 - Main background image got from [pixabay](https://pixabay.com/photos/closet-clothing-walk-in-3615613/)
 - All Product Images come from the downloaded dataset from Kaggle [here](https://www.kaggle.com/paramaggarwal/fashion-product-images-dataset)
 
 ### Acknowledgements
 
-- I received inspiration for this from my girlfriend Steph who is a keen and avid shopper, so she had good ideas for what shoppers would want to see. 
+- I received inspiration for this from my girlfriend Steph who is a keen and avid shopper, so she had good ideas for what shoppers would want to see.
+- My Family and friends for helping with a lot of testing of this, especially Samantha Bruce and Chris Baum who have helped a lot with testing and code ideas.
+- My mentor Gerry, for putting up with me stressing my head off, has really helped me through this course!
