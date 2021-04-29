@@ -8,7 +8,6 @@ from django.contrib import messages
 
 
 from products.models import Product
-from .models import StockTransactions
 
 
 @login_required

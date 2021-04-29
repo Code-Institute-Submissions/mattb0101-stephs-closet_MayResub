@@ -54,7 +54,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for product in products %}
+                            {% for product in page_obj %}
                                 <tr>
                                     <td>{{ product.name }}</td>
                                     <td>{{ product.category }}</td>
