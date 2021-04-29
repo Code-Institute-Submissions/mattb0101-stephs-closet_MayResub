@@ -8,6 +8,7 @@ from django.contrib import messages
 
 
 from products.models import Product
+from .models import StockTransactions
 
 
 @login_required
@@ -49,7 +50,12 @@ def update_stock(request, item_id):
     """ Update stock of an item manually """
 
     product = get_object_or_404(Product, pk=item_id)
-    form = UpdateStock()
+    form = UpdateStock(instance=product)
+    if request.method == 'POST':
+        form = UpdateStock(request.POST, instance=product)
+        if form.is_valid:
+            form.save()
+            return redirect(reverse('update_stock', args=[product.id]))
 
     context = {
         'product': product,

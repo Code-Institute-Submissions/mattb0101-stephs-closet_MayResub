@@ -9,4 +9,14 @@ def issue_stock(sender, instance, **kwargs):
     """
     Updating stock on order
     """
-    instance.product.issue_stock()
+    instance.product.in_stock -= instance.amount
+    instance.product.save()
+
+
+@receiver(post_save, sender=StockTransactions)
+def receive_stock(sender, instance, **kwargs):
+    """
+    Updating stock on order
+    """
+    instance.product.in_stock += instance.amount
+    instance.product.save()

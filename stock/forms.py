@@ -11,12 +11,12 @@ class SearchForm(forms.ModelForm):
 
 class UpdateStock(forms.ModelForm):
     class Meta:
-        model = StockTransactions
-        fields = ['amount']
+        model = Product
+        fields = ['in_stock']
 
     def __init__(self, *args, **kwargs):
         """
         Put in customised form and remove labels
         """
         super().__init__(*args, **kwargs)
-        self.fields['amount'].label = False
+        self.fields['in_stock'].label = False
