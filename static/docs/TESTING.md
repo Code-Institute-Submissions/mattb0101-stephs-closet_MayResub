@@ -152,7 +152,7 @@ F - Fix
     F. This was because I had font size on a 4.5vw so on an extra large screen, it grew too big. I put clamp in against this logo, which allowed it to have a viewport responsiveness, but have a max and min so that it didnt grow too big. This solved the issue. 
 
 
-[UAT doc - Samantha Bruce](/testing_from_pc_POV.docx)
+[UAT doc - Samantha Bruce](/static/docs/testing_from_pc_POV.docx)
 This was a document sent to me by a family member who tests things for her job, I have looked through and looked at issues occuring. 
 
     F. The navbar was overriding the free delivery banner, I had taken top padding off at certain sizes, but not bottom padding, put this in and my testing doesnt have this covered on any screen size. 

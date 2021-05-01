@@ -74,6 +74,11 @@ This is how the product page should be layed out.
 As a store owner, these were the things it was agreed on that she would like to see.
 ![Store Admin](/static/img//Wireframe4.JPG)
 
+## Database Schema
+
+As a Django project with lots of data and tables, I have included a layout of the database with links and relationships so that other developers can easily see what data relates to what so they can easily understand and know what changes would happen if they added any tables or fields.
+![Database Schema and Relationship Map](/static/img/DBSchema.JPG)
+The DB map includes the Django tables and allauth tables and shows how they link in as well. The fields that are used to join the tables are at the top of the table under the primary key.
 
 # Features
  
@@ -237,7 +242,7 @@ As a store owner, these were the things it was agreed on that she would like to 
 
 # Testing
 
-[See testing Doc](/TESTING.md)
+[See testing Doc](/static/docs/TESTING.md)
 
 
 ## Deployment
