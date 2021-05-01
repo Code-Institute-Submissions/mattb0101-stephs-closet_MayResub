@@ -123,9 +123,9 @@ The DB map includes the Django tables and allauth tables and shows how they link
 * The Store owner can edit, remove or add new items here. Using the product list and then finding and then selecting the item, the store owner can change numerous attributes of the item. 
 
 #### Stock
-* Stock is attributed to the product, but the stock app allows issues and receipts of this stock level. The user can see this level against the item and they will not be able to purchase more items than the store has in stock. 
+* Stock is attributed to the product, but the stock app allows a manual update of this stock level. The user can see this level against the item and they will not be able to purchase more items than the store has in stock. 
 * Orders, once payment is complete, will deduct stock from the stock level.
-* The store owner can manually adjust these stock levels, either issuing or receipting these in.
+* The store owner can manually adjust these stock levels for each item.
  
 
 ## Features Left to Implement
@@ -149,7 +149,7 @@ The DB map includes the Django tables and allauth tables and shows how they link
 * Right now at mobile size, these work as expected in the cart, but at tablet size and above, the javascript is not being picked up. Could not easily figure this out, but would be one for the future.
 
 #### Stock Management
-* Currently the stock level is only managed by the checkout and this reducing stock levels when an order is confirmed. I have not had time to be able to get manual stock adjusting working, but along with purchasing in the future, this would be really good for store owners. Stock could do with being reserved per cart and across the system as well instead of just one line, but this is a future development. 
+* Currently the stock level is only managed by the checkout and this reducing stock levels when an order is confirmed. The stock level can be manually updated by a store admin, but this has no references or traceability. With purchasing in the future, this would be really good for store owners to be able to see the reasons for adjustment levels and instead of manually adjusting the stock up or down from one screen, be able to receipt or issue with reason codes. Stock could do with being reserved per cart and across the system as well instead of just one line, but this is a future development. 
 
 
 # Technologies Used
